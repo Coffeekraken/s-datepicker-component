@@ -267,6 +267,7 @@ export default class SDatepickerComponent extends SWebComponent {
 				position: relative;
 				opacity:1;
 				margin-top:0;
+				padding:0;
 				pointer-events: all;
 				left:0;
 			}
