@@ -33,6 +33,9 @@
 			border-radius: s-lnf(border-radius);
 			@include s-transition(fast);
 		}
+		.flatpickr-current-month .cur-year {
+			color: s-color(text);
+		}
 
 		@each $color in $colors {
 			.flatpickr-calendar[color="#{$color}"] {
@@ -50,7 +53,6 @@
 				    background: s-color($color, -opacity .1);
 				}
 				.flatpickr-day.today {
-				    // background: s-color($color, -opacity .3);
 				    color: s-color($color);
 					font-weight:bold;
 				}
