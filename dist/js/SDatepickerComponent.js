@@ -14,11 +14,11 @@ var _flatpickr = require('flatpickr/dist/flatpickr');
 
 var _flatpickr2 = _interopRequireDefault(_flatpickr);
 
-var _integer = require('../../../js/utils/is/integer');
+var _integer = require('coffeekraken-sugar/js/utils/is/integer');
 
 var _integer2 = _interopRequireDefault(_integer);
 
-var _autoCast = require('../../../js/utils/string/autoCast');
+var _autoCast = require('coffeekraken-sugar/js/utils/string/autoCast');
 
 var _autoCast2 = _interopRequireDefault(_autoCast);
 

@@ -1,7 +1,7 @@
 import SWebComponent from 'coffeekraken-sugar/js/core/SWebComponent'
 import Flatpickr from 'flatpickr/dist/flatpickr'
-import __isInteger from '../../../js/utils/is/integer'
-import __autoCast from '../../../js/utils/string/autoCast'
+import __isInteger from 'coffeekraken-sugar/js/utils/is/integer'
+import __autoCast from 'coffeekraken-sugar/js/utils/string/autoCast'
 
 export default class SDatepickerComponent extends SWebComponent {
 
