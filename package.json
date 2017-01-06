@@ -1,0 +1,53 @@
+{
+	"name": "coffeekraken-s-datepicker-component",
+	"version": "0.0.1",
+	"description": "Provide a nice and powerful datepicker component around the nice flatpikr plugin.",
+	"main": "dist/index.js",
+	"scripts": {
+		"dist": "npm run dist.js",
+		"dist.js": "babel src -d dist",
+		"dist.watch": "concurrently --kill-others \"npm run dist.watch.js\"",
+		"dist.watch.js": "nodemon -w src -e js -x \"npm run dist.js\"",
+		"demo": "npm run demo.css && npm run demo.js && open ./demo/index.html",
+		"demo.css": "node-sass demo/src/sass/style.scss demo/dist/css/style.css",
+		"demo.js": "npm run dist.js && webpack",
+		"demo.watch": "concurrently --kill-others \"npm run demo.watch.css\" \"npm run demo.watch.js\"",
+		"demo.watch.css": "nodemon -w demo/src -w src -e scss -x \"npm run demo.css\"",
+		"demo.watch.js": "nodemon -w demo/src -w src -e js -x \"npm run demo.js\"",
+		"test": "node_modules/coffeekraken-testing-stack/run"
+	},
+	"keywords": [
+		"webcomponent",
+		"component",
+		"html",
+		"sugar",
+		"read",
+		"more",
+		"coffee",
+		"kraken",
+		"coffeekraken"
+	],
+	"author": "Coffeekraken <hello@coffeekraken.io>",
+	"license": "MIT",
+	"dependencies": {
+		"coffeekraken-sugar": "git+https://git@github.com/Coffeekraken/sugar.git#release/0.0.1",
+    "flatpickr": "^2.1.1"
+  },
+	"devDependencies": {
+		"babel-cli": "^6.18.0",
+		"babel-core": "^6.20.0",
+		"babel-loader": "^6.2.9",
+		"babel-plugin-transform-remove-strict-mode": "0.0.2",
+		"babel-polyfill": "^6.20.0",
+		"babel-preset-es2015": "^6.18.0",
+		"babel-preset-stage-0": "^6.16.0",
+		"chai": "^3.5.0",
+		"coffeekraken-testing-stack": "git+https://github.com/Coffeekraken/testing-stack.git#release/0.0.1",
+		"concurrently": "^3.1.0",
+		"node-sass": "^4.0.0",
+		"nodemon": "^1.11.0",
+		"open": "0.0.5",
+		"webcomponents.js": "^0.7.23",
+		"webpack": "^1.14.0"
+	}
+}
