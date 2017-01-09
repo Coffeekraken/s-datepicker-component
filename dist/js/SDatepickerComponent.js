@@ -30,8 +30,42 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-console.log('window', window);
-console.log('document', document);
+/**
+ * @name 			s-datepicker
+ * Provide a way to display a nice datepicker
+ * @styleguide  	Form / s-datepicker
+ * @example 		html
+ * <div style="height:25em">
+ * 	<input name="my-cool-date" />
+ *  <s-datepicker for="my-cool-date"></s-datepicker>
+ * </div>
+ * @see 			https://github.com/Coffeekraken/s-datepicker-component
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+
+/**
+ * @name 			s-datepicker inline
+ * Provide a way to display a nice datepicker
+ * @styleguide  	Form / s-datepicker
+ * @example 		html
+ * <div style="height:25em">
+ * 	<input name="my-cool-date" class="visually-hidden" />
+ *  <s-datepicker for="my-cool-date" inline></s-datepicker>
+ * </div>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+
+/**
+ * @name 			s-datepicker with time
+ * Provide a way to display a nice datepicker
+ * @styleguide  	Form / s-datepicker
+ * @example 		html
+ * <div style="height:30em">
+ * 	<input name="my-cool-date" class="visually-hidden" />
+ *  <s-datepicker for="my-cool-date" inline enable-time></s-datepicker>
+ * </div>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
 
 var SDatepickerComponent = function (_SWebComponent) {
 	_inherits(SDatepickerComponent, _SWebComponent);

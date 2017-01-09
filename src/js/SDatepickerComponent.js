@@ -3,8 +3,42 @@ import Flatpickr from 'flatpickr/dist/flatpickr'
 import __isInteger from 'coffeekraken-sugar/js/utils/is/integer'
 import __autoCast from 'coffeekraken-sugar/js/utils/string/autoCast'
 
-console.log('window', window);
-console.log('document', document);
+/**
+ * @name 			s-datepicker
+ * Provide a way to display a nice datepicker
+ * @styleguide  	Form / s-datepicker
+ * @example 		html
+ * <div style="height:25em">
+ * 	<input name="my-cool-date" />
+ *  <s-datepicker for="my-cool-date"></s-datepicker>
+ * </div>
+ * @see 			https://github.com/Coffeekraken/s-datepicker-component
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+
+ /**
+  * @name 			s-datepicker inline
+  * Provide a way to display a nice datepicker
+  * @styleguide  	Form / s-datepicker
+  * @example 		html
+  * <div style="height:25em">
+  * 	<input name="my-cool-date" class="visually-hidden" />
+  *  <s-datepicker for="my-cool-date" inline></s-datepicker>
+  * </div>
+  * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+  */
+
+  /**
+   * @name 			s-datepicker with time
+   * Provide a way to display a nice datepicker
+   * @styleguide  	Form / s-datepicker
+   * @example 		html
+   * <div style="height:30em">
+   * 	<input name="my-cool-date" class="visually-hidden" />
+   *  <s-datepicker for="my-cool-date" inline enable-time></s-datepicker>
+   * </div>
+   * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+   */
 
 export default class SDatepickerComponent extends SWebComponent {
 
