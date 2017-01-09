@@ -61,7 +61,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @styleguide  	Form / Datepicker
  * @example 		html
  * <div style="height:28em">
- * 	<input name="my-cool-date" class="visually-hidden" />
+ * 	<input name="my-cool-date" />
  *  <s-datepicker for="my-cool-date" enable-time></s-datepicker>
  * </div>
  * @author 			Olivier Bossel <olivier.bossel@gmail.com>
