@@ -36,7 +36,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @styleguide  	Form / Datepicker
  * @example 		html
  * <div style="height:25em">
- * 	<input name="my-cool-date" />
+ * 	<input name="my-cool-date" class="form-input" />
  *  <s-datepicker for="my-cool-date"></s-datepicker>
  * </div>
  * @see 			https://github.com/Coffeekraken/s-datepicker-component
@@ -61,7 +61,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @styleguide  	Form / Datepicker
  * @example 		html
  * <div style="height:28em">
- * 	<input name="my-cool-date" />
+ * 	<input name="my-cool-date" class="form-input" />
  *  <s-datepicker for="my-cool-date" date-format="Y-m-d H:i" enable-time></s-datepicker>
  * </div>
  * @author 			Olivier Bossel <olivier.bossel@gmail.com>
