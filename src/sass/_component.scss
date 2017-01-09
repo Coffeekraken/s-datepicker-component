@@ -28,6 +28,11 @@
 			color: s-color(text);
 		    fill: s-color(text);
 		}
+		.flatpickr-hour,
+		.flatpickr-minute,
+		.flatpickr-second {
+			color: s-color(text);
+		}
 
 		.flatpickr-day {
 			border-radius: s-lnf(border-radius);
