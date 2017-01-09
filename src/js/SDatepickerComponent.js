@@ -4,9 +4,9 @@ import __isInteger from 'coffeekraken-sugar/js/utils/is/integer'
 import __autoCast from 'coffeekraken-sugar/js/utils/string/autoCast'
 
 /**
- * @name 			Datepicker <small>s-datepicker</small>
+ * @name 			Datepicker
  * Provide a way to display a nice datepicker
- * @styleguide  	Form / Datepicker <small>s-datepicker</small>
+ * @styleguide  	Form / Datepicker
  * @example 		html
  * <div style="height:25em">
  * 	<input name="my-cool-date" />
@@ -17,9 +17,9 @@ import __autoCast from 'coffeekraken-sugar/js/utils/string/autoCast'
  */
 
  /**
-  * @name 			Datepicker inline <small>s-datepicker</small>
+  * @name 			Datepicker inline
   * Provide a way to display a nice datepicker
-  * @styleguide  	Form / Datepicker <small>s-datepicker</small>
+  * @styleguide  	Form / Datepicker
   * @example 		html
   * <div style="height:25em">
   * 	<input name="my-cool-date" class="visually-hidden" />
@@ -29,9 +29,9 @@ import __autoCast from 'coffeekraken-sugar/js/utils/string/autoCast'
   */
 
   /**
-   * @name 			Datepicker with time <small>s-datepicker</small>
+   * @name 			Datepicker with time
    * Provide a way to display a nice datepicker
-   * @styleguide  	Form / Datepicker <small>s-datepicker</small>
+   * @styleguide  	Form / Datepicker
    * @example 		html
    * <div style="height:30em">
    * 	<input name="my-cool-date" class="visually-hidden" />

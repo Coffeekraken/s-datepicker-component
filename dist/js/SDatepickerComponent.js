@@ -31,9 +31,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
- * @name 			Datepicker <small>s-datepicker</small>
+ * @name 			Datepicker
  * Provide a way to display a nice datepicker
- * @styleguide  	Form / Datepicker <small>s-datepicker</small>
+ * @styleguide  	Form / Datepicker
  * @example 		html
  * <div style="height:25em">
  * 	<input name="my-cool-date" />
@@ -44,9 +44,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  */
 
 /**
- * @name 			Datepicker inline <small>s-datepicker</small>
+ * @name 			Datepicker inline
  * Provide a way to display a nice datepicker
- * @styleguide  	Form / Datepicker <small>s-datepicker</small>
+ * @styleguide  	Form / Datepicker
  * @example 		html
  * <div style="height:25em">
  * 	<input name="my-cool-date" class="visually-hidden" />
@@ -56,9 +56,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  */
 
 /**
- * @name 			Datepicker with time <small>s-datepicker</small>
+ * @name 			Datepicker with time
  * Provide a way to display a nice datepicker
- * @styleguide  	Form / Datepicker <small>s-datepicker</small>
+ * @styleguide  	Form / Datepicker
  * @example 		html
  * <div style="height:30em">
  * 	<input name="my-cool-date" class="visually-hidden" />
