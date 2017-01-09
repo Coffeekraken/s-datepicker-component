@@ -47,6 +47,22 @@
 			@if $color == default {
 				$sel : '.flatpickr-calendar';
 			}
+
+			@if $color != default {
+				/**
+				 * @name 			Datepicker <span class="c-#{$color}">#{_start-case($color)}</span>
+				 * Provide a way to display a nice #{$color} datepicker
+				 * @styleguide  	Form / Datepicker
+				 * @example 		html
+				 * <div style="height:25em">
+				 * 	<input name="my-cool-date" class="visually-hidden" />
+				 *  <s-datepicker for="my-cool-date" color="#{$color}" inline></s-datepicker>
+				 * </div>
+				 * @see 			https://github.com/coffeekraken/s-datepicker-component
+				 * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+				 */
+			}
+
 			#{$sel} {
 				.flatpickr-day.inRange,
 				.flatpickr-day.nextMonthDay.inRange,
