@@ -31,7 +31,7 @@
 		.flatpickr-hour,
 		.flatpickr-minute,
 		.flatpickr-second {
-			color: s-color(text);
+			color: s-color(text) !important;
 		}
 
 		.flatpickr-day {
