@@ -38,7 +38,11 @@
 		}
 
 		@each $color in $colors {
-			.flatpickr-calendar[color="#{$color}"] {
+			$sel : '.flatpickr-calendar[color="#{$color}"]';
+			@if $color == default {
+				$sel : '.flatpickr-calendar';
+			}
+			#{$sel} {
 				.flatpickr-day.inRange,
 				.flatpickr-day.nextMonthDay.inRange,
 				.flatpickr-day.nextMonthDay:focus,
