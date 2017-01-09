@@ -35,7 +35,7 @@ import __autoCast from 'coffeekraken-sugar/js/utils/string/autoCast'
    * @example 		html
    * <div style="height:28em">
    * 	<input name="my-cool-date" />
-   *  <s-datepicker for="my-cool-date" enable-time></s-datepicker>
+   *  <s-datepicker for="my-cool-date" date-format="Y-m-d H:i" enable-time></s-datepicker>
    * </div>
    * @author 			Olivier Bossel <olivier.bossel@gmail.com>
    */
