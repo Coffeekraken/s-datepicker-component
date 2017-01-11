@@ -14,7 +14,10 @@
 		"demo.watch": "concurrently --kill-others \"npm run demo.watch.css\" \"npm run demo.watch.js\"",
 		"demo.watch.css": "nodemon -w demo/src -w src -e scss -x \"npm run demo.css\"",
 		"demo.watch.js": "nodemon -w demo/src -w src -e js -x \"npm run demo.js\"",
-		"test": "node_modules/coffeekraken-testing-stack/run"
+    "doc": "rm -rf doc && npm run doc.js && npm run doc.css",
+    "doc.js": "coffeekraken-docblock-to-markdown -s 'src/**/*.js' -d doc --remove-path src/",
+    "doc.css": "coffeekraken-docblock-to-markdown -s 'src/**/*.scss' -d doc --remove-path src/",
+    "test": "node_modules/coffeekraken-testing-stack/run"
 	},
 	"keywords": [
 		"webcomponent",
@@ -43,6 +46,7 @@
 		"babel-preset-stage-0": "^6.16.0",
 		"chai": "^3.5.0",
 		"coffeekraken-testing-stack": "git+https://github.com/Coffeekraken/testing-stack.git#release/0.0.1",
+		"coffeekraken-docblock-to-markdown": "git+https://github.com/Coffeekraken/docblock-to-markdown.git#release/0.0.1",
 		"concurrently": "^3.1.0",
 		"node-sass": "^4.0.0",
 		"nodemon": "^1.11.0",

@@ -1,3 +1,8 @@
+/**
+ * Print out the datepicker sugar style
+ * @param 		{List} 		[$colors=default primary secondary] 		The list of sugar registered colors wanted
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin s-datepicker-component(
 	$colors : default primary secondary
 ) {

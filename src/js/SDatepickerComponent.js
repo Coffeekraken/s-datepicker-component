@@ -4,6 +4,22 @@ import __isInteger from 'coffeekraken-sugar/js/utils/is/integer'
 import __autoCast from 'coffeekraken-sugar/js/utils/string/autoCast'
 
 /**
+ * @class 	SDatepickerComponent 	SWebComponent
+ * Provide a nice and powerful datepicker component around the nice flatpickr plugin.
+ * Features:
+ * - Fully featured datepicker (thanks to flatpick)
+ * - Ability to display inline as well as on field focus
+ * - Timepicker support
+ * - And more...
+ * @constructor
+ * @example 	html
+ * <input name="my-cool-date" class="form-input" />
+ * <s-datepicker for="my-cool-date"></s-datepicker>
+ * @see 	https://github.com/chmln/flatpickr/tree/v2.3.3 	 Flatpickr documentation
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+
+/**
  * @name 			Datepicker
  * Provide a way to display a nice datepicker
  * @styleguide  	Form / Datepicker
@@ -45,6 +61,7 @@ export default class SDatepickerComponent extends SWebComponent {
 	/**
 	 * Default props
 	 * @definition 		SWebComponent.defaultProps
+	 * @protected
 	 */
 	static get defaultProps() {
 		return {
@@ -95,7 +112,7 @@ export default class SDatepickerComponent extends SWebComponent {
 			/**
 			 * Set the initial selected date. Same as preloading a date string into an input's value attribute, but can also handle a Date object.
 			 * @prop
-			 * @type 		{Date}{String}
+			 * @type 		{Date|String}
 			 */
 			defaultDate : null,
 
@@ -155,14 +172,14 @@ export default class SDatepickerComponent extends SWebComponent {
 			/**
 			 * The maximum date that a user can pick to.
 			 * @prop
-			 * @type 		{Date}{String}
+			 * @type 		{Date|String}
 			 */
 			maxDate : null,
 
 			/**
 			 * The minimum date that a user can start picking from
 			 * @prop
-			 * @type 		{Date){String}}
+			 * @type 		{Date|String}
 			 */
 			minDate : null,
 
@@ -253,6 +270,7 @@ export default class SDatepickerComponent extends SWebComponent {
 	/**
 	 * Physical props
 	 * @definition 		SWebComponent.physicalProps
+	 * @protected
 	 */
 	static get physicalProps() {
 		return ['color']
@@ -260,6 +278,7 @@ export default class SDatepickerComponent extends SWebComponent {
 
 	/**
 	 * Css
+	 * @protected
 	 */
 	static css(componentName, componentNameDash) {
 		return `
@@ -512,16 +531,9 @@ export default class SDatepickerComponent extends SWebComponent {
 	}
 
 	/**
-	 * Component will mount
-	 * @definition 		SWebComponent.componentWillMount
-	 */
-	componentWillMount() {
-		super.componentWillMount();
-	}
-
-	/**
 	 * Mount component
 	 * @definition 		SWebComponent.componentMount
+	 * @protected
 	 */
 	componentMount() {
 		super.componentMount();
@@ -541,16 +553,9 @@ export default class SDatepickerComponent extends SWebComponent {
 	}
 
 	/**
-	 * Component unmount
-	 * @definition 		SWebComponent.componentUnmount
-	 */
-	componentUnmount() {
-		super.componentUnmount();
-	}
-
-	/**
 	 * Component will receive prop
 	 * @definition 		SWebComponent.componentWillReceiveProp
+	 * @protected
 	 */
 	componentWillReceiveProp(name, newVal, oldVal) {
 		switch(name) {
@@ -568,6 +573,7 @@ export default class SDatepickerComponent extends SWebComponent {
 	 * Render the component
 	 * Here goes the code that reflect the this.props state on the actual html element
 	 * @definition 		SWebComponent.render
+	 * @protected
 	 */
 	render() {
 		super.render();
