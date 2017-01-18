@@ -24,7 +24,7 @@ import __autoCast from 'coffeekraken-sugar/js/utils/string/autoCast'
  * Provide a way to display a nice datepicker
  * @styleguide  	Form / Datepicker
  * @example 		html
- * <div style="height:25em">
+ * <div style="height:28em">
  * 	<input name="my-cool-date" class="form-input" />
  *  <s-datepicker for="my-cool-date"></s-datepicker>
  * </div>
@@ -37,7 +37,7 @@ import __autoCast from 'coffeekraken-sugar/js/utils/string/autoCast'
   * Provide a way to display a nice datepicker
   * @styleguide  	Form / Datepicker
   * @example 		html
-  * <div style="height:25em">
+  * <div style="height:28em">
   * 	<input name="my-cool-date" class="visually-hidden" />
   *  <s-datepicker for="my-cool-date" inline></s-datepicker>
   * </div>
