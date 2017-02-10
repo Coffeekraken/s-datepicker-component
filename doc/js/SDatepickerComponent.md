@@ -15,7 +15,6 @@ Flatpickr documentation : [https://github.com/chmln/flatpickr/tree/v2.3.3](https
 
 Author : Olivier Bossel <olivier.bossel@gmail.com>
 
-## Constructor
 
 
 ## Examples
@@ -28,7 +27,7 @@ Provide a way to display a nice datepicker
 
 #### Example
 ```html
-	<div style="height:25em">
+	<div style="height:28em">
 	<input name="my-cool-date" class="form-input" />
  <s-datepicker for="my-cool-date"></s-datepicker>
 </div>
@@ -44,7 +43,7 @@ Provide a way to display a nice datepicker
 
 #### Example
 ```html
-	<div style="height:25em">
+	<div style="height:28em">
 	<input name="my-cool-date" class="visually-hidden" />
  <s-datepicker for="my-cool-date" inline></s-datepicker>
 </div>
@@ -58,7 +57,7 @@ Provide a way to display a nice datepicker
 
 #### Example
 ```html
-	<div style="height:28em">
+	<div style="height:32em">
 	<input name="my-cool-date" class="form-input" />
  <s-datepicker for="my-cool-date" date-format="Y-m-d H:i" enable-time></s-datepicker>
 </div>
@@ -66,10 +65,9 @@ Provide a way to display a nice datepicker
 Author : Olivier Bossel <olivier.bossel@gmail.com>
 
 
+## Attributes
 
-
-## Methods
-
+Here's the list of available attribute to set on the element.
 
 ### for
 
@@ -117,7 +115,7 @@ Type : **{ [String](https://developer.mozilla.org/fr/docs/Web/JavaScript/Referen
 
 Set the initial selected date. Same as preloading a date string into an input's value attribute, but can also handle a Date object.
 
-Type : **{ [Date](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Date) | [String](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String) }**
+Type : **{ [Date](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Date) , [String](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String) }**
 
 
 ### disable
@@ -177,14 +175,14 @@ Type : **{ Integer }**
 
 The maximum date that a user can pick to.
 
-Type : **{ [Date](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Date) | [String](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String) }**
+Type : **{ [Date](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Date) , [String](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String) }**
 
 
 ### minDate
 
 The minimum date that a user can start picking from
 
-Type : **{ [Date](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Date) | [String](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String) }**
+Type : **{ [Date](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Date) , [String](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String) }**
 
 
 ### noCalendar

@@ -11,7 +11,6 @@ import __autoCast from 'coffeekraken-sugar/js/utils/string/autoCast'
  * - Ability to display inline as well as on field focus
  * - Timepicker support
  * - And more...
- * @constructor
  * @example 	html
  * <input name="my-cool-date" class="form-input" />
  * <s-datepicker for="my-cool-date"></s-datepicker>
