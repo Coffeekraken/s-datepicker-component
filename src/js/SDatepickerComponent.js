@@ -538,12 +538,12 @@ export default class SDatepickerComponent extends SWebComponent {
 		super.componentMount();
 
 		// get the datepicker input target
-		this._target = this;
+		this._targetInput = this;
 		if (this.props.for) {
 			// try to get the input
 			const input = document.querySelector(`[name="${this.props.for}"],input#${this.props.for}`);
 			if (input) {
-				this._target = input;
+				this._targetInput = input;
 			}
 		}
 
@@ -586,10 +586,10 @@ export default class SDatepickerComponent extends SWebComponent {
 	 * Create datepicker instance
 	 */
 	_instanciateDatepicker() {
-		this._flatpickr = new Flatpickr(this._target, {
+		this._flatpickr = new Flatpickr(this._targetInput, {
 			clickOpens : this.props.clickOpens,
 			dateFormat : this.props.dateFormat,
-			defaultDate : this._target.value || this.props.defaultDate,
+			defaultDate : this._targetInput.value || this.props.defaultDate,
 			disable : this.props.disable,
 			enable : this.props.enable,
 			enableTime : this.props.enableTime,
@@ -614,8 +614,8 @@ export default class SDatepickerComponent extends SWebComponent {
 			},
 			onReady : (dateObj, dateStr, instance) => {
 				this.props.onReady && this.props.onReady(dateObj, dateStr, instance);
-				if (this._target.tagName.toLowerCase() === 'input') {
-					if ( ! this._target.value) {
+				if (this._targetInput.tagName.toLowerCase() === 'input') {
+					if ( ! this._targetInput.value) {
 						instance.setDate(this.props.minDate || new Date());
 					}
 					instance.triggerChange();

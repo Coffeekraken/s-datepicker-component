@@ -104,12 +104,12 @@ var SDatepickerComponent = function (_SWebComponent) {
 			_get(SDatepickerComponent.prototype.__proto__ || Object.getPrototypeOf(SDatepickerComponent.prototype), 'componentMount', this).call(this);
 
 			// get the datepicker input target
-			this._target = this;
+			this._targetInput = this;
 			if (this.props.for) {
 				// try to get the input
 				var input = document.querySelector('[name="' + this.props.for + '"],input#' + this.props.for);
 				if (input) {
-					this._target = input;
+					this._targetInput = input;
 				}
 			}
 
@@ -163,10 +163,10 @@ var SDatepickerComponent = function (_SWebComponent) {
 		value: function _instanciateDatepicker() {
 			var _this2 = this;
 
-			this._flatpickr = new _flatpickr2.default(this._target, {
+			this._flatpickr = new _flatpickr2.default(this._targetInput, {
 				clickOpens: this.props.clickOpens,
 				dateFormat: this.props.dateFormat,
-				defaultDate: this._target.value || this.props.defaultDate,
+				defaultDate: this._targetInput.value || this.props.defaultDate,
 				disable: this.props.disable,
 				enable: this.props.enable,
 				enableTime: this.props.enableTime,
@@ -191,8 +191,8 @@ var SDatepickerComponent = function (_SWebComponent) {
 				},
 				onReady: function onReady(dateObj, dateStr, instance) {
 					_this2.props.onReady && _this2.props.onReady(dateObj, dateStr, instance);
-					if (_this2._target.tagName.toLowerCase() === 'input') {
-						if (!_this2._target.value) {
+					if (_this2._targetInput.tagName.toLowerCase() === 'input') {
+						if (!_this2._targetInput.value) {
 							instance.setDate(_this2.props.minDate || new Date());
 						}
 						instance.triggerChange();
