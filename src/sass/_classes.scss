@@ -1,25 +1,37 @@
 /**
- * Print out the datepicker sugar style
- * @param 		{List} 		[$colors=default primary secondary] 		The list of sugar registered colors wanted
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @name 	SDatepickerComponent
+ * Provide all the mixins needed to print out the s-datepicker classes
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
  */
-@mixin s-datepicker-component(
+
+/**
+ * Print out the bare and style component css
+ * @param 	{List<Color>} 		[$color=default primary secondary] 		The colors to generate
+ */
+@mixin s-datepicker-classes(
 	$colors : default primary secondary
 ) {
-	@include s-datepicker-component-bare();
-	@if $colors {
-		@include s-datepicker-component-style($colors);
+	@include s-datepicker-classes-bare();
+	@include s-datepicker-classes-style($colors);
+}
+
+/**
+ * Print out the bare component css
+ */
+@mixin s-datepicker-classes-bare() {
+	@include s-component('s-datepicker') {
+
 	}
 }
 
-@mixin s-datepicker-component-bare() {
-}
-
-@mixin s-datepicker-component-style(
-	$colors
+/**
+ * Print out the style component css
+ * @param 	{List<Color>} 		[$color=default primary secondary] 		The colors to generate
+ */
+@mixin s-datepicker-classes-style(
+	$colors : default primary secondary
 ) {
 	@include s-component('s-datepicker') {
-
 		.flatpickr-calendar.open {
 			@include s-depth(6);
 		}

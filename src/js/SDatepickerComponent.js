@@ -4,31 +4,20 @@ import __isInteger from 'coffeekraken-sugar/js/utils/is/integer'
 import __autoCast from 'coffeekraken-sugar/js/utils/string/autoCast'
 
 /**
- * @class 	SDatepickerComponent 	SWebComponent
+ * @name 		SDatepickerComponent
+ * @extends 	SWebComponent
  * Provide a nice and powerful datepicker component around the nice flatpickr plugin.
  * Features:
  * - Fully featured datepicker (thanks to flatpick)
  * - Ability to display inline as well as on field focus
  * - Timepicker support
  * - And more...
+ * @styleguide  	Form / Datepicker
  * @example 	html
  * <input name="my-cool-date" class="form-input" />
  * <s-datepicker for="my-cool-date"></s-datepicker>
- * @see 	https://github.com/chmln/flatpickr/tree/v2.3.3 	 Flatpickr documentation
+ * @see 	http://github.coffeekraken.io/chmln/flatpickr/^v2.0.0 		Flatpickr documentation
  * @author 	Olivier Bossel <olivier.bossel@gmail.com>
- */
-
-/**
- * @name 			Datepicker
- * Provide a way to display a nice datepicker
- * @styleguide  	Form / Datepicker
- * @example 		html
- * <div style="height:28em">
- * 	<input name="my-cool-date" class="form-input" />
- *  <s-datepicker for="my-cool-date"></s-datepicker>
- * </div>
- * @see 			https://github.com/Coffeekraken/s-datepicker-component
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
  */
 
  /**
@@ -99,7 +88,7 @@ export default class SDatepickerComponent extends SWebComponent {
 			 * @prop
 			 * @type 		{Boolean}
 			 */
-			clickOpens : true,
+			openOnClick : true,
 
 			/**
 			 * A string of characters which are used to define how the date will be displayed in the input box. The supported characters are defined in the table below.
@@ -121,12 +110,11 @@ export default class SDatepickerComponent extends SWebComponent {
 			 * @prop
 			 * @type 		{Array}
 			 */
-			disable : [],
+			disabledDates : [],
 
 			/**
 			 * Specify if the datepicker is disabled or not
 			 * @physicalProp
-			 * @observed
 			 * @prop
 			 * @type 		{Boolean}
 			 */
@@ -138,7 +126,7 @@ export default class SDatepickerComponent extends SWebComponent {
 			 * @prop
 			 * @type 		{Array}
 			 */
-			enable : [],
+			enabledDates : [],
 
 			/**
 			 * Enables time picker
@@ -306,6 +294,7 @@ export default class SDatepickerComponent extends SWebComponent {
 				padding:1em;
 				position: absolute;
 				top:0; left: -200vw;
+				user-select:none;
 			}
 			.flatpickr-calendar.open {
 				opacity: 1;
@@ -342,6 +331,7 @@ export default class SDatepickerComponent extends SWebComponent {
 				user-select:none;
 				width:100%;
 				display: flex;
+				padding: 1em 0;
 			}
 			.flatpickr-month > span {
 				vertical-align: middle;
@@ -587,11 +577,11 @@ export default class SDatepickerComponent extends SWebComponent {
 	 */
 	_instanciateDatepicker() {
 		this._flatpickr = new Flatpickr(this._targetInput, {
-			clickOpens : this.props.clickOpens,
+			clickOpens : this.props.openOnClick,
 			dateFormat : this.props.dateFormat,
 			defaultDate : this._targetInput.value || this.props.defaultDate,
-			disable : this.props.disable,
-			enable : this.props.enable,
+			disable : this.props.disabledDates,
+			enable : this.props.enabledDates,
 			enableTime : this.props.enableTime,
 			enableSeconds : this.props.enableSeconds,
 			hourIncrement : this.props.hourIncrement,
