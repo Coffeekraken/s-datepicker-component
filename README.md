@@ -36,7 +36,7 @@ Provide a nice and powerful datepicker component around the nice flatpikr plugin
 3. [Get Started](#readme-get-started)
 4. [Javascript API](doc/js)
 5. [SASS API](doc/sass)
-6. [Sugar Web Components Documentation](https://github.com/Coffeekraken/sugar/blob/master/doc/webcomponent.md)
+6. [Sugar Web Components Documentation](https://github.com/Coffeekraken/sugar/blob/master/doc/js/webcomponents.md)
 7. [Browsers support](#readme-browsers-support)
 8. [Contribute](#readme-contribute)
 9. [Who are Coffeekraken?](#readme-who-are-coffeekraken)
