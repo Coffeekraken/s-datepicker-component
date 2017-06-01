@@ -20,37 +20,6 @@ Author : Olivier Bossel <olivier.bossel@gmail.com>
 
 
 
-## Examples
-
-Here's some usage examples.
-
-### Datepicker inline
-
-Provide a way to display a nice datepicker
-
-#### Example
-```html
-	<div style="height:28em">
-	<input name="my-cool-date" class="visually-hidden" />
- <s-datepicker for="my-cool-date" inline></s-datepicker>
-</div>
-```
-Author : Olivier Bossel <olivier.bossel@gmail.com>
-
-
-### Datepicker with time
-
-Provide a way to display a nice datepicker
-
-#### Example
-```html
-	<div style="height:32em">
-	<input name="my-cool-date" class="form-input" />
- <s-datepicker for="my-cool-date" date-format="Y-m-d H:i" enable-time></s-datepicker>
-</div>
-```
-Author : Olivier Bossel <olivier.bossel@gmail.com>
-
 
 ## Attributes
 
@@ -309,5 +278,3 @@ flatpickr can parse an input group of textboxes and buttons, common in Bootstrap
 See more : [https://chmln.github.io/flatpickr/#strap](https://chmln.github.io/flatpickr/#strap)
 
 Type : **{ [Boolean](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Boolean) }**
-
-Default : **false**

@@ -20,30 +20,6 @@ import __autoCast from 'coffeekraken-sugar/js/utils/string/autoCast'
  * @author 	Olivier Bossel <olivier.bossel@gmail.com>
  */
 
- /**
-  * @name 			Datepicker inline
-  * Provide a way to display a nice datepicker
-  * @styleguide  	Form / Datepicker
-  * @example 		html
-  * <div style="height:28em">
-  * 	<input name="my-cool-date" class="visually-hidden" />
-  *  <s-datepicker for="my-cool-date" inline></s-datepicker>
-  * </div>
-  * @author 			Olivier Bossel <olivier.bossel@gmail.com>
-  */
-
-  /**
-   * @name 			Datepicker with time
-   * Provide a way to display a nice datepicker
-   * @styleguide  	Form / Datepicker
-   * @example 		html
-   * <div style="height:32em">
-   * 	<input name="my-cool-date" class="form-input" />
-   *  <s-datepicker for="my-cool-date" date-format="Y-m-d H:i" enable-time></s-datepicker>
-   * </div>
-   * @author 			Olivier Bossel <olivier.bossel@gmail.com>
-   */
-
 export default class SDatepickerComponent extends SWebComponent {
 
 	/**
