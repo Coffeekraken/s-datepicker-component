@@ -1,0 +1,14 @@
+@import 'node_modules/coffeekraken-sugar/index';
+@import 'node_modules/coffeekraken-s-typography-component/index';
+@import 'node_modules/coffeekraken-s-form-component/index';
+@import 'index';
+@include s-init();
+@include s-classes();
+@include s-typography-classes();
+@include s-form-classes();
+body {
+	padding: s-space(big);
+}
+@include s-datepicker-classes(
+	$colors : default primary secondary
+);
