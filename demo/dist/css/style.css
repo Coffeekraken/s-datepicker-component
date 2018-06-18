@@ -1,0 +1,6338 @@
+@charset "UTF-8";
+/**
+ * Parse and return the Map respresentation of a border property
+ * The $border argument will be parsed with the [s-parse-properties](../core/functions/_s-parse-properties.scss) function.
+ *
+ * @param 		{List} 			$border 			The border property to parse
+ * @return 		{Map} 								The Map represenration of the border
+ *
+ * @example
+ * s-border-map(1px solid white);
+ * // return
+ * // (
+ * // 	width : 1px,
+ * // 	color : white,
+ * // 	style : solid
+ * // )
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return the Map representation of a columns properties
+ * @param  		{Interger} 			[$count=null] 			The number of columns
+ * @param 		{Number} 			[$gap=null] 			The gap width between each columns
+ * @param 		{String} 			[$fill=null] 			The fill property (balance,auto,initial,inherit)
+ * @param 		{Number} 			[$width=null] 			The width of the columns
+ * @param 		{Integer|String} 	[$span=null] 			The column-span property (1,all,initial,inherit)
+ * @param 		{List} 				[$rule=null] 			The column-rule property
+ * @param 		{String} 			[$rule-style=null]  	The column-rule-style property
+ * @param 		{Color} 			[$rule-color=null] 		The column-rule-color property
+ * @param 		{Number} 			[$rule-width=null] 		The column-rule-width property
+ * @return 		{Map} 										The map representation or the columns properties
+ *
+ * @example
+ * s-columns-map(2, 20px);
+ * // return
+ * // (
+ * // 	column-count : 2,
+ * // 	column-gap : 20px
+ * // )
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Parse and return the Map respresentation of a margin property
+ * The $margin argument will be parsed with the [s-parse-properties](../core/functions/_s-parse-properties.scss) function.
+ *
+ * @param 			{List|Number} 			$margin 			The margin property to parse
+ * @return 			{Map} 										The map representation
+ *
+ * @example
+ * s-margin-map(10px); // => ( top:10px, right:10px, bottom:10px, left:10px )
+ * s-margin-map(10px 20px); // => ( top:10px, right:20px, bottom:10px, left:20px )
+ * s-margin-map(5px 10px 15px 20px); // => ( top:5px, right:10px, bottom:15px, left:20px )
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return the representation of a position styling like position:absolute; top:0; left:100%; etc...
+ * This function gives you some shortcuts to align your element top, bottom, middle, center, etc...
+ *
+ * @param 		{String} 			[$position=absolute] 			The position css property
+ * @param 		{String} 			[$vertical-align=top] 			The vertical alignement wanted (top,middle,bottom)
+ * @param 		{String} 			[$align=left] 					The horizontal alignement wanted (left,center,right)
+ * @param 		{Number} 			[$top=null] 					The top property wanted
+ * @param 		{Number} 			[$right=null] 					The right property wanted
+ * @param 		{Number} 			[$bottom=null] 					The bottom property wanted
+ * @param 		{Number} 			[$left=null] 					The left property wanted
+ * @return 		{Map} 												The map representation of the position wanted
+ *
+ * @example
+ * s-position-map(absolute, top, right);
+ * s-position-map(absolute, middle, center);
+ * s-position-map(relative, bottom, right);
+ * s-position-map(absolute, bottom, center);
+ * // etc...
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return the Map properties representation for the rhythme width
+ * The rhythme width is the width of an element that target a certain number of letters by line
+ *
+ * @param 			{Integer} 			[$letters-count=settings.typography.line-letters-count] 		The number of letters to target by line
+ * @return 			{Map} 																		The Map properties representation
+ *
+ * @example
+ * s-rhythm-width(50);
+ * // return
+ * // (
+ * // 	display : block,
+ * // 	max-width : 50ex
+ * // )
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return the Map properties representation of a translate x,y and z
+ *
+ * @param 			{Number} 			[$x=0] 			The x translate value
+ * @param 			{Number} 			[$y=0] 			The y translate value
+ * @param 			{Number} 			[$z=0] 			The z translate value
+ * @return 			{Map} 								The translate Map representation
+ *
+ * @example
+ * s-translate-map(10px,20px);
+ * // return
+ * // (
+ * // 	transform: translateX(10px) translateY(20px) translateZ(0)
+ * // )
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Helper mixin to set a background image
+ *
+ * @param 			{String} 				[$repeat=null] 				The background-repeat property
+ * @param 			{String} 				[$size=null] 				The background-size property
+ * @param 			{String} 				[$attachment=null] 			The background-attachment property
+ * @param 			{String} 				[$blend-mode=null] 			The background-blend-mode property
+ * @param 			{String} 				[$clip=null] 				The background-clip property
+ * @param 			{String} 				[$url=null] 				The background-image url property
+ * @param 			{Number} 				[$width=null] 				The background-size width property
+ * @param 			{Number} 				[$height=null] 				The background-size height property
+ * @param 			{Number} 				[$top=null] 				The background-position top property
+ * @param 			{Number} 				[$left=null] 				The background-position left property
+ * @param 			{String} 				[$suffix2x=@2x] 			The suffix to add the the url if the 2x resolution if wanted
+ * @param 			{String} 				[$suffix3x=@3x] 			The suffix to add the the url if the 3x resolution if wanted
+ * @param 			{String} 				[$suffix4x=@4x] 			The suffix to add the the url if the 4x resolution if wanted
+ * @param 			{List} 					[$resolution=null] 			The resolution wanted like 2x, 3x and 4x
+ * @param 			{List} 					[$position=null] 			The background-position property
+ *
+ * @example
+ * .my-cool-element {
+ * 		\@include s-background(
+ * 			$url : 'img/my-cool-image.jpg',
+ * 			$size : cover,
+ * 			resolution : 2x 3x 4x
+ * 		);
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply some border radius
+ * @param 		{Number} 		[$radius=null] 			The radius to apply globally
+ * @param 		{Number} 		[$top=null] 			The radius to apply on top corners
+ * @param 		{Number} 		[$right=null] 			The radius to apply on right corners
+ * @param 		{Number} 		[$bottom=null] 			The radius to apply on bottom corners
+ * @param 		{Number} 		[$left=null] 			The radius to apply on left corners
+ * @param 		{Number} 		[$top-left=null] 		The radius to apply on top-left corners
+ * @param 		{Number} 		[$top-right=null] 		The radius to apply on top-right corners
+ * @param 		{Number} 		[$bottom-left=null] 	The radius to apply on bottom-left corners
+ * @param 		{Number} 		[$bottom-right=null] 	The radius to apply on bottom-right corners
+ *
+ * @example 	scss
+ * .my-cool-item {
+ * 	// apply on top left and right corners
+ * 	\@include s-border-radius(
+ * 		$top : 10px;
+ * 	);
+ * 	// apply on each corners
+ * 	\@include s-border-radius(10px);
+ * 	// etc...
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Center a block element using margins etc...
+ * @example 	scss
+ * .my-cool-block-element {
+ * 	\@include s-center-block();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * @name 	s-clearfix
+ * Apply a clearfix on the element.
+ * Supported methods:
+ * - micro
+ * - facebook
+ * - float
+ * - micro
+ *
+ * @param 		{String} 		[$method=micro] 		The clearfix method to use
+ *
+ * @example 	scss
+ * .my-cool-element {
+ *  \@include s-clearfix();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+.clearfix-overflow {
+  overflow: hidden;
+}
+
+.clearfix-facebook {
+  display: table-cell;
+  vertical-align: top;
+  width: 10000px !important;
+}
+
+.clearfix-float {
+  float: left;
+  width: 100%;
+}
+
+.clearfix, .clearfix-micro {
+  zoom: 1;
+}
+
+.clearfix:before, .clearfix-micro:before, .clearfix:after, .clearfix-micro:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after, .clearfix-micro:after {
+  clear: both;
+}
+
+/**
+ * Display a coffeekraken logo with two specified colors
+ * @param 		{Color} 		[$color=default] 	The base color to use
+ * @param 		{Color} 		[$accent=primary] 	The accent color to use
+ *
+ * @example 	scss
+ * .my-cool-coffeekraken-logo {
+ * 	\@include s-coffeekraken-logo();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Create a column layout my setting each columns properties at once
+ * @param 		{Integer} 		[$count=null] 		The number of columns wanted
+ * @param 		{Number} 		[$gap=null] 		The column-gap width wanted
+ * @param 		{String} 		[$fill=null] 		The column-fill wanted
+ * @param 		{Number} 		[$width=null] 		THe width of each columns wanted
+ * @param 		{String} 		[$span=null] 		Specify on how many columns the element has to span across
+ * @param 		{List} 			[$rule=null] 		Specify the shorthand version of the column-rule-color, column-rule-style and column-rule-width
+ * @param 		{String} 		[$rule-style=null] 	Specify the column-rule-style wanted
+ * @param 		{Color} 		[$rule-color=null] 	Specify the column-rule-color wanted
+ * @param 		{Number} 		[$rule-width=null] 	Specify the column-rule-width wanted
+ *
+ * @example 	scss
+ * .my-cool-container {
+ * 	\@include s-columns(
+ * 		$count : 3,
+ * 		$gap : 30px,
+ * 		$span : solid s-color(primary) 20px
+ * 	);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply some border radius
+ * @param 		{Number} 		[$radius=null] 			The radius to apply globally
+ * @param 		{Number} 		[$top=null] 			The radius to apply on top corners
+ * @param 		{Number} 		[$right=null] 			The radius to apply on right corners
+ * @param 		{Number} 		[$bottom=null] 			The radius to apply on bottom corners
+ * @param 		{Number} 		[$left=null] 			The radius to apply on left corners
+ * @param 		{Number} 		[$top-left=null] 		The radius to apply on top-left corners
+ * @param 		{Number} 		[$top-right=null] 		The radius to apply on top-right corners
+ * @param 		{Number} 		[$bottom-left=null] 	The radius to apply on bottom-left corners
+ * @param 		{Number} 		[$bottom-right=null] 	The radius to apply on bottom-right corners
+ *
+ * @example 	scss
+ * .my-cool-item {
+ * 	// apply on top left and right corners
+ * 	\@include s-corner(
+ * 		$top : 10px;
+ * 	);
+ * 	// apply on each corners
+ * 	\@include s-corner(10px);
+ * 	// etc...
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Make the element fit his container.
+ * @param 	{String} 			[$position=null] 		The position how to fit the element.
+ *
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include s-fit(absolute);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Hide the contained text
+ *
+ * @example 	scss
+ * .my-cool-container {
+ * 	\@include s-hide-text();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply an icon on the element. This mixin support font-awesome and custom icons systems that have an icon name formated like "icon-{name}"
+ * @param 		{String} 		$name 		The icon name to apply
+ *
+ * @example 	scss
+ * .my-cool-icon {
+ * 	\@include s-icon(fa-user);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set how to render the image
+ * @param 		{String} 		[$mode=auto] 		The mode to use to render the image
+ *
+ * @example 	scss
+ * img {
+ * 	\@include s-image-rendering(crips-edges);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set how the list bullet has to be displayed.
+ * @param 		{String} 		[$type=null] 				The list type to use. Can be all the list-style-type values
+ * @param 		{Url} 			[$image=null] 				An image url to use as bullet
+ * @param 		{String} 		[$icon=null] 				An icon name to use as bullet. Will use the s-icon mixin under the hood
+ * @param 		{Color} 		[$color=s-color(default)] 	The color to use for the bullet
+ * @param 		{Number} 		[$size=null] 				The size to use for the bullet
+ * @param 		{Number|List<Number>} 	[$offset=null] 		A number that represent the top offset, or a list of two numbers that represent the top, left offset
+ * @param 		{String} 		[$font=null] 				The font name to use for the bullet
+ * @param 		{Number} 		[$space=null] 				The space between the bullet and the content
+ *
+ * @example 	scss
+ * .my-cool-list__item {
+ * 	@\include s-list-bullet(
+ * 		$image : '../img/my-cool-bullet.svg',
+ * 		$offset : 5px 10px,
+ * 		$size : 1em,
+ * 		$space : 2em
+ * 	);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Start a new list
+ * @param 		{String} 		[$counter-reset=s-list] 		A counter name to reset
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Easy to use media query mixin that support cssua classes to target specific browsers
+ * @param 		{String} 		[$screen=null] 			Any of the @media screen type property like "screen, handheld, print, etc..."
+ * @param 		{Number} 		[$min-width=null] 		The min width to target
+ * @param 		{Number} 		[$max-width=null] 		The max width to target
+ * @param 		{Number} 		[$min-height=null] 		The min height to target
+ * @param 		{Number} 		[$max-height=null] 		The max height to target
+ * @param 		{String} 		[$orientation=null] 	The orientation to target. Can be portrait or landscape
+ * @param 		{String} 		[$resolution=null] 		The resolution to target. Can be 2x, 3x, 4x, etc...
+ * @param 		{String} 		[$engine=null] 			The engine that powers the display. Can be gecko, webkit, trident, blink or presto
+ * @param 		{String} 		[$device=null] 			The device to target. Can be mobile, tablet, desktop, iphone or ipad
+ * @param 		{String} 		[$browser=null] 		The browser(s) to target. Can be chrome, safari, firefox, opera, ie, ie6-20
+ * @param 		{String} 		[$system=null] 			The system(s) to target. Can be ios, osx, windows, linux, android, webos or blackberry
+ *
+ * @example 	scss
+ * // simple min width
+ * \@include s-media(
+ * 	$min-width : 200px
+ * ) {
+ * 	// custom css here...
+ * }
+ *
+ * // target a specific engine
+ * \@include s-media(
+ * 	$engine : gecko webkit
+ * ) {
+ * 	// custom css here
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the placeholder style for inputs, etc...
+ *
+ * @example 	scss
+ * input, textarea {
+ * 	\@include s-placeholder() {
+ * 		color : red;
+ * 	}
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set a complexe position styling like position:absolute; top:0; left:100%; etc...
+ * This mixin gives you some shortcuts to align your element top, bottom, middle, center, etc...
+ *
+ * @param 		{String} 			[$position=absolute] 			The position css property
+ * @param 		{String} 			[$vertical-align=top] 			The vertical alignement wanted (top,middle,bottom)
+ * @param 		{String} 			[$align=left] 					The horizontal alignement wanted (left,center,right)
+ * @param 		{Number} 			[$top=null] 					The top property wanted
+ * @param 		{Number} 			[$right=null] 					The right property wanted
+ * @param 		{Number} 			[$bottom=null] 					The bottom property wanted
+ * @param 		{Number} 			[$left=null] 					The left property wanted
+ * @return 		{Map} 												The map representation of the position wanted
+ *
+ * @example
+ * .my-cool-element {
+ * 	// absolute top right
+ * 	\@include s-position(absolute, top, right);
+ * 	// custom right and bottom values
+ * 	\@include s-position(absolute,
+ * 		$bottom : 20px,
+ * 		$right : 20px
+ * 	);
+ * 	// etc...
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply a ratio css styling. This will apply a before or after content that will make the element keep the specified ratio.
+ * The content need to be displayed as absolute top left and fit in size.
+ *
+ * @param 		{Number} 		$ratio 			The ratio to keep like 16/9, etc...
+ * @param 		{String} 		[$type=before] 	The type of ratio to apply. Can be before or after
+ *
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include s-ratio(16/9);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Print out a reset css
+ * @example 	scss
+ *
+ * \@include s-reset();
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Print out the css on a container that will make the lines displays a maximum number of characters.
+ *
+ * @example 	scss
+ * h1 {
+ * 	\@include s-rhythm-width(45);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply some css to have a rounded element with already an overflow on it
+ *
+ * @param 		{Number} 		[$size=null] 		The size (width and height) of the element wanted
+ * @param 		{Number} 		[$width=null] 		The width of the element wanted
+ * @param 		{Number} 		[$height=null] 		The height of the element wanted
+ *
+ * @example 	scss
+ * .my-cool-image {
+ * 	\@include s-round(100px);
+ *
+ * 	img {
+ * 		\@include s-size(cover);
+ * 	}
+ * }
+ */
+/**
+ * Quicky and easily set simple or complexe size to any element
+ * @param 		{String|Number} 		$size-width				The size like "cover" or "contain", or the width un number
+ * @param 		{Number} 				[$height=null] 			The height wanted
+ * @param 		{String} 				[$position=absolute] 	The position wanted if the size is "cover" or "contain"
+ *
+ * @example 	scss
+ * .my-cool-image {
+ * 	\@include s-size(cover);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Quicky set some translates
+ * @param 		{Number} 		[$x=0] 		The x translate value
+ * @param 		{Number} 		[$y=0] 		The y translate value
+ * @param 		{Number} 		[$z=0] 		The z translate value
+ *
+ * @example
+ * .my-cool-element {
+ * 	\@include s-translate(50%, 20px);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Print out the style to truncate the text if needed
+ *
+ * @example 	scss
+ * h1 {
+ * 	\@include s-truncate-text();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Vertically align content by using the inline-block middle trick
+ *
+ * @example 	scss
+ * .my-cool-container {
+ * 	\@include s-vertical-aligner();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Hide an element only visually. This ensure that the element is still correctly displayed in the page for SEO
+ * but will not being visible to the user
+ *
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include s-visually-hidden();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Get a registered color by name or wrap a new color into a s-color call
+ * to manipulate it with ease.
+ * Supported actions :
+ * - hue {Deg}
+ * - lighten {Percent}
+ * - darken {Percent}
+ * - saturate {Percent}
+ * - desaturate {Percent}
+ * - grayscale {Boolean}
+ * - complement {Boolean}
+ * - invert {Boolean}
+ * - opacity {Percent}
+ * - mix {Color}
+ *
+ * @param 		{String|Color} 		$color 				The color name or the color value to manipulate
+ * @param 		{String|List} 			[$modifier=null] 	The color modifier to apply. Can be a registered modifier name or a modifier list
+ * @return 		{Color} 									The actual color value
+ *
+ * @example 	 	scss
+ * // default color (settings.colors.default)
+ * $myColor : s-color(default);
+ * // primary color (settings.colors.primary)
+ * $primary : s-color(primary);
+ * // manipulate
+ * $primary-dark : s-color(primary, -darken 10%);
+ * // registered modifier
+ * $primary-light : s-color(primary, light);
+ * // $name as list
+ * $modified primary : s-color((primary, -darken 10%));
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return the color in a modifier list
+ * @param 			{List} 			$modifiers 		The modifiers list
+ * @return 			{String} 						The color name
+ *
+ * @example
+ * $my-color : s-color-modifier(outline primary); // => primary
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return the name of the top level component setted with the [../mixins/_s-component.scss] mixin
+ *
+ * @param 			{String} 			[$default=null] 		The name to return if no top component name exist
+ * @return 			{String} 									The component name
+ *
+ * @example
+ * s-component('hello') // => 'hello'
+ * \@include s-component('my-component') {
+ * 		s-component('hello') // => 'my-component'
+ * 		\@include s-component('another-component') {
+ * 			s-component('hello') // => 'my-component'
+ * 		}
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>;
+ */
+/**
+ * Convert a passed value to the wanted unit
+ * The conversion between some units that depends on a font-size will take the settings.typography.font-size value as reference.
+ *
+ * Available conversions
+ * - from px
+ * 	- to em
+ * 	- to rem
+ * 	- to pt
+ * 	- to %
+ *
+ * - from em
+ * 	- to rem
+ * 	- to px
+ * 	- to pt
+ * 	- to %
+ *
+ * - from pt
+ * 	- to em
+ * 	- to rem
+ * 	- to px
+ * 	- to pt
+ * 	- to %
+ *
+ * - from rem
+ * 	- to em
+ * 	- to px
+ * 	- to pt
+ * 	- to %
+ *
+ * @param 			{Number} 		$value 			The value to convert
+ * @param 			{String} 		$unit 			The unit in which to convert the value
+ * @return 			{Number} 						The converted value
+ *
+ * @example
+ * // if the settings.typography.font-size === 16px
+ * s-convert(24px, rem) // 1.5rem
+ * s-convert(3rem, pt) // 36pt
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Transform a dash notation value into a map
+ * Dash notation value is : -key1 value1 -key2 value2
+ *
+ * @param 			{List} 			$dash 			The dash list notation to transform
+ * @return 			{Map} 							The map generated
+ *
+ * @example
+ * $dash : -hello world -coco universe
+ * s-dash-to-map($dash);
+ * // (
+ * // 	hello : world,
+ * // 	coco : universe
+ * // )
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Convert the passed value to em
+ *
+ * @param 			{Number} 		$value 		The value to convert
+ * @return 			{Number} 					The em converted value
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Convert the passed value to the closest even value
+ *
+ * @param 			{Number} 		$value 		The value to convert
+ * @return 			{Number} 					The closest even converted value
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Take a filter as parameter and parse it to return the {Map} corresponding
+ * The $filter parameter can be either a registered filter name or a filter formated like `filterName(filterValue)`
+ *
+ * @param 			{List}<String> 			$filter 			The registered filter name or the filter string to transform into map
+ * @return 			{Map} 										The corresponding filter map properties
+ *
+ * @example
+ * // register a filter
+ * \@include s-setup((
+ * 		filters : (
+ * 			myCoolFilter : box-shadow(#000 0 0 10px) blur(30px),
+ * 			// other filters...
+ * 		)
+ * ));
+ *
+ * // registered filter
+ * s-filter-map(myCoolFilter);
+ * // {
+ * // 	box-shadow : #000 0 0 10px,
+ * // 	blur : 30px
+ * // }
+ *
+ * // custom filter
+ * s-filter-map(blur(10px));
+ * // {
+ * // 	blur : 10px
+ * // }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return a list with all the filters that are passed as argument
+ * This will use the [./_s-filter-map.scss] function to parse the filters
+ *
+ * @param 	 	{List}<String> 			$filters 			The registered filter(s) name(s) or the filter(s) string(s) to transform into list
+ * @return 		{List} 										The converted filters list to use as css property
+ *
+ * @example
+ * // register a filter
+ * \@include s-setup((
+ * 		filters : (
+ * 			myCoolFilter : box-shadow(#000 0 0 10px) blur(30px),
+ * 			// other filters...
+ * 		)
+ * ));
+ *
+ * // registered filter
+ * .my-cool-elememt {
+ * 		filter : s-filter(myCoolFilter);
+ * 		// filter : box-shadow(#000 0 0 10px) blur(30px);
+ * }
+ *
+ * // custom filter
+ * .my-cool-element {
+ * 		filter : s-filter(myCoolFilter invert(100%));
+ * 		// filter : box-shadow(#000 0 0 10px) blur(30px) invert(100%);
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return the font-family string or a registered font
+ *
+ * @param 			{String} 		$name 		The name of the registered font
+ * @return 			{String} 					The corresponding font-family property to set in your css
+ *
+ * @example
+ * // register a font
+ * \@include s-setup((
+ * 		fonts : (
+ * 			myCoolFont : (
+ * 				font-family : 'Helvetica Neue',
+ * 				font-weight : 'bold',
+ * 				// etc...
+ * 			),
+ * 			// other fonts...
+ * 		)
+ * ));
+ *
+ * // apply the font
+ * .my-cool-element {
+ * 		font-family : s-font-family(myCoolFont);
+ * 		// font-family : 'Helvetica Neue';
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return the font {Map} that correspond to the passed arguments
+ *
+ * @param 		{String} 			[$family=null] 			The font family wanted (can be a registered font name)
+ * @param 		{Color} 			[$color=null] 			The color wanted (can be a registered color name)
+ * @param 		{Number} 			[$size=null] 			The font-size wanted
+ * @param 		{String} 			[$style=null] 			The font-style wanted
+ * @param 		{String} 			[$variant=null] 		The font-variant wanted
+ * @param 		{String|Number} 	[$weight=null] 			The font-weight wanted
+ * @param 		{String} 			[$decoration=null] 		The text-decoration wanted
+ * @param 		{String} 			[$align=null] 			The text-align wanted
+ * @param 		{String} 			[$transform=null] 		The text-transform wanted
+ * @param 		{String} 			[$stretch=null] 		The font-stretch wanted
+ * @param 		{String} 			[$white-space=null] 	The white-space wanted
+ * @param 		{Number} 			[$height=null] 			The line-height wanted
+ * @param 		{Number} 			[$spacing=null] 		The letter-spacing wanted
+ * @param 		{Number} 			[$indent=null] 			The text-indent wanted
+ * @param 		{String} 			[$break=null] 			The line-break wanted
+ * @param 		{String} 			[$wrap=null] 			The word-wrap wanted
+ * @return 		{Map} 										The corresponding font map
+ *
+ * @example
+ * s-font(
+ * 		$family : 'Helvetica Neue',
+ * 		$size : 12px,
+ * 		$wrap : norwap
+ * );
+ * // (
+ * 		font-family : 'Helvetica Neue',
+ * 		font-size : 12px,
+ * 		word-wrap : nowrap
+ * // )
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Check if the provided color is a registered one or not
+ * @param 		{String} 		$color 		The color nane to check
+ * @return 		{Boolean} 					True if exists, false if not
+ */
+/**
+ * Return the specified or calculated value of the given stack and size
+ * depending on the settings.sizes ratios stack
+ *
+ * @param 		{Map} 			$stack 			The stack from which to interpolate the value
+ * @param 		{String} 		$size 			The size wanted (has to exist in the settings.sizes stack)
+ * @return 		{Number} 						The $stack.$size value or the interpolated one depending on the settings.sizes ratios
+ *
+ * @example
+ *
+ * // settings.sizes
+ * \@include s-setup((
+ * 		sizes : (
+ * 			small : 0.5,
+ * 			default : 1, // default is ALWAYS 1
+ * 			big : 1.5
+ * 		)
+ * ));
+ *
+ * $myStack : (
+ * 		default : 3rem,
+ * 		big : 6rem
+ * )
+ *
+ * s-interpolate($myStack, big) // 6rem cause specified in the $myStack value
+ * s-interpolate($myStack, small) // 1.5rem => calculated like : 3rem * 0.5 = 1.5rem
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Check if the passed value is of a certain type
+ *
+ * Here's the available types that you can check
+ * - mixed => mean anything
+ * - null
+ * - url
+ * - px
+ * - pt
+ * - rem
+ * - em
+ * - percent | %
+ * - vw
+ * - vh
+ * - ex
+ * - ch
+ * - cm
+ * - mm
+ * - in
+ * - pc
+ * - s | second
+ * - boolean | bool
+ * - function
+ * - number
+ * - int | integer
+ * - string
+ * - color
+ * - list
+ * - map
+ * - deg | degree
+ * - list-{type} => check if is a list of the specified type
+ * - map-{type} => check if is a map of the specified type
+ *
+ * @param 			{Mixed} 			$value 			The value to check
+ * @param 			{String} 			$type 			The type to check
+ * @return 			{Boolean} 							true if match the type, false if not
+ *
+ * @example
+ * s-is(hello, string) // => true
+ * s-is('hello', string) // => true
+ * s-is(#fff, color) // => true
+ * s-is(hello #fff, list-color) // => false
+ * s-is(#fff #ddd, list-color) // => true
+ * // etc...
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Alias to the [./_s-look-and-feel.scss] function
+ *
+ * Return a settings.look-and-feel stack value
+ *
+ * @param 		{String} 		$name					The look and feel value name
+ * @return 		{Number} 								The look and feel value in em
+ *
+ * @example
+ * .my-cool-element {
+ * 		padding : s-lnf(padding-horizontal) s-lnf(padding-vertical);
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return a settings.look-and-feel stack value
+ *
+ * @param 		{String} 		$name					The look and feel value name
+ * @return 		{Number} 								The look and feel value in em
+ *
+ * @example
+ * .my-cool-element {
+ * 		padding : s-look-and-feel(padding-horizontal) s-look-and-feel(padding-vertical);
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return the modular scale value based on the settings ```modular-scale.base``` and ```modular-scale.ratio```.
+ *
+ * @param 			{Number} 		$scale 		The wanted scale
+ * @param 			{Number} 		[$base=settings.modular-scale.base] 	The base of calculation
+ * @return 			{Number} 					The calculated resulting value
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Convert the passed value to the closest odd value
+ *
+ * @param 			{Number} 		$value 		The value to convert
+ * @return 			{Number} 					The closest odd converted value
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Parse a given string/list properties and return the Map corresponding to the Map description
+ *
+ * @param 				{List} 				$properties 			The properties to parse
+ * @param 				{Map} 				$descriptor 			The descriptor map to use to parse the properties
+ * @return 				{Map} 										The properties in map format
+ *
+ * @example
+ * s-parse-properties(10px hello -delay 20s, (
+ *  	myNumber : Number,
+ *  	myOtherNumber : Number,
+ *  	myString : String,
+ *  	myCoolVar : String,
+ *  	delay : second
+ * ));
+ * // => (
+ * //  	myNumber : 10px,
+ * // 	myString : hello,
+ * // 	delay : 20s
+ * // )
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Convert the passed value to %
+ *
+ * @param 			{Number} 		$value 		The value to convert
+ * @return 			{Number} 					The % converted value
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Convert the passed value to pt
+ *
+ * @param 			{Number} 		$value 		The value to convert
+ * @return 			{Number} 					The pt converted value
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Convert the passed value to px
+ *
+ * @param 			{Number} 		$value 		The value to convert
+ * @return 			{Number} 					The px converted value
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Convert the passed value to rem
+ *
+ * @param 			{Number} 		$value 		The value to convert
+ * @return 			{Number} 					The rem converted value
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return the passed values in the same unit but that has been even rounded on the corresponding px value
+ * This ensure that your passed value will be a round px value for final rander in the viewport
+ *
+ * @param 		{Number} 		$value 			The value to process
+ * @return 		{Number} 						The rounded value in same input unit but px rounded
+ *
+ * @example
+ * // if settings.typography.font-size == 16px
+ * s-render-round-even(5.2rem);
+ * // 1. transform to px values : 5.2 * 16px = 83.2px
+ * // 2. round even the px value : 84px
+ * // 3. transform to passed unit value : 84px / 16px = 5.25rem
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return the passed values in the same unit but that has been odd rounded on the corresponding px value
+ * This ensure that your passed value will be a round px value for final rander in the viewport
+ *
+ * @param 		{Number} 		$value 			The value to process
+ * @return 		{Number} 						The rounded value in same input unit but px rounded
+ *
+ * @example
+ * // if settings.typography.font-size == 16px
+ * s-render-round-odd(5.2rem);
+ * // 1. transform to px values : 5.2 * 16px = 83.2px
+ * // 2. round odd the px value : 83px
+ * // 3. transform to passed unit value : 84px / 16px = 5.1875rem
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return the passed values in the same unit but that has been rounded on the corresponding px value
+ * This ensure that your passed value will be a round px value for final rander in the viewport
+ *
+ * @param 		{Number} 		$value 			The value to process
+ * @return 		{Number} 						The rounded value in same input unit but px rounded
+ *
+ * @example
+ * // if settings.typography.font-size == 16px
+ * s-render-round(5.2rem);
+ * // 1. transform to px values : 5.2 * 16px = 83.2px
+ * // 2. round even the px value : 83px
+ * // 3. transform to passed unit value : 84px / 16px = 5.1875rem
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Search and replace tokens like colors #primary in a passed string, list or map
+ * Supported tokens types :
+ * 1. Colors : colorName
+ *
+ * @example
+ * s-replace-tokens(12px #primary hello #secondary); // > 12px #ddd hello #fff;
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Process selector to avoid having --default, etc...
+ * @param 		{String} 		$selector 		The selector to process
+ * @return 		{String} 						The processed selector
+ * @example 	scss
+ * s-selector('.input--default'); // => .input
+ * s-selector('.input-default'); // => .input
+ * s-selector('.input.default'); // => .input
+ */
+/**
+ * Get a settings from the global settings stack
+ *
+ * @param 				{String} 			$path 						The setting path wanted separated by dots
+ * @param 				{String} 			[$context=s-context()] 		The context name to get the setting
+ * @param 				{Mixed} 			[$default=null] 			The value to return if no value is found
+ * @return 				{Mixed} 										The setting value¨
+ *
+ * @example
+ * $font-size : s-setting('typography.font-size');
+ * // etc...
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return a value interpolated from the settings.spaces stack
+ *
+ * @param 			{String} 			$size 			The space size wanted. Must exist in the settings.sizes stack
+ * @return 			{Number} 							The actual space value
+ *
+ * @example
+ * .my-cool-section {
+ * 		padding : s-pace(big);
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return a number without any units
+ *
+ * @param 			{Number} 		$number 		The number to process
+ * @return 			{Number} 						The number without units
+ *
+ * @example
+ * s-strip-units(12px); // => 12
+ * s-strip-units(30rem); // => 30
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Test an argument passed to a function or a mixin to ensure his type, value, etc...
+ * If the argument does not pass the test, an error will be thrown, unless the $check-only argument is true
+ *
+ * @param 				{String} 				$method 				The function/mixin name (debug purpose)
+ * @param 				{String} 				$argument 				The argument name to test (debug purpose)
+ * @param 				{List|String} 			$type-or-values 		If string, the type(s) that the argument must match, if list, the possible values that the argument can take
+ * @param 				{Mixed} 				$value 					The actual argument value
+ * @param 				{Boolean} 				[$check-only=false]		If this is true, will not thrown any error
+ * @return 				{Mixed} 										The value if ok, false if not
+ *
+ * @example
+ * \@mixin my-cool-mixin($argument1, $argument2) {
+ *        $argument1 : s-test-argument(my-cool-mixin, argument1, string, $argument1);
+ *        $argument2 : s-test-argument(my-cool-mixin, argument2, (hello,world,12), $argument2);
+ * }
+ * \@mixin my-cool-mixin(hello, world); // ok
+ * \@mixin my-cool-mixin(hello, universe); // throw an error
+ * \@mixin my-cool-mixin(12, world); // throw an error
+ *
+ * @author 				Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return the text-format setting scope class
+ * @return 		{String} 		The text-format scope class from settings.text-format.scope-class
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Take a transition as parameter and parse it to return the {Map} corresponding
+ * The $transition parameter can be either a registered transition name or a custom css transition like : all .2s ease-in-out 2s
+ * The $transition argument will be parsed with the [./_s-parse-properties.scss] function.
+ *
+ * @param 			{List} 				$transition 			The registered transition name or the transition string to transform into map
+ * @return 			{Map} 										The corresponding transition map properties
+ *
+ * @example
+ * // register a transition
+ * \@include s-setup((
+ * 		transitions : (
+ * 			fast : all .2s ease-in-out,
+ * 			// other transitions...
+ * 		)
+ * ));
+ *
+ * // registered transition
+ * s-transition-map(fast);
+ * // {
+ * // 	property : all,
+ * // 	duration : .2s,
+ * // 	ease : ease-in-out
+ * // }
+ *
+ * // custom transition
+ * s-transition-map(fast -delay .5s);
+ * // {
+ * // 	property : all,
+ * // 	duration : .2s,
+ * // 	ease : ease-in-out,
+ * // 	delay : .5s
+ * // }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Take a transition as parameter and parse it to return the {List} corresponding
+ * The $transitions parameter can be either a registered transition name or a custom css transition like : all .2s ease-in-out 2s
+ * The $transitions argument will be parsed with the [./_s-parse-properties.scss] function.
+ *
+ * @param 			{List} 				$transitions 			The registered transition(s) name(s) or the transition(s) strings(s) to transform into list
+ * @return 			{List} 										The corresponding transition list properties
+ *
+ * @example
+ * // register a transition
+ * \@include s-setup((
+ * 		transitions : (
+ * 			fast : all .2s ease-in-out 0s,
+ * 			// other transitions...
+ * 		)
+ * ));
+ *
+ * // registered transition
+ * .my-cool-element {
+ * 		transition : s-transition(fast);
+ * 		// transition : all .2s ease-in-out 0s;
+ * }
+ *
+ * // custom transition
+ * .my-cool-element {
+ *  	transition : s-transition(fast -delay .5s, fast width ease-in);
+ *  	// transition : all .2s ease-in-out .5s, width .2s ease-in 0s;
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return the unit context if has been set by the [s-unit-context mixin](../mixins/_s-unit-context.scss)
+ *
+ * @return 		{String} 				The unit context setted
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return the vertical-rhythm setting scope class
+ * @return 		{String} 		The vertical-rhythm scope class from settings.vertical-rhythm.scope-class
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Generic sugar function can return multiple settings types like:
+ * - any settings : s('settings.{path}')
+ * - look and feel : s('look-and-feel.{property}', $size)
+ *  	- s('lnf.{property}', $size)
+ * - space : s('space.{size}')
+ * - color : s('color.{name}', $modifier)
+ * - transition : s('transition.{name}')
+ * - filter : s('filter.{name}')
+ *
+ * @example
+ * $my-color : s('color.primary');
+ * $my-transition : s('transition.fast');
+ * $my-font-size : s('settings.typography.font.size')
+ * // etc...
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Print out the animation property calculated with the passed arguments
+ * This mixin support all the standard css animation properties like name, duration, delay, ease, direction and fill-mode.
+ * The $animations argument will be parsed with the [../functions/_s-parse-properties.scss] function.
+ * If you specify multiple animations at a time, this mixin will take care
+ * of the delay calculation for each animations and make them play one after another
+ *
+ * @param 			{List} 				$animations 			The animations wanted like : coco .2s ease-in-out reverse
+ *
+ * @example
+ * .my-cool-element {
+ * 		@include s-animation(my-animation 1s ease-in-out, another-animation 4s);
+ * 		// animation : my-animation 1s 0s ease-in-out 1 normal forwards, another-animation 4s 1s ease-in-out 1 normal forwards;
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Print out all wanted registered classes like padding helpers, margin helpers, font helpers, etc...
+ * Available namespaces
+ * - sugar.filter.{name} : .fi-{name}
+ * - sugar.transition.{name} : .tr-{name}
+ * - sugar.font.family.{name} : .f-{name}
+ * - sugar.margin.bottom.{size} : .m-b-{size}
+ * - sugar.margin.top.{size} : .m-t-{size}
+ * - sugar.margin.left.{size} : .m-l-{size}
+ * - sugar.margin.right.{size} : .m-r-{size}
+ * - sugar.margin.side.{size} : .m-s-{size}
+ * - sugar.padding.all.{size} : .p-{size}
+ * - sugar.padding.top.{size} : .p-t-{size}
+ * - sugar.padding.bottom.{size} : .p-b-{size}
+ * - sugar.padding.left.{size} : .p-l-{size}
+ * - sugar.padding.right.{size} : .p-r-{size}
+ * - sugar.padding.side.{size} : .p-s-{size}
+ * - sugar.size.{size} : .s-{size}
+ * - sugar.size.rel.{size} : .s-{size}-rel
+ * - sugar.padding.no.top : .no-p-t
+ * - sugar.padding.no.bottom : .no-p-b
+ * - sugar.padding.no.left : .no-p-l
+ * - sugar.padding.no.right : .no-p-r
+ * - sugar.padding.no.side : .no-p-s
+ * - sugar.margin.no.top : .no-m-t
+ * - sugar.margin.no.bottom : .no-m-b
+ * - sugar.margin.no.left : .no-m-l
+ * - sugar.margin.no.right : .no-m-r
+ * - sugar.margin.no.side : .no-m-s
+ * - sugar.color.{name}.color` .c-{name}
+ * - sugar.color.{name}.bkg : .bkg-{name}
+ * - sugar.color.{name}.modifier.{mod-name}.color : .c-{name}--{mod-name}
+ * - sugar.color.{name}.modifier.{mod-name}.bkg : .bkg-{name}--{mod-name}
+ * - sugar.pull.left : .pull-left
+ * - sugar.pull.right : .pull-right
+ * - sugar.position.relative : .relative
+ * - sugar.position.absolute : .absolute
+ * - sugar.clear.left : .clear-left
+ * - sugar.clear.right : .clear-right
+ * - sugar.clear.both : .clear
+ * - sugar.pointer.events.all : .pointer-events-all
+ * - sugar.pointer.events.none : .pointer-events-none
+ * - sugar.display.show : .show
+ * - sugar.display.show-inline : .show-inline
+ * - sugar.display.hidden : .hidden
+ * - sugar.display.hide : .hide
+ * - sugar.display.visible : .visible
+ * - sugar.display.invisible : .invisible
+ * - sugar.display.visually-hidden : .visually-hidden
+ * - sugar.text.hidden : .t-hidden
+ * - sugar.text.truncate : .t-truncate
+ * - sugar.text.align.left : .t-left
+ * - sugar.text.align.right : .t-right
+ * - sugar.text.align.center : .t-center
+ * - sugar.text.align.justify : .t-justify
+ * - sugar.text.transform.lowercase : .t-lowercase
+ * - sugar.text.transform.uppercase : .t-uppercase
+ * - sugar.text.transform.capitalize : .t-capitalize
+ * - sugar.font.weight.bold : .f-bold
+ * - sugar.font.weight.lighter : .f-lighter
+ * - sugar.font.weight.bolder : .f-bolder
+ * - sugar.font.weight.normal : .f-normal
+ * - sugar.font.style.italic : .f-italic
+ * - sugar.font.style.oblique : .f-oblique
+ * - sugar.font.variant.small-caps : .f-small-caps
+ * - sugar.block.align.center : .block-center
+ * - sugar.ratio.21-9 : ```.ratio-21-9```
+ * - sugar.ratio.16-9 : ```.ratio-16-9```
+ * - sugar.ratio.4-3 : ```.ratio-4-3```
+ * - sugar.ratio.1-1 : ```.ratio-1-1```
+ * - sugar.size.abs.cover : ```.abs-cover```
+ * - sugar.size.abs.contain : ```.abs-contain```
+ * - sugar.size.abs.fit : ```.abs-fit```
+ * - sugar.clearfix.default : .clearfix
+ * - sugar.clearfix.float : .clearfix-float
+ * - sugar.clearfix.micro : .clearfix-micro
+ * - sugar.clearfix.overflow : .clearfix-overflow
+ * - sugar.clearfix.facebook : .clearfix-facebook
+ * - sugar.no-transitions : .no-transitions
+ * - sugar.clear-transitions : .clear-transitions
+ * - sugar.no-animations : .no-animations
+ * - sugar.clear-animations : .clear-animations
+ * - sugar.no-transmations : .no-transmations
+ * - sugar.clear-transmations : .clear-transmations
+ *
+ * @param 			{List}<string> 			$namespaces 		The classes namespaces wanted
+ *
+ * @example
+ * \@include s-classes(); // will print out all the classes
+ * \@include s-classes('sugar.font'); // will print all the font classes
+ * \@include s-classes('sugar.clearfix' 'sugar.pull'); // the clearfixes and the pull classes
+ * // etc...
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Print out the scoped color schema css
+ *
+ * @param 		{String} 			$name 			The color schema name
+ *
+ * @example
+ * \@include s-color-schema(light) {
+ * 		h1, h2 {
+ * 			color : white;
+ * 		}
+ * }
+ * // will print
+ * .cs-light h1,
+ * .cs-light h2 {
+ * 		color : white;
+ * }
+ *
+ * h1, h2 {
+ * 		\@include s-color-schema(light) {
+ * 			color : white;
+ * 		}
+ * }
+ * // will print
+ * .cs-light h1, h1.cs-light,
+ * .cs-light h2, h2.cs-light {
+ * 		color : white;
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the name of the component that will be handled inside the mixin
+ *
+ * @param 			{String} 			[$name=null] 			The name of the component to set
+ * @param 			{String|Map} 		[$context=null] 		A context name or map to use inside the mixin
+ *
+ * @example
+ * \@include s-component('my-component') {
+ * 		s-component('hello') // => 'my-component'
+ * 		\@include s-component('another-component') {
+ * 			s-component('hello') // => 'my-component'
+ * 		}
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>;
+ */
+/**
+ * Register a context with a name to use it later
+ *
+ * @param 			{String} 		$name 			The context name
+ * @param 			{Map} 			$settings 		The settings to override for this context
+ *
+ * @example
+ * \@include s-context-setup(my-cool-context, (
+ * 		look-and-feel : (
+ * 			padding-vertical : (
+ * 				default : 0.6em
+ * 			)
+ * 		)
+ * ));
+ *
+ * // using your context
+ * \@include s-context(my-cool-context) {
+ * 		s-look-and-feel(padding-vertical); // => 0.6em
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set a context to be used inside the mixin
+ *
+ * @param 			{String|Map} 			$name-or-map 		The name of a registered context or a map
+ *
+ * @example
+ * // register a context
+ * \@include s-context-setup(my-cool-context, (
+ * 		look-and-feel : (
+ * 			padding-vertical : (
+ * 				default : 0.6em
+ * 			)
+ * 		)
+ * ));
+ *
+ * // registered context
+ * \@include s-context(my-cool-context) {
+ * 		// your code here...
+ * }
+ *
+ * // inline context
+ * \@include s-context((
+ * 		look-and-feel : (
+ * 			padding-vertical : (
+ * 				default : .3em
+ * 			)
+ * 		)
+ * )) {
+ * 		// your code here...
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Print out a list with all the filters that are passed as argument
+ * This will use the [../functions/_s-filter-map.scss] function to parse the filters
+ *
+ * @param 	 	{List}<String> 			$filters 			The registered filter(s) name(s) or the filter(s) string(s) to transform into list
+ *
+ * @example
+ * // register a filter
+ * \@include s-setup((
+ * 		filters : (
+ * 			myCoolFilter : box-shadow(#000 0 0 10px) blur(30px),
+ * 			// other filters...
+ * 		)
+ * ));
+ *
+ * // registered filter
+ * .my-cool-elememt {
+ * 		\@include s-filter(myCoolFilter);
+ * 		// filter : box-shadow(#000 0 0 10px) blur(30px);
+ * }
+ *
+ * // custom filter
+ * .my-cool-element {
+ * 		\@include s-filter(myCoolFilter invert(100%));
+ * 		// filter : box-shadow(#000 0 0 10px) blur(30px) invert(100%);
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Helper to print a font-face
+ *
+ * @param 			{String} 		$font-family 			The font-family
+ * @param 			{String} 		$src 					The source url (only 1 extension)
+ * @param 			{List} 			[$extensions=woff2] 	The extensions list that you have available
+ * @param 			{String} 		[$font-weight=normal] 	The font-weight property
+ * @param 			{String} 		[$font-style=normal] 	The font-style property
+ *
+ * @example
+ * // if you have these extensions files : .woff .eot .woff2
+ * \@include s-font-face(
+ * 		$name : my-cool-font,
+ * 		$src : '/fonts/my-font.eot',
+ * 		$extensions : eot woff woff2
+ * )
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Print all the fonts properties that correspond to the passed arguments
+ *
+ * @param 		{String} 			[$family=null] 			The font family wanted (can be a registered font name)
+ * @param 		{Color} 			[$color=null] 			The color wanted (can be a registered color name)
+ * @param 		{Number} 			[$size=null] 			The font-size wanted
+ * @param 		{String} 			[$style=null] 			The font-style wanted
+ * @param 		{String} 			[$variant=null] 		The font-variant wanted
+ * @param 		{String|Number} 	[$weight=null] 			The font-weight wanted
+ * @param 		{String} 			[$decoration=null] 		The text-decoration wanted
+ * @param 		{String} 			[$align=null] 			The text-align wanted
+ * @param 		{String} 			[$transform=null] 		The text-transform wanted
+ * @param 		{String} 			[$stretch=null] 		The font-stretch wanted
+ * @param 		{String} 			[$white-space=null] 	The white-space wanted
+ * @param 		{Number} 			[$height=null] 			The line-height wanted
+ * @param 		{Number} 			[$spacing=null] 		The letter-spacing wanted
+ * @param 		{Number} 			[$indent=null] 			The text-indent wanted
+ * @param 		{String} 			[$break=null] 			The line-break wanted
+ * @param 		{String} 			[$wrap=null] 			The word-wrap wanted
+ * @return 		{Map} 										The corresponding font map
+ *
+ * @example
+ * .my-cool-elememt {
+ * 		\@include s-font(
+ * 			$family : 'Helvetica Neue',
+ * 		 	$size : 12px,
+ * 		  	$wrap : norwap
+ *      );
+ *      // print
+ * 		font-family : 'Helvetica Neue',
+ * 		font-size : 12px,
+ * 		word-wrap : nowrap
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Init the sugar toolkit.
+ * This has to be called **AFTER** all the [./_s-setup.scss] mixin call
+ * and **BEFORE** all the others sugar mixins and functions calls
+ *
+ * @example
+ * \@include s-init();
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Register all the dynamic helper classes that depends on the settings, etc...
+ * This is used internaly
+ *
+ * @example
+ * \@include s-init-classes();
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Register a helper class under a certain namespace
+ *
+ * @param 			{String} 		$classname 		The classname that will be printed out
+ * @param 			{String} 		$namespace 		The dots separated namespace under which the class will live
+ *
+ * @example
+ * \@include s-register-helper-class(my-cool-class, 'my.cool.namespace') {
+ * 		background : pink;
+ * }
+ * \@include s-register-helper-class(another-cool-class, 'my.another.namespace') {
+ * 		background : red;
+ * }
+ *
+ * // print out my helpers classes
+ * \@include s-classes('my');
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Setup sugar toolkit by overriding the default [settings](../_settings.scss)
+ * This has to be called **BEFORE** the [s-init mixin](./_s-init.scss)
+ *
+ * @param 			{Map} 			$settings 		The settings to override
+ *
+ * @example
+ * \@include s-setup((
+ * 		typo : (
+ * 			font-size : 12px
+ * 		),
+ * 		sizes : (
+ * 			small : 0.5,
+ * 			big : 1.5
+ * 		)
+ * ));
+ * // this mixin can be called as many times as you need
+ * // this allows you to separate your configs setup into multiple
+ * // files...
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Display the vertical rhythme
+ *
+ * @param 			{Color} 		The color wanted
+ *
+ * @example
+ * body {
+ * 		@include s-show-vertical-rhythm();
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Take a transition as parameter and print the corresponding transition property
+ * The $transitions parameter can be either a registered transition name or a custom css transition like : all .2s ease-in-out 2s
+ * The $transitions argument will be parsed with the [./_s-parse-properties.scss] function.
+ *
+ * @param 			{List} 				$transitions 			The registered transition(s) name(s) or the transition(s) strings(s) to transform into list
+ * @return 			{List} 										The corresponding transition list properties
+ *
+ * @example
+ * // register a transition
+ * \@include s-setup((
+ * 		transitions : (
+ * 			fast : all .2s ease-in-out 0s,
+ * 			// other transitions...
+ * 		)
+ * ));
+ *
+ * // registered transition
+ * .my-cool-element {
+ * 		\@include s-transition(fast>);
+ * 		// transition : all .2s ease-in-out 0s;
+ * }
+ *
+ * // custom transition
+ * .my-cool-element {
+ * 		\@include s-transition(fast -delay .5s, fase width ease-in);
+ *  	// transition : all .2s ease-in-out .5s, width .2s ease-in 0s;
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the unit context to use inside the mixin.
+ * This mean that if you set a unit context, then get a number setting through the [s-setting function](../functions/_s-setting.scss),
+ * The value that will be returned will be converted into the unit context if possible
+ *
+ * @param 			{String} 			$unit 			The unit wanted
+ *
+ * @example
+ * // if settings.typography.font-size == 16px
+ * s-setting('typography.font-size'); // => 16px
+ * \@incluse s-unit-context(rem) {
+ * 		s-setting('typography.font-size'); // => 1rem
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * @name 	s-vertical-rhythm
+ * Scope the content inside the `settings.vertical-rhythm.scope-class` class
+ *
+ * .my-cool-item {
+ * 	@include s-vertical-rhythm() {
+ * 		margin-bottom: 2em; // will be applied only if .my-cool-item is in the .vr scope
+ * 	}
+ * }
+ *
+ * @see 			https://medium.com/written-in-code/aligning-type-to-baseline-the-right-way-using-sass-e258fce47a9b#.lck2lgbni
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * @name 	Helper Classes
+ * This file is responsible to register the static helper classes like:
+ *
+ * - sugar.pull.left : ```.pull-left```
+ * - sugar.pull.right : ```.pull-right```
+ * - sugar.position.relative : ```.relative```
+ * - sugar.position.absolute : ```.absolute```
+ * - sugar.clear.left : ```.clear-left```
+ * - sugar.clear.right : ```.clear-right```
+ * - sugar.clear.both : ```.clear```
+ * - sugar.pointer.events.all : ```.pointer-events-all```
+ * - sugar.pointer.events.none : ```.pointer-events-none```
+ * - sugar.display.show : ```.show```
+ * - sugar.display.show-inline : ```.show-inline```
+ * - sugar.display.hidden : ```.hidden```
+ * - sugar.display.hide : ```.hide```
+ * - sugar.display.visible : ```.visible```
+ * - sugar.display.invisible : ```.invisible```
+ * - sugar.display.visually-hidden : ```.visually-hidden```
+ * - sugar.text.hidden : ```.t-hidden```
+ * - sugar.text.truncate : ```.t-truncate```
+ * - sugar.text.align.left : ```.t-left```
+ * - sugar.text.align.right : ```.t-right```
+ * - sugar.text.align.center : ```.t-center```
+ * - sugar.text.align.justify : ```.t-justify```
+ * - sugar.text.transform.lowercase : ```.t-lowercase```
+ * - sugar.text.transform.uppercase : ```.t-uppercase```
+ * - sugar.text.transform.capitalize : ```.t-capitalize```
+ * - sugar.font.weight.bold : ```.f-bold```
+ * - sugar.font.weight.lighter : ```.f-lighter```
+ * - sugar.font.weight.bolder : ```.f-bolder```
+ * - sugar.font.weight.normal : ```.f-normal```
+ * - sugar.font.style.italic : ```.f-italic```
+ * - sugar.font.style.oblique : ```.f-oblique```
+ * - sugar.font.variant.small-caps : ```.f-small-caps```
+ * - sugar.block.align.center : ```.block-center```
+ * - sugar.ratio.21-9 : ```.ratio-21-9```
+ * - sugar.ratio.16-9 : ```.ratio-16-9```
+ * - sugar.ratio.4-3 : ```.ratio-4-3```
+ * - sugar.ratio.1-1 : ```.ratio-1-1```
+ * - sugar.size.abs.cover : ```.abs-cover```
+ * - sugar.size.abs.contain : ```.abs-contain```
+ * - sugar.size.abs.fit : ```.abs-fit```
+ * - sugar.clearfix.default : ```.clearfix```
+ * - sugar.clearfix.float : ```.clearfix-float```
+ * - sugar.clearfix.micro : ```.clearfix-micro```
+ * - sugar.clearfix.overflow : ```.clearfix-overflow```
+ * - sugar.clearfix.facebook : ```.clearfix-facebook```
+ * - sugar.no-transitions : ```.no-transitions```
+ * - sugar.clear-transitions : ```.clear-transitions```
+ * - sugar.no-animations : ```.no-animations```
+ * - sugar.clear-animations : ```.clear-animations```
+ * - sugar.no-transmations : ```.no-transmations```
+ * - sugar.clear-transmations : ```.clear-transmations```
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+.pull-left {
+  /**
+	 * @name 		```.pull-left```
+	 * Allows you to pull an element to the left side
+	 * @styleguide 	Helpers / Pull
+	 * @example 	html
+	 * 	<span class="pull-left">Hello world</span>
+	 * </div>
+	 */
+  float: left;
+}
+
+.pull-right {
+  /**
+	 * @name 		```.pull-right```
+	 * Allows you to pull an element to the right side
+	 * @styleguide 	Helpers / Pull
+	 * @example 	html
+	 * 	<span class="pull-right">Hello world</span>
+	 * </div>
+	 */
+  float: right;
+}
+
+.relative {
+  /**
+	 * @name 		```.relative```
+	 * Set an element position as ```relative```
+	 * @styleguide 	Helpers / Position
+	 * @example 	html
+	 * <div class="relative">
+	 * 	I'm relative now
+	 * </div>
+	 */
+  position: relative;
+}
+
+.absolute {
+  /**
+	 * @name 		```.absolute```
+	 * Set an element position as ```absolute```
+	 * @styleguide 	Helpers / Position
+	 * @example 	html
+	 * <div class="absolute">
+	 * 	I'm absolute now
+	 * </div>
+	 */
+  position: absolute;
+}
+
+.clear-left {
+  /**
+	 * @name 		```.clear-left```
+	 * Clear the left float on the element
+	 * @styleguide 	Helpers / Float
+	 * @example 	html
+	 * <div class="clear-left">
+	 * 	I clear the left float
+	 * </div>
+	 */
+  clear: left;
+}
+
+.clear-right {
+  /**
+	 * @name 		```.clear-right```
+	 * Clear the right float on the element
+	 * @styleguide 	Helpers / Float
+	 * @example 	html
+	 * <div class="clear-right">
+	 * 	I clear the right float
+	 * </div>
+	 */
+  clear: right;
+}
+
+.clear {
+  /**
+	 * @name 		```.clear```
+	 * Clear both float on the element
+	 * @styleguide 	Helpers / Float
+	 * @example 	html
+	 * <div class="clear">
+	 * 	I clear both floats
+	 * </div>
+	 */
+  clear: both;
+}
+
+.pointer-events-none {
+  /**
+	 * @name 		```.pointer-events-none```
+	 * Disable any pointer events
+	 * @styleguide 	Helpers / Pointer events
+	 * @example 	html
+	 * <div class="pointer-events-none">
+	 * 	I will not react to any pointer events
+	 * </div>
+	 */
+  pointer-events: none;
+}
+
+.pointer-events-all {
+  /**
+	 * @name 		```.pointer-events-all```
+	 * Disable any pointer events
+	 * @styleguide 	Helpers / Pointer events
+	 * @example 	html
+	 * <div class="pointer-events-all">
+	 * 	I will not react to any pointer events
+	 * </div>
+	 */
+  pointer-events: all;
+}
+
+.block {
+  /**
+	 * @name 		```.block```
+	 * Display the element as ```block```
+	 * @styleguide 	Helpers / Display
+	 * @example 	html
+	 * <div class="block">
+	 * 	I'm displayed as block
+	 * </div>
+	 */
+  display: block;
+}
+
+.inline {
+  /**
+	 * @name 		```.inline```
+	 * Display the element as ```inline```
+	 * @styleguide 	Helpers / Display
+	 * @example 	html
+	 * <div class="inline">
+	 * 	I'm displayed as inline
+	 * </div>
+	 */
+  display: inline;
+}
+
+.inline-block {
+  /**
+	 * @name 		```.inline-block```
+	 * Display the element as ```inline-block```
+	 * @styleguide 	Helpers / Display
+	 * @example 	html
+	 * <div class="inline-block">
+	 * 	I'm displayed as inline-block
+	 * </div>
+	 */
+  display: inline-block;
+}
+
+.show {
+  /**
+	 * @name 		```.show```
+	 * Display the element as ```block```
+	 * @styleguide 	Helpers / Display
+	 * @example 	html
+	 * <div class="show">
+	 * 	I'm displayed
+	 * </div>
+	 */
+  display: block;
+}
+
+.show-inline {
+  /**
+	 * @name 		```.show-inline```
+	 * Display the element as ```inline-block```
+	 * @styleguide 	Helpers / Display
+	 * @example 	html
+	 * <div class="show-inline">
+	 * 	I'm inline displayed
+	 * </div>
+	 */
+  display: inline-block;
+}
+
+.hidden {
+  /**
+	 * @name 		```.hidden```
+	 * Hide the element by setting the display to ```none```
+	 * @styleguide 	Helpers / Display
+	 * @example 	html
+	 * <div class="hidden">
+	 * 	I'm hidden
+	 * </div>
+	 */
+  display: none;
+}
+
+.hide {
+  /**
+	 * @name 		```.hide```
+	 * Hide the element by setting the display to ```none```
+	 * @styleguide 	Helpers / Display
+	 * @example 	html
+	 * <div class="hide">
+	 * 	I'm hidden
+	 * </div>
+	 */
+  display: none;
+}
+
+.visible {
+  /**
+	 * @name 		```.visible```
+	 * Display the element by setting the visibility to ```visible```
+	 * @styleguide 	Helpers / Display
+	 * @example 	html
+	 * <div class="visible">
+	 * 	I'm visible
+	 * </div>
+	 */
+  visibility: visible;
+}
+
+.invisible {
+  /**
+	 * @name 		```.invisible```
+	 * Display the element by setting the visibility to ```hidden```
+	 * @styleguide 	Helpers / Display
+	 * @example 	html
+	 * <div class="invisible">
+	 * 	I'm invisible
+	 * </div>
+	 */
+  visibility: hidden;
+}
+
+.visually-hidden {
+  /**
+	 * @name 		```.visually-hidden```
+	 * Hide the element from display but not for SEO.
+	 * This class use some tricks to make the element dissapear without using some ```display:none;```, etc...
+	 * @styleguide 	Helpers / Display
+	 * @example 	html
+	 * <div class="visually-hidden">
+	 * 	I'm only visually hidden
+	 * </div>
+	 */
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+.t-hidden {
+  /**
+	 * @name 		```.t-hidden```
+	 * Hide the text
+	 * @styleguide 	Helpers / Text
+	 * @example 	html
+	 * <div class="t-hidden">
+	 * 	I'm not visible
+	 * </div>
+	 */
+  overflow: hidden;
+  text-indent: -9000px;
+  display: block;
+}
+
+.t-truncate {
+  /**
+	 * @name 		```.t-truncate```
+	 * Hide the text
+	 * @styleguide 	Helpers / Text
+	 * @example 	html
+	 * <div class="t-truncate">
+	 * 	I'm truncated cause I talk a lot too much Nulla mauris eros, finibus ac faucibus et, tempus quis risus. Praesent sit amet nulla vel libero euismod sodales eu nec.
+	 * </div>
+	 */
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.t-truncate > * {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.t-left {
+  /**
+	 * @name 		```.t-left```
+	 * Align the text to the left
+	 * @styleguide 	Helpers / Text Align
+	 * @example 	html
+	 * <div class="t-left">
+	 * 	I'm left aligned
+	 * </div>
+	 */
+  text-align: left;
+}
+
+.t-right {
+  /**
+	 * @name 		```.t-right```
+	 * Align the text to the right
+	 * @styleguide 	Helpers / Text Align
+	 * @example 	html
+	 * <div class="t-right">
+	 * 	I'm right aligned
+	 * </div>
+	 */
+  text-align: right;
+}
+
+.t-center {
+  /**
+	 * @name 		```.t-center```
+	 * Align the text to the center
+	 * @styleguide 	Helpers / Text Align
+	 * @example 	html
+	 * <div class="t-center">
+	 * 	I'm centered
+	 * </div>
+	 */
+  text-align: center;
+}
+
+.t-justify {
+  /**
+	 * @name 		```.t-justify```
+	 * Make the text justified
+	 * @styleguide 	Helpers / Text Align
+	 * @example 	html
+	 * <div class="t-justify">
+	 * 	Nullam vel feugiat nunc. Phasellus facilisis, nisi sit amet viverra rhoncus, arcu risus volutpat dolor, sed euismod magna tellus ac purus. Praesent augue lorem, ullamcorper ac accumsan nec, suscipit eu.
+	 * </div>
+	 */
+  text-align: justify;
+}
+
+.t-lowercase {
+  /**
+	 * @name 		```.t-lowercase```
+	 * Transform the text to lowercase
+	 * @styleguide 	Helpers / Text Transform
+	 * @example 	html
+	 * <div class="t-lowercase">
+	 * 	I'M LOWERCASE
+	 * </div>
+	 */
+  text-transform: lowercase;
+}
+
+.t-uppercase {
+  /**
+	 * @name 		```.t-uppercase```
+	 * Transform the text to uppercase
+	 * @styleguide 	Helpers / Text Transform
+	 * @example 	html
+	 * <div class="t-uppercase">
+	 * 	I'm uppercase
+	 * </div>
+	 */
+  text-transform: uppercase;
+}
+
+.t-capitalize {
+  /**
+	 * @name 		```.t-capitalize```
+	 * Capizalize the words
+	 * @styleguide 	Helpers / Text Transform
+	 * @example 	html
+	 * <div class="t-capitalize">
+	 * 	I'm capitalized
+	 * </div>
+	 */
+  text-transform: capitalize;
+}
+
+.f-bold {
+  /**
+	 * @name 		```.f-bold```
+	 * Set the font-weight to ```bold```
+	 * @styleguide 	Helpers / Font Weight
+	 * @example 	html
+	 * This <span class="f-bold">word</span> is bold
+	 */
+  font-weight: bold;
+}
+
+.f-lighter {
+  /**
+	 * @name 		```.f-lighter```
+	 * Set the font-weight to ```lighter```
+	 * @styleguide 	Helpers / Font Weight
+	 * @example 	html
+	 * 	This <span class="f-lighter">word</span> is lighter
+	 */
+  font-weight: lighter;
+}
+
+.f-bolder {
+  /**
+	 * @name 		```.f-bolder```
+	 * Set the font-weight to ```bolder```
+	 * @styleguide 	Helpers / Font Weight
+	 * @example 	html
+	 * This <span class="f-bolder">word</span> is bolder
+	 */
+  font-weight: bolder;
+}
+
+.f-normal {
+  /**
+	 * @name 		```.f-normal```
+	 * Set the font-weight to ```normal```
+	 * @styleguide 	Helpers / Font Weight
+	 * @example 	html
+	 * <div class="f-bold">
+	 * 	This <span class="f-normal">word</span> is normal
+	 * </div>
+	 */
+  font-weight: normal;
+  font-style: normal;
+}
+
+.f-italic {
+  /**
+	 * @name 		```.f-italic```
+	 * Set the font-style to ```italic```
+	 * @styleguide 	Helpers / Font
+	 * @example 	html
+	 * This <span class="f-italic">word</span> is italic
+	 */
+  font-style: italic;
+}
+
+.f-oblique {
+  /**
+	 * @name 		```.f-oblique```
+	 * Set the font-style to ```oblique```
+	 * @styleguide 	Helpers / Font Style
+	 * @example 	html
+	 * This <span class="f-oblique">word</span> is oblique
+	 */
+  font-style: oblique;
+}
+
+.f-small-caps {
+  /**
+	 * @name 		```.f-small-caps```
+	 * Set the font-variant to ```small-caps```
+	 * @styleguide 	Helpers / Font Variant
+	 * @example 	html
+	 * This <span class="f-small-caps">word</span> is small-caps
+	 */
+  font-variant: small-caps;
+}
+
+.block-center {
+  /**
+	 * @name 		```.block-center```
+	 * Set the element to as ```display:block``` and center it
+	 * @styleguide 	Helpers / Block
+	 * @example 	html
+	 * <div class="block-center bkg-primary" style="width:100px;">
+	 * 	I'm a centered block
+	 * </div>
+	 */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.abs-cover {
+  /**
+	 * @name 		```.abs-cover```
+	 * Set a size that will cover the entire parent surface by positionning it in absolute
+	 * @styleguide 	Helpers / Sizes
+	 * @example 	html
+	 * <div class="ratio-16-9">
+	 * 	<img src="https://source.unsplash.com/random" class="abs-cover" />
+	 * </div>
+	 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.abs-contain {
+  /**
+	 * @name 		```.abs-contain```
+	 * Set a size that will contain the entire parent surface by positionning it in absolute
+	 * @styleguide 	Helpers / Sizes
+	 * @example 	html
+	 * <div class="ratio-16-9">
+	 * 	<img src="https://source.unsplash.com/random" class="abs-contain" />
+	 * </div>
+	 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.abs-fit {
+  /**
+	 * @name 		```.abs-fit```
+	 * Set a size that will fit the entire parent surface by positionning it in absolute
+	 * @styleguide 	Helpers / Sizes
+	 * @example 	html
+	 * <div class="ratio-16-9">
+	 * 	<img src="https://source.unsplash.com/random" class="abs-fit" />
+	 * </div>
+	 */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.clearfix {
+  /**
+	 * @name 		```.clearfix```
+	 * Apply the micro clearfix on the element
+	 * @styleguide 	Helpers / Clearfix
+	 * @example 	html
+	 * <div class="clearfix bkg-primary">
+	 * 	<div class="pull-right">right pulled</div>
+	 * </div>
+	 * <div class="bkg-primary">
+	 * 	<div class="pull-right">right pulled without clearfix</div>
+	 * </div>
+	 */
+}
+
+.clearfix-float {
+  /**
+	 * @name 		```.clearfix-float```
+	 * Apply the float clearfix on the element
+	 * @styleguide 	Helpers / Clearfix
+	 * @example 	html
+	 * <div class="clearfix-float bkg-primary">
+	 * 	<div class="pull-right">right pulled</div>
+	 * </div>
+	 * <div class="bkg-primary">
+	 * 	<div class="pull-right">right pulled without clearfix</div>
+	 * </div>
+	 */
+}
+
+.clearfix, .clearfix-micro {
+  /**
+	 * @name 		```.clearfix```
+	 * Apply the micro clearfix on the element
+	 * @styleguide 	Helpers / Clearfix
+	 * @example 	html
+	 * <div class="clearfix bkg-primary">
+	 * 	<div class="pull-right">right pulled</div>
+	 * </div>
+	 * <div class="bkg-primary">
+	 * 	<div class="pull-right">right pulled without clearfix</div>
+	 * </div>
+	 */
+}
+
+.clearfix-overflow {
+  /**
+	 * @name 		```.clearfix-overflow```
+	 * Apply the overflow clearfix on the element
+	 * @styleguide 	Helpers / Clearfix
+	 * @example 	html
+	 * <div class="clearfix-overflow bkg-primary">
+	 * 	<div class="pull-right">right pulled</div>
+	 * </div>
+	 * <div class="bkg-primary">
+	 * 	<div class="pull-right">right pulled without clearfix</div>
+	 * </div>
+	 */
+}
+
+.clearfix-facebook {
+  /**
+	 * @name 		```.clearfix-facebook```
+	 * Apply the facebook clearfix on the element
+	 * @styleguide 	Helpers / Clearfix
+	 * @example 	html
+	 * <div class="clearfix-facebook bkg-primary">
+	 * 	<div class="pull-right">right pulled</div>
+	 * </div>
+	 * <div class="bkg-primary">
+	 * 	<div class="pull-right">right pulled without clearfix</div>
+	 * </div>
+	 */
+}
+
+.ratio-21-9 {
+  /**
+	 * @name 		```.ratio-21-9```
+	 * Keep a 16/9 ratio on a particular element. Applied by setting height to 0 and paddingtop to 100% / 16 * 9
+	 * @styleguide 	Helpers / Ratios
+	 * @example 	html
+	 * <div class="bkg-primary ratio-21-9"></div>
+	 */
+  position: relative;
+  overflow: hidden;
+}
+
+.ratio-21-9:before {
+  content: '';
+  display: block;
+  height: 0;
+  padding-top: 42.85714%;
+}
+
+.ratio-16-9 {
+  /**
+	 * @name 		```.ratio-16-9```
+	 * Keep a 16/9 ratio on a particular element. Applied by setting height to 0 and paddingtop to 100% / 16 * 9
+	 * @styleguide 	Helpers / Ratios
+	 * @example 	html
+	 * <div class="bkg-primary ratio-16-9"></div>
+	 */
+  position: relative;
+  overflow: hidden;
+}
+
+.ratio-16-9:before {
+  content: '';
+  display: block;
+  height: 0;
+  padding-top: 56.25%;
+}
+
+.ratio-4-3 {
+  /**
+	 * @name 		```.ratio-4-3```
+	 * Keep a 4/3 ratio on a particular element. Applied by setting height to 0 and paddingtop to 100% / 4 * 3
+	 * @styleguide 	Helpers / Ratios
+	 * @example 	html
+	 * <div class="bkg-primary ratio-4-3"></div>
+	 */
+  position: relative;
+  overflow: hidden;
+}
+
+.ratio-4-3:before {
+  content: '';
+  display: block;
+  height: 0;
+  padding-top: 75%;
+}
+
+.ratio-1-1 {
+  /**
+	 * @name 		```.ratio-1-1```
+	 * Keep a 1/1 ratio on a particular element. Applied by setting height to 0 and paddingtop to 100%
+	 * @styleguide 	Helpers / Ratios
+	 * @example 	html
+	 * <div class="bkg-primary ratio-1-1"></div>
+	 */
+  position: relative;
+  overflow: hidden;
+}
+
+.ratio-1-1:before {
+  content: '';
+  display: block;
+  height: 0;
+  padding-top: 100%;
+}
+
+.no-transitions {
+  /**
+	 * @name 		```.no-transitions```
+	 * Disable the transitions <span class="f-bold">only on the element</span>
+	 * @styleguide 	Helpers / Transitions
+	 * @example 	html
+	 * <div class="no-transitions">
+	 * 	I have no more transitions
+	 * 	<div>But I have</div>
+	 * </div>
+	 */
+}
+
+.no-transitions, .no-transitions:before, .no-transitions:after {
+  transition: none !important;
+}
+
+.clear-transitions {
+  /**
+	 * @name 		```.clear-transitions```
+	 * Disable the transitions <span class="f-bold">on the element and all his children</span>
+	 * @styleguide 	Helpers / Transitions
+	 * @example 	html
+	 * <div class="clear-transitions">
+	 * 	I have no more transitions
+	 * 	<div>Me neither</div>
+	 * </div>
+	 */
+}
+
+.clear-transitions, .clear-transitions:before, .clear-transitions:after,
+.clear-transitions *, .clear-transitions *:before, .clear-transitions *:after {
+  transition: none !important;
+}
+
+.no-animations {
+  /**
+	 * @name 		```.no-animations```
+	 * Disable the animations <span class="f-bold">only on the element</span>
+	 * @styleguide 	Helpers / Animations
+	 * @example 	html
+	 * <div class="no-animations">
+	 * 	I have no more animations
+	 * 	<div>But I have</div>
+	 * </div>
+	 */
+}
+
+.no-animations, .no-animations:before, .no-animations:after {
+  animation: none !important;
+}
+
+.clear-animations {
+  /**
+	 * @name 		```.clear-animations```
+	 * Disable the transitions <span class="f-bold">on the element and all his children</span>
+	 * @styleguide 	Helpers / Animations
+	 * @example 	html
+	 * <div class="clear-animations">
+	 * 	I have no more animations
+	 * 	<div>Me neither</div>
+	 * </div>
+	 */
+}
+
+.clear-animations, .clear-animations:before, .clear-animations:after,
+.clear-animations *, .clear-animations *:before, .clear-animations *:after {
+  animation: none !important;
+}
+
+.no-transmations {
+  /**
+	 * @name 		```.no-transmations```
+	 * Disable the animations and transitions <span class="f-bold">only on the element</span>
+	 * @styleguide 	Helpers / Transmations
+	 * @example 	html
+	 * <div class="no-transmations">
+	 * 	I have no more animations or transitions
+	 * 	<div>But I have</div>
+	 * </div>
+	 */
+}
+
+.no-transmations, .no-transmations:before, .no-transmations:after {
+  transition: none !important;
+  animation: none !important;
+}
+
+.clear-transmations {
+  /**
+	 * @name 		```.clear-transmations```
+	 * Disable the animations and transitions <span class="f-bold">on the element and all his children</span>
+	 * @styleguide 	Helpers / Transmations
+	 * @example 	html
+	 * <div class="clear-transmations">
+	 * 	I have no more animations or transitions
+	 * 	<div>Me neither</div>
+	 * </div>
+	 */
+}
+
+.clear-transmations, .clear-transmations:before, .clear-transmations:after,
+.clear-transmations *, .clear-transmations *:before, .clear-transmations *:after {
+  transition: none !important;
+  animation: none !important;
+}
+
+/**
+ * This file contains all the default settings that can be overrided by the [s-setup mixin](./mixins/_s-setup.scss).
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Create an arrow bubble effect
+ *
+ * @param 		{String} 			[$side=bottom] 				The side (top,right,bottom,left)
+ * @param 		{String} 			[$align=center] 			The alignement (left,center,right,top,middle,bottom)
+ * @param 		{Number} 			[$size=10px] 				The size of the arrow
+ * @param 		{Color} 			[$color=s-color(primary)] 	The color of the bubble
+ * @param 		{Number} 			[$arrow-offset=10px] 		The arrow offset from the side of the bubble
+ * @param 		{Number} 			[$border-width=0] 			The border width of the bubble
+ * @param 		{Color} 			[$border-color=null] 		The border color of the bubble
+ *
+ * @example
+ * .my-cool-bubble {
+ * 		\@include s-bubble(
+ * 			$color : s-color(secondary)
+ * 		);
+ * 		color : white;
+ * }
+ *
+ * @see 			https://codepen.io/kirkas/pen/otqyJ
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Generate a drop shadow depending on the depth specified
+ *
+ * @param 		{Integer} 			$depth 							The depth wanted (1,2,3,4,etc...)
+ * @param 		{Color} 			[$color=rgba(0,0,0,.2)] 		The drop shadow color
+ *
+ * @example
+ * .my-cool-element {
+ * 		\@include s-depth(2);
+ * }
+ *
+ * @author 	 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Create a poping dot effect to catch user attention on a particular item
+ * This mixin affect the :before and :after pseudo selector of the item
+ *
+ * @param 		{String} 		[$vertical-align=top] 			Where to put the dot verticaly (top,middle,bottom)
+ * @param 		{String} 		[$align=left] 					Where to put the dot horizontaly (left,center,right)
+ * @param 		{Number} 		[$size=20px] 					The size of the dot
+ * @param 		{Color} 		[$color=primary] 				The color of the dot
+ * @param 		{Number} 		[$offset-top=0] 				The offset top
+ * @param 		{Number} 		[$offset-right=0] 				The offset right
+ * @param 		{Number} 		[$offset-bottom=0] 				The offset bottom
+ * @param 		{Number} 		[$offset-left=0] 				The offset left
+ *
+ * @example
+ * .my-cool-element {
+ * 		\@include s-hey(
+ * 			$align : right,
+ * 			$color : secondary,
+ * 			$size : 10px,
+ * 			$offset-top : -10px,
+ * 			$offset-right : -10px
+ * 		);
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Generate a full animated, single element, bars loader
+ *
+ * @param 			{String} 			[$shape=rect] 				The shape of the bars (rect,circle)
+ * @param 			{Color} 			[$color=primary] 			The color(s) of the loader. Can be a list of colors
+ * @param 			{Number} 			[$width=.5em] 				The width of each bars
+ * @param 			{Number} 			[$height=2em] 				The height of each bars
+ * @param 			{Integer} 			[$count=5] 					How many bars you want
+ * @param 			{Number} 			[$gap=.5em] 				The gap between each bars
+ * @param 			{Number} 			[$opacity=1] 				The initial opacity of each bars
+ * @param 			{Number} 			[$a-opacity=null] 			The opacity of the animated bars
+ * @param 			{Second} 			[$a-duration=1s] 			The overall animation duration
+ * @param 			{Second} 			[$a-delay=0s] 				The delay between two animation cycle
+ * @param 			{Integer} 			[$a-near=1] 				How many bars are affected by the animated one
+ * @param 			{String} 			[$a-ease=ease-in-out] 		The ease to use to animate each bars
+ * @param 			{Number} 			[$a-offset=null] 			The offset to move the animated bar
+ * @param 			{String} 			[$a-direction=both] 		The direction in which to move the bars (up,down,both)
+ * @param 			{Boolean} 			[$a-continuous=true] 		If true, the first bars will be animated at same time at the last ones
+ *
+ * @example
+ * .my-cool-loader {
+ * 		\@include s-loader-bars(
+ * 			$color : primary,
+ * 			$a-offset : .5em
+ * 		);
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Generate a full animated, single element, circle loader
+ *
+ * @param 			{Color} 			[$color=primary] 			The color(s) of the loader. Can be a list of colors
+ * @param 			{Number} 			[$size=.33em] 				The size of each dot
+ * @param 			{Number} 			[$radius=1em] 				The distance of each dot from the center of the loader
+ * @param 			{Integer} 			[$count=5] 					How many bars you want
+ * @param 			{Number} 			[$opacity=1] 				The initial opacity of each bars
+ * @param 			{Number} 			[$a-opacity=null] 			The opacity of the animated bars
+ * @param 			{Second} 			[$a-duration=1s] 			The overall animation duration
+ * @param 			{Second} 			[$a-delay=0s] 				The delay between two animation cycle
+ * @param 			{Integer} 			[$a-near=1] 				How many bars are affected by the animated one
+ * @param 			{String} 			[$a-ease=ease-in-out] 		The ease to use to animate each bars
+ *
+ * @TODO finish documentation
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Generate a full animated, single element, couch-potato style loader
+ *
+ * @param 		{Number} 		[$size=1em] 				The size of the loader
+ * @param 		{Color} 		[$color=primary] 			The color of the loader
+ * @param 		{Second} 		[$a-duration=1s] 			The overall animation duration
+ * @param 		{Second} 		[$a-delay=0s] 				The delay between two animation cycle
+ * @param 		{String} 		[$a-ease=ease-in-out]		The ease to use for the animation
+ * @param 		{Degree}		[$a-rotate=360deg] 			The animation rotation
+ * @param 		{Number} 		[$a-scale=.7] 				The animation scale
+ *
+ * @example
+ * .my-cool-loader {
+ * 		\@include s-loader-couch-potato();
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Generate a full animated, single element, flip ball style loader
+ *
+ * @param 		{String} 		[$shape=circle] 			The shape of the loader (circle,rect)
+ * @param 		{Number} 		[$size=1em] 				The size of the loader
+ * @param 		{Color} 		[$color=primary] 			The color of the loader. Can be a list of colors
+ * @param 		{Second} 		[$a-duration=1s] 			The overall animation duration
+ * @param 		{Second} 		[$a-delay=0s] 				The delay between two animation cycle
+ * @param 		{String} 		[$a-ease=ease-in-out]		The ease to use for the animation
+ *
+ * @example
+ * .my-cool-loader {
+ * 		\@include s-loader-flip-ball();
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Generate a long shadow effect like [this](https://www.google.ch/search?q=long+shadow&espv=2&biw=2560&bih=1316&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjjne6x49LPAhVBHRQKHat8AW8Q_AUIBigB)
+ *
+ * @param 		{Color} 		[$color=rgba(0,0,0,.3)] 			The shadow color
+ * @param 		{String} 		[$type=text] 						The shadow type (text,box)
+ * @param 		{Degree} 		[$angle=135deg] 					The shadow angle
+ * @param 		{Integer} 		[$depth=20] 						The shadow depth
+ * @param 		{Boolean} 		[$fade=false] 						If true, the shadow will fade itself
+ * @param 		{Number} 		[$blur=0] 							The blur amount of the shadow
+ * @param 		{Number} 		[$blur-ratio=0] 					The ratio to blur each depth more
+ *
+ * @example
+ * .my-cool-title {
+ * 		\@include s-long-shadow(
+ * 			$depth : 10
+ * 		);
+ * }
+ * .my-cool-box {
+ * 		\@include s-long-shadow(
+ * 			$type : box
+ * 		);
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Create side lines around an item
+ *
+ * @param 			{String} 		[$style=solid] 			The line style, same possible values as the border-style property
+ * @param 			{String} 		[$side=both] 			The side where to put lines (left,right,both)
+ * @param 			{Number} 		[$height=1px] 			The lines height
+ * @param 			{Number} 		[$width=50%] 			The width of the lines
+ * @param 			{Color} 		[$color=text]			The color of the lines
+ * @param 			{Number} 		[$padding=0] 			The padding between the lines and the content
+ * @param 			{Number} 		[$offset-top=null] 		The line offset top
+ *
+ * @example
+ * h1 {
+ * 		\@include s-side-lined(
+ * 			$padding : 20px,
+ * 			$side : right,
+ * 			$width : 100%
+ * 		);
+ * }
+ *
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * @name 	STypographyComponent
+ * This file provide the mixins to create typography elements
+ */
+/**
+ * Apply the title css
+ * @param 		{Number} 		$size 		The size wanted. If unitless, will use modular scale to calculate size
+ * @param 		{Integer}		[$base=null] 		The base on which to calculate the modular scale if needed
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the title bare css
+ * @param 		{Number} 		$size 				The size wanted. If unitless, will use modular scale to calculate size
+ * @param 		{Integer}		[$base=null] 		The base on which to calculate the modular scale if needed
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the title style css
+ * @param 		{Number} 		$size 				The size wanted. If unitless, will use modular scale to calculate size
+ * @param 		{Integer}		[$base=null] 		The base on which to calculate the modular scale if needed
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the paragraph bare css
+ * @param 		{Number} 		$size 				The size wanted
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the paragraph style css
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the link css
+ * @param 		{Color} 		[$color=primary] 		The color used to style link
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the link bare css
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the link style css
+ * @param 		{Color} 		[$color=primary] 		The color used to style link
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the inline-text css
+ * @param 		{String} 		$tag 		The tag to use the style for
+ * @param 		{Color} 		[$color=primary] 		The color used to style different inline text elements
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the inline-text bare css
+ * @param 		{String} 		$tag 		The tag to use the style for
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the inline-text css
+ * @param 		{String} 		$tag 		The tag to use the style for
+ * @param 		{Color} 		[$color=primary] 		The color used to style different inline text elements
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the list css
+ * @param 		{String|List} 		$tag 				The tag to style like "ul", "ol li" or "dl dt"
+ * @param 		{Color} 			[$color=primary] 	The color used for styling bullets
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the list bare css
+ * @param 		{String|List} 		$tag 				The tag to style like "ul", "ol li" or "dl dt"
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the list style css
+ * @param 		{String|List} 		$tag 				The tag to style like "ul", "ol li" or "dl dt"
+ * @param 		{Color} 			[$color=primary] 	The color used for styling bullets
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the caption css
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the caption bare css
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the caption style css
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the quote css
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the quote bare css
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the quote style css
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * @name 	STypographyComponent Classes
+ * This file provide the mixins to generate typography classes
+ */
+/**
+ * Provide all the classes of the typography component like titles, paragraphs, lists, etc..
+ * @param 		{Color} 	[$color=primary] 		The main color used to generate the texts styles
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the styling for the titles classes:
+ * - ```.h1-h6```
+ * - ```.tf h1-h6```
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the bare styling for the titles classes
+ * - ```.h1-h6```
+ * - ```.tf h1-h6```
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the style styling for the titles classes
+ * - ```.h1-h6```
+ * - ```.tf h1-h6```
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the styling for the paragraphs classes
+ * - ```.p```, ```.tf p```
+ * - ```.p--lead```, ```.tf p.p--lead```
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the bare styling for the ```.p``` and ```.p--lead``` classes
+ * - ```.p```, ```.tf p```
+ * - ```.p--lead```, ```.tf p.p--lead```
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the bare styling for the ```.p``` class
+ * - ```.p```, ```.tf p```
+ * - ```.p--lead```, ```.tf p.p--lead```
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the styling for the links classes
+ * - ```.link```, ```.tf a```
+ * @param 		{Color} 		[$color=primary] 		The color used to style links
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the bare styling for the links classes
+ * - ```.link```, ```.tf a```
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the style styling for the links classes
+ * - ```.link```, ```.tf a```
+ * @param 		{Color} 		[$color=primary] 		The color used to style links
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the styling for the inline-text classes
+ * - ```.mark```, ```.tf mark```
+ * - ```.del```, ```.tf del```
+ * - ```.s```, ```.tf s```
+ * - ```.ins```, ```.tf ins```
+ * - ```.u```, ```.tf u```
+ * - ```.small```, ```.tf small```
+ * - ```.strong```, ```.tf strong```
+ * - ```.em```, ```.tf em```
+ * @param 		{Color} 		[$color=primary] 		The color used to style different inline text elements
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the bare styling for the inline-text classes
+ * - ```.mark```, ```.tf mark```
+ * - ```.del```, ```.tf del```
+ * - ```.s```, ```.tf s```
+ * - ```.ins```, ```.tf ins```
+ * - ```.u```, ```.tf u```
+ * - ```.small```, ```.tf small```
+ * - ```.strong```, ```.tf strong```
+ * - ```.em```, ```.tf em```
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the style styling for the inline-text classes
+ * - ```.mark```, ```.tf mark```
+ * - ```.del```, ```.tf del```
+ * - ```.s```, ```.tf s```
+ * - ```.ins```, ```.tf ins```
+ * - ```.u```, ```.tf u```
+ * - ```.small```, ```.tf small```
+ * - ```.strong```, ```.tf strong```
+ * - ```.em```, ```.tf em```
+ * @param 		{Color} 		[$color=primary] 		The color used to style different inline text elements
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the styling for the lists classes
+ * - ```.dl```, ```.tf dl```
+ * 	- ```.dt```, ```.tf dt```
+ * 	- ```.dd```, ```.tf dd```
+ * - ```.ul```, ```.tf ul```
+ * 	- ```.li```, ```.tf li```
+ * - ```.ol```, ```.tf ol```
+ * 	- ```.li```, ```.tf li```
+ * @param 		{Color} 		[$color=primary] 		The color used to style bullets
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the bare styling for the lists classes
+ * - ```.dl```, ```.tf dl```
+ * 	- ```.dt```, ```.tf dt```
+ * 	- ```.dd```, ```.tf dd```
+ * - ```.ul```, ```.tf ul```
+ * 	- ```.li```, ```.tf li```
+ * - ```.ol```, ```.tf ol```
+ * 	- ```.li```, ```.tf li```
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the style styling for the lists classes
+ * - ```.dl```, ```.tf dl```
+ * 	- ```.dt```, ```.tf dt```
+ * 	- ```.dd```, ```.tf dd```
+ * - ```.ul```, ```.tf ul```
+ * 	- ```.li```, ```.tf li```
+ * - ```.ol```, ```.tf ol```
+ * 	- ```.li```, ```.tf li```
+ * @param 		{Color} 		[$color=primary] 		The color used to style bullets
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the styling for the captions classes
+ * - ```.caption```, ```.figcaption```, ```.tf caption```, ```.tf figcaption```
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the bare styling for the captions classes
+ * - ```.caption```, ```.figcaption```, ```.tf caption```, ```.tf figcaption```
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the style styling for the captions classes
+ * - ```.caption```, ```.figcaption```, ```.tf caption```, ```.tf figcaption```
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the styling for the quotes classes
+ * - ```.quote```, ```.tf quote```
+ * - ```.blockquote```, ```.tf blockquote```
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the bare styling for the quotes classes
+ * - ```.quote```, ```.tf quote```
+ * - ```.blockquote```, ```.tf blockquote```
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide the style styling for the quotes classes
+ * - ```.quote```, ```.tf quote```
+ * - ```.blockquote```, ```.tf blockquote```
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * @name 	SFormComponent
+ * This file provide the mixins and functions to create form elements
+ */
+.form-input, .form-select, .form-textarea, .form-addon {
+  display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 1em;
+}
+
+.form-input, .form-select, .form-textarea, .form-input--primary, .form-select--primary, .form-textarea--primary, .form-input--secondary, .form-select--secondary, .form-textarea--secondary {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.form-input:disabled, .form-select:disabled, .form-textarea:disabled, .form-input--primary:disabled, .form-select--primary:disabled, .form-textarea--primary:disabled, .form-input--secondary:disabled, .form-select--secondary:disabled, .form-textarea--secondary:disabled {
+  cursor: not-allowed;
+}
+
+/**
+ * Set the styling for field sizes like padding, height, etc...
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the styling for field color like borders
+ * @param 		{Color} 		$color 		The color wanted for the field
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the bare and style css for input field (text, email, etc...)
+ * @param 		{Color} 		[$color=default] 		The color wanted for the field
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the bare css for input field (text, email, etc...)
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the style css for input field (text, email, etc...)
+ * @param 		{Color} 		[$color=default] 		The color wanted for the field
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the bare and style css for textarea
+ * @param 		{Color} 		[$color=default] 		The color wanted for the textarea
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the styling for textarea sizes like padding, etc...
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the bare css for textarea
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply the style css for textarea
+ * @param 		{Color} 		[$color=default] 		The color wanted for the textarea
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+* Apply the bare and style css for select
+* @param 		{Color} 		[$color=default] 		The color wanted for the select
+* @author 		Olivier Bossel <olivier.bossel@gmail.com>
+*/
+/**
+ * Set the styling for select colors like background arrow, etc...
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+* Apply the bare css for select
+* @author 		Olivier Bossel <olivier.bossel@gmail.com>
+*/
+/**
+* Apply the style css for select
+* @param 		{Color} 		[$color=default] 		The color wanted for the select
+* @author 		Olivier Bossel <olivier.bossel@gmail.com>
+*/
+/**
+* Apply the bare and style css for form group
+* @author 		Olivier Bossel <olivier.bossel@gmail.com>
+*/
+/**
+* Apply the bare css for form group
+* @author 		Olivier Bossel <olivier.bossel@gmail.com>
+*/
+/**
+* Apply the style css for form group
+* @author 		Olivier Bossel <olivier.bossel@gmail.com>
+*/
+/**
+* Apply the bare and style css for form addon
+* @param 		{Color} 		[$color=default] 		The color wanted for the form addon
+* @author 		Olivier Bossel <olivier.bossel@gmail.com>
+*/
+/**
+* Apply the bare css for form group
+* @author 		Olivier Bossel <olivier.bossel@gmail.com>
+*/
+/**
+* Apply the bare and style css for form group
+* @param 		{Color} 		[$color=default] 		The color wanted for the select
+* @author 		Olivier Bossel <olivier.bossel@gmail.com>
+*/
+/**
+ * @name 	SFormComponent Classes
+ * This file provide the mixins to generate form classes
+ */
+/**
+ * Provide all the classes of the form component like .form-input, .form-textarea, etc...
+ * - ```.form-input```
+ * - ```.form-input--{color}```
+ * - ```.form-textarea```
+ * - ```.form-textarea--{color}```
+ * - ```.form-select```
+ * - ```.form-select--{color}```
+ * - ```.form-group````
+ * - ```.form-addon```
+ * - ```.form-addon--{color}```
+ * @param 		{List<Color>} 		[$colors=default primary secondary] 		The colors to generate
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide all the bare classes of the form component like .form-input, .form-textarea, etc...
+ * - ```.form-input```
+ * - ```.form-textarea```
+ * - ```.form-select```
+ * - ```.form-group````
+ * - ```.form-addon```
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Provide all the style classes of the form component like .form-input, .form-textarea, etc...
+ * - ```.form-input```
+ * - ```.form-input--{color}```
+ * - ```.form-textarea```
+ * - ```.form-textarea--{color}```
+ * - ```.form-select```
+ * - ```.form-select--{color}```
+ * - ```.form-group````
+ * - ```.form-addon```
+ * - ```.form-addon--{color}```
+ * @param 		{List<Color>} 		[$colors=default primary secondary] 		The colors to generate
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * @name 	SDatepickerComponent
+ * Provide all the mixins needed to print out the s-datepicker classes
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Print out the bare and style component css
+ * @param 	{List<Color>} 		[$color=default primary secondary] 		The colors to generate
+ */
+/**
+ * Print out the bare component css
+ */
+/**
+ * Print out the style component css
+ * @param 	{List<Color>} 		[$color=default primary secondary] 		The colors to generate
+ */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none;
+}
+
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/**
+		 * @styleguide 	Colors / Swatches
+		 * @name 		default
+		 * @color 		#848e91
+		 * @display 	color
+		 */
+/**
+		 * @styleguide 	Colors / Swatches
+		 * @name 		title
+		 * @color 		#2b3438
+		 * @display 	color
+		 */
+/**
+		 * @styleguide 	Colors / Swatches
+		 * @name 		text
+		 * @color 		#848e91
+		 * @display 	color
+		 */
+/**
+		 * @styleguide 	Colors / Swatches
+		 * @name 		link
+		 * @color 		#f2bc2b
+		 * @display 	color
+		 */
+/**
+		 * @styleguide 	Colors / Swatches
+		 * @name 		primary
+		 * @color 		#f2bc2b
+		 * @display 	color
+		 */
+/**
+		 * @styleguide 	Colors / Swatches
+		 * @name 		secondary
+		 * @color 		#2b3438
+		 * @display 	color
+		 */
+/**
+		 * @styleguide 	Colors / Swatches
+		 * @name 		success
+		 * @color 		#5cb85c
+		 * @display 	color
+		 */
+/**
+		 * @styleguide 	Colors / Swatches
+		 * @name 		warning
+		 * @color 		#f0ad4e
+		 * @display 	color
+		 */
+/**
+		 * @styleguide 	Colors / Swatches
+		 * @name 		error
+		 * @color 		#d9534f
+		 * @display 	color
+		 */
+/**
+		 * @styleguide 	Colors / Swatches
+		 * @name 		info
+		 * @color 		#2199e8
+		 * @display 	color
+		 */
+.s-settings:after {
+  content: '{"unit": "rem", "reset": true, "border-box": true, "sizes": {"smaller": 0.3, "small": 0.6, "default": 1, "medium": 1.4, "big": 2, "bigger": 3}, "typography": {"font-family": "default", "font-size": "14px", "font-sizes": null, "line-letters-count": 55, "font-format": {"eot": "embedded-opentype", "woff2": "woff2", "woff": "woff", "ttf": "truetype", "otf": "opentype", "svg": "svg", "svgz": "svgz"}}, "look-and-feel": {"border-radius": "0em", "padding-vertical": "1.4em", "padding-horizontal": "0.8em", "disabled-opacity": 0.5, "line-height": 1.4}, "spaces": {"default": "1rem"}, "colors": {"default": {"color": "#848e91"}, "title": {"color": "#2b3438"}, "text": {"color": "default"}, "link": {"color": "primary"}, "primary": {"color": "#f2bc2b"}, "secondary": {"color": "#2b3438"}, "success": {"color": "#5cb85c"}, "warning": {"color": "#f0ad4e"}, "error": {"color": "#d9534f"}, "info": {"color": "#2199e8"}}, "modular-scale": {"base": "1rem", "ratio": 1.33}, "text-format": {"scope-class": "tf"}, "vertical-rhythm": {"scope-class": "vr"}, "fonts": {"default": {"font-family": ["Helvetica Neue", "Helvetica", "Verdana", "Arial", "sans-serif"], "font-weight": "normal", "cap-height": 0.65}, "quote": {"font-family": ["Palatino", "Times", "Georgia", "serif"], "font-weight": "normal", "cap-height": 0.65}, "code": {"font-family": ["Menlo", "Monaco", "Consolas", "Courier New", "monospace"], "font-weight": "normal", "cap-height": 0.65}}, "filters": [], "transitions": {"fast": ["all", "0.1s", "ease-in-out", "0s"], "default": ["all", "0.2s", "ease-in-out", "0s"], "slow": ["all", "0.5s", "ease-in-out", "0s"]}}';
+  display: none;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+html {
+  font-size: 14Px;
+  color: #848e91;
+  font-family: "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+  font-weight: normal;
+}
+
+body {
+  color: #848e91;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+				 * @name   			default
+				 * @styleguide 		Fonts / Faces
+				 * @display 		font
+				 * @font-family 	Helvetica Neue, Helvetica, Verdana, Arial, sans-serif
+				 * @font-style 		
+				 * @font-weight 	normal
+				 */
+/**
+				 * @name   			quote
+				 * @styleguide 		Fonts / Faces
+				 * @display 		font
+				 * @font-family 	Palatino, Times, Georgia, serif
+				 * @font-style 		
+				 * @font-weight 	normal
+				 */
+/**
+				 * @name   			code
+				 * @styleguide 		Fonts / Faces
+				 * @display 		font
+				 * @font-family 	Menlo, Monaco, Consolas, Courier New, monospace
+				 * @font-style 		
+				 * @font-weight 	normal
+				 */
+/**
+			 * @name 	```.tr-fast```
+			 * @styleguide  	Helpers / Transitions
+			 * @example 	html
+			 * <div class="tr-fast">
+			 * 	I'm transitionned with fast
+			 * </div>
+			 */
+.tr-fast {
+  transition: all 0.1s ease-in-out 0s, outline-color 0s linear 0s;
+  outline-color: black;
+}
+
+/**
+			 * @name 	```.tr-default```
+			 * @styleguide  	Helpers / Transitions
+			 * @example 	html
+			 * <div class="tr-default">
+			 * 	I'm transitionned with default
+			 * </div>
+			 */
+.tr-default {
+  transition: all 0.2s ease-in-out 0s, outline-color 0s linear 0s;
+  outline-color: black;
+}
+
+/**
+			 * @name 	```.tr-slow```
+			 * @styleguide  	Helpers / Transitions
+			 * @example 	html
+			 * <div class="tr-slow">
+			 * 	I'm transitionned with slow
+			 * </div>
+			 */
+.tr-slow {
+  transition: all 0.5s ease-in-out 0s, outline-color 0s linear 0s;
+  outline-color: black;
+}
+
+/**
+			 * @name 	```.f-default```
+			 * @styleguide  	Fonts / Classes
+			 * @example 	html
+			 * <div class="f-default">
+			 * 	I have the font "default" applied
+			 * </div>
+			 */
+.f-default {
+  font-family: "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+  font-weight: normal;
+}
+
+/**
+			 * @name 	```.f-quote```
+			 * @styleguide  	Fonts / Classes
+			 * @example 	html
+			 * <div class="f-quote">
+			 * 	I have the font "quote" applied
+			 * </div>
+			 */
+.f-quote {
+  font-family: Palatino, Times, Georgia, serif;
+  font-weight: normal;
+}
+
+/**
+			 * @name 	```.f-code```
+			 * @styleguide  	Fonts / Classes
+			 * @example 	html
+			 * <div class="f-code">
+			 * 	I have the font "code" applied
+			 * </div>
+			 */
+.f-code {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-weight: normal;
+}
+
+/**
+			 * @name 	```.m-b-smaller```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-b-smaller" style="background:#f2bc2b; width:100px; height:5px"></div>
+			 * <div style="background:#2b3438; width:100px; height:5px"></div>
+			 */
+.m-b-smaller {
+  margin-bottom: 0.3rem;
+}
+
+/**
+			 * @name 	```.m-t-smaller```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div style="background:#f2bc2b; width:100px; height:5px"></div>
+			 * <div class="m-t-smaller" style="background:#2b3438; width:100px; height:5px"></div>
+			 */
+.m-t-smaller {
+  margin-top: 0.3rem;
+}
+
+/**
+			 * @name 	```.m-l-smaller```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div class="m-l-smaller" style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-l-smaller {
+  margin-left: 0.3rem;
+}
+
+/**
+			 * @name 	```.m-r-smaller```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-r-smaller" style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-r-smaller {
+  margin-right: 0.3rem;
+}
+
+/**
+			 * @name 	```.m-s-smaller```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-s-smaller" style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-s-smaller {
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+}
+
+/**
+			 * @name 	```.p-smaller```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-smaller" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-smaller {
+  padding: 0.3rem;
+}
+
+/**
+			 * @name 	```.p-b-smaller```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-b-smaller" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-b-smaller {
+  padding-bottom: 0.3rem;
+}
+
+/**
+			 * @name 	```.p-t-smaller```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-t-smaller" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-t-smaller {
+  padding-top: 0.3rem;
+}
+
+/**
+			 * @name 	```.p-l-smaller```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-l-smaller" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-l-smaller {
+  padding-left: 0.3rem;
+}
+
+/**
+			 * @name 	```.p-r-smaller```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-r-smaller" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-r-smaller {
+  padding-right: 0.3rem;
+}
+
+/**
+			 * @name 	```.p-s-smaller```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-s-smaller" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-s-smaller {
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
+
+/**
+			 * @name 	```.m-b-small```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-b-small" style="background:#f2bc2b; width:100px; height:5px"></div>
+			 * <div style="background:#2b3438; width:100px; height:5px"></div>
+			 */
+.m-b-small {
+  margin-bottom: 0.6rem;
+}
+
+/**
+			 * @name 	```.m-t-small```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div style="background:#f2bc2b; width:100px; height:5px"></div>
+			 * <div class="m-t-small" style="background:#2b3438; width:100px; height:5px"></div>
+			 */
+.m-t-small {
+  margin-top: 0.6rem;
+}
+
+/**
+			 * @name 	```.m-l-small```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div class="m-l-small" style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-l-small {
+  margin-left: 0.6rem;
+}
+
+/**
+			 * @name 	```.m-r-small```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-r-small" style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-r-small {
+  margin-right: 0.6rem;
+}
+
+/**
+			 * @name 	```.m-s-small```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-s-small" style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-s-small {
+  margin-left: 0.6rem;
+  margin-right: 0.6rem;
+}
+
+/**
+			 * @name 	```.p-small```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-small" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-small {
+  padding: 0.6rem;
+}
+
+/**
+			 * @name 	```.p-b-small```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-b-small" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-b-small {
+  padding-bottom: 0.6rem;
+}
+
+/**
+			 * @name 	```.p-t-small```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-t-small" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-t-small {
+  padding-top: 0.6rem;
+}
+
+/**
+			 * @name 	```.p-l-small```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-l-small" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-l-small {
+  padding-left: 0.6rem;
+}
+
+/**
+			 * @name 	```.p-r-small```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-r-small" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-r-small {
+  padding-right: 0.6rem;
+}
+
+/**
+			 * @name 	```.p-s-small```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-s-small" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-s-small {
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+}
+
+/**
+			 * @name 	```.m-b```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-b" style="background:#f2bc2b; width:100px; height:5px"></div>
+			 * <div style="background:#2b3438; width:100px; height:5px"></div>
+			 */
+.m-b {
+  margin-bottom: 1rem;
+}
+
+/**
+			 * @name 	```.m-t```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div style="background:#f2bc2b; width:100px; height:5px"></div>
+			 * <div class="m-t" style="background:#2b3438; width:100px; height:5px"></div>
+			 */
+.m-t {
+  margin-top: 1rem;
+}
+
+/**
+			 * @name 	```.m-l```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div class="m-l" style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-l {
+  margin-left: 1rem;
+}
+
+/**
+			 * @name 	```.m-r```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-r" style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-r {
+  margin-right: 1rem;
+}
+
+/**
+			 * @name 	```.m-s```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-s" style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-s {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+/**
+			 * @name 	```.p```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p:not(p) {
+  padding: 1rem;
+}
+
+/**
+			 * @name 	```.p-b```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-b" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-b {
+  padding-bottom: 1rem;
+}
+
+/**
+			 * @name 	```.p-t```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-t" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-t {
+  padding-top: 1rem;
+}
+
+/**
+			 * @name 	```.p-l```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-l" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-l {
+  padding-left: 1rem;
+}
+
+/**
+			 * @name 	```.p-r```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-r" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-r {
+  padding-right: 1rem;
+}
+
+/**
+			 * @name 	```.p-s```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-s" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-s {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/**
+			 * @name 	```.m-b-medium```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-b-medium" style="background:#f2bc2b; width:100px; height:5px"></div>
+			 * <div style="background:#2b3438; width:100px; height:5px"></div>
+			 */
+.m-b-medium {
+  margin-bottom: 1.4rem;
+}
+
+/**
+			 * @name 	```.m-t-medium```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div style="background:#f2bc2b; width:100px; height:5px"></div>
+			 * <div class="m-t-medium" style="background:#2b3438; width:100px; height:5px"></div>
+			 */
+.m-t-medium {
+  margin-top: 1.4rem;
+}
+
+/**
+			 * @name 	```.m-l-medium```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div class="m-l-medium" style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-l-medium {
+  margin-left: 1.4rem;
+}
+
+/**
+			 * @name 	```.m-r-medium```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-r-medium" style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-r-medium {
+  margin-right: 1.4rem;
+}
+
+/**
+			 * @name 	```.m-s-medium```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-s-medium" style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-s-medium {
+  margin-left: 1.4rem;
+  margin-right: 1.4rem;
+}
+
+/**
+			 * @name 	```.p-medium```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-medium" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-medium {
+  padding: 1.4rem;
+}
+
+/**
+			 * @name 	```.p-b-medium```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-b-medium" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-b-medium {
+  padding-bottom: 1.4rem;
+}
+
+/**
+			 * @name 	```.p-t-medium```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-t-medium" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-t-medium {
+  padding-top: 1.4rem;
+}
+
+/**
+			 * @name 	```.p-l-medium```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-l-medium" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-l-medium {
+  padding-left: 1.4rem;
+}
+
+/**
+			 * @name 	```.p-r-medium```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-r-medium" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-r-medium {
+  padding-right: 1.4rem;
+}
+
+/**
+			 * @name 	```.p-s-medium```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-s-medium" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-s-medium {
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+}
+
+/**
+			 * @name 	```.m-b-big```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-b-big" style="background:#f2bc2b; width:100px; height:5px"></div>
+			 * <div style="background:#2b3438; width:100px; height:5px"></div>
+			 */
+.m-b-big {
+  margin-bottom: 2rem;
+}
+
+/**
+			 * @name 	```.m-t-big```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div style="background:#f2bc2b; width:100px; height:5px"></div>
+			 * <div class="m-t-big" style="background:#2b3438; width:100px; height:5px"></div>
+			 */
+.m-t-big {
+  margin-top: 2rem;
+}
+
+/**
+			 * @name 	```.m-l-big```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div class="m-l-big" style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-l-big {
+  margin-left: 2rem;
+}
+
+/**
+			 * @name 	```.m-r-big```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-r-big" style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-r-big {
+  margin-right: 2rem;
+}
+
+/**
+			 * @name 	```.m-s-big```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-s-big" style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-s-big {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+/**
+			 * @name 	```.p-big```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-big" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-big {
+  padding: 2rem;
+}
+
+/**
+			 * @name 	```.p-b-big```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-b-big" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-b-big {
+  padding-bottom: 2rem;
+}
+
+/**
+			 * @name 	```.p-t-big```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-t-big" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-t-big {
+  padding-top: 2rem;
+}
+
+/**
+			 * @name 	```.p-l-big```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-l-big" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-l-big {
+  padding-left: 2rem;
+}
+
+/**
+			 * @name 	```.p-r-big```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-r-big" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-r-big {
+  padding-right: 2rem;
+}
+
+/**
+			 * @name 	```.p-s-big```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-s-big" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-s-big {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/**
+			 * @name 	```.m-b-bigger```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-b-bigger" style="background:#f2bc2b; width:100px; height:5px"></div>
+			 * <div style="background:#2b3438; width:100px; height:5px"></div>
+			 */
+.m-b-bigger {
+  margin-bottom: 3rem;
+}
+
+/**
+			 * @name 	```.m-t-bigger```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div style="background:#f2bc2b; width:100px; height:5px"></div>
+			 * <div class="m-t-bigger" style="background:#2b3438; width:100px; height:5px"></div>
+			 */
+.m-t-bigger {
+  margin-top: 3rem;
+}
+
+/**
+			 * @name 	```.m-l-bigger```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div class="m-l-bigger" style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-l-bigger {
+  margin-left: 3rem;
+}
+
+/**
+			 * @name 	```.m-r-bigger```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-r-bigger" style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-r-bigger {
+  margin-right: 3rem;
+}
+
+/**
+			 * @name 	```.m-s-bigger```
+			 * @styleguide  	Layout / Margins
+			 * @example 	html
+			 * <div class="m-s-bigger" style="display:inline-block; background:#f2bc2b; width:50px; height:50px"></div>
+			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
+			 */
+.m-s-bigger {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+/**
+			 * @name 	```.p-bigger```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-bigger" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-bigger {
+  padding: 3rem;
+}
+
+/**
+			 * @name 	```.p-b-bigger```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-b-bigger" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-b-bigger {
+  padding-bottom: 3rem;
+}
+
+/**
+			 * @name 	```.p-t-bigger```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-t-bigger" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-t-bigger {
+  padding-top: 3rem;
+}
+
+/**
+			 * @name 	```.p-l-bigger```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-l-bigger" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-l-bigger {
+  padding-left: 3rem;
+}
+
+/**
+			 * @name 	```.p-r-bigger```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-r-bigger" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-r-bigger {
+  padding-right: 3rem;
+}
+
+/**
+			 * @name 	```.p-s-bigger```
+			 * @styleguide  	Layout / Paddings
+			 * @example 	html
+			 * <div class="p-s-bigger" style="border:1px solid #f2bc2b; width:150px; height:150px;">
+			 * 	<div style="background:#2b3438; width:100%; height:100%"></div>
+			 * </div>
+			 */
+.p-s-bigger {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+/**
+			 * @name 	```.s-smaller```
+			 * @styleguide  	Layout / Sizes
+			 * @example 	html
+			 * <div class="s-smaller">
+			 * 	I have the size "smaller" defined
+			 * </div>
+			 */
+.s-smaller {
+  font-size: 0.3rem;
+}
+
+/**
+			 * @name 	```.s-smaller-rel```
+			 * @styleguide  	Layout / Sizes
+			 * @example 	html
+			 * <div class="s-smaller-rel">
+			 * 	I have the size "smaller" defined relative to my parent
+			 * </div>
+			 */
+.s-smaller-rel {
+  font-size: 0.3em;
+}
+
+/**
+			 * @name 	```.s-small```
+			 * @styleguide  	Layout / Sizes
+			 * @example 	html
+			 * <div class="s-small">
+			 * 	I have the size "small" defined
+			 * </div>
+			 */
+.s-small {
+  font-size: 0.6rem;
+}
+
+/**
+			 * @name 	```.s-small-rel```
+			 * @styleguide  	Layout / Sizes
+			 * @example 	html
+			 * <div class="s-small-rel">
+			 * 	I have the size "small" defined relative to my parent
+			 * </div>
+			 */
+.s-small-rel {
+  font-size: 0.6em;
+}
+
+/**
+			 * @name 	```.s-default```
+			 * @styleguide  	Layout / Sizes
+			 * @example 	html
+			 * <div class="s-default">
+			 * 	I have the size "default" defined
+			 * </div>
+			 */
+.s-default {
+  font-size: 1rem;
+}
+
+/**
+			 * @name 	```.s-default-rel```
+			 * @styleguide  	Layout / Sizes
+			 * @example 	html
+			 * <div class="s-default-rel">
+			 * 	I have the size "default" defined relative to my parent
+			 * </div>
+			 */
+.s-default-rel {
+  font-size: 1em;
+}
+
+/**
+			 * @name 	```.s-medium```
+			 * @styleguide  	Layout / Sizes
+			 * @example 	html
+			 * <div class="s-medium">
+			 * 	I have the size "medium" defined
+			 * </div>
+			 */
+.s-medium {
+  font-size: 1.4rem;
+}
+
+/**
+			 * @name 	```.s-medium-rel```
+			 * @styleguide  	Layout / Sizes
+			 * @example 	html
+			 * <div class="s-medium-rel">
+			 * 	I have the size "medium" defined relative to my parent
+			 * </div>
+			 */
+.s-medium-rel {
+  font-size: 1.4em;
+}
+
+/**
+			 * @name 	```.s-big```
+			 * @styleguide  	Layout / Sizes
+			 * @example 	html
+			 * <div class="s-big">
+			 * 	I have the size "big" defined
+			 * </div>
+			 */
+.s-big {
+  font-size: 2rem;
+}
+
+/**
+			 * @name 	```.s-big-rel```
+			 * @styleguide  	Layout / Sizes
+			 * @example 	html
+			 * <div class="s-big-rel">
+			 * 	I have the size "big" defined relative to my parent
+			 * </div>
+			 */
+.s-big-rel {
+  font-size: 2em;
+}
+
+/**
+			 * @name 	```.s-bigger```
+			 * @styleguide  	Layout / Sizes
+			 * @example 	html
+			 * <div class="s-bigger">
+			 * 	I have the size "bigger" defined
+			 * </div>
+			 */
+.s-bigger {
+  font-size: 3rem;
+}
+
+/**
+			 * @name 	```.s-bigger-rel```
+			 * @styleguide  	Layout / Sizes
+			 * @example 	html
+			 * <div class="s-bigger-rel">
+			 * 	I have the size "bigger" defined relative to my parent
+			 * </div>
+			 */
+.s-bigger-rel {
+  font-size: 3em;
+}
+
+/**
+		 * @name 	```.no-p-t```
+		 * Reset **top** padding
+		 * @styleguide  	Layout / No padding
+		 * @example 	html
+		 * <div class="no-p-t" style="display:inline-block; background:#f2bc2b; width:50px; height:50px;"></div>
+		 */
+.no-p-t {
+  padding-top: 0 !important;
+}
+
+/**
+		 * @name 	```.no-p-r```
+		 * Reset **right** padding
+		 * @styleguide  	Layout / No padding
+		 * @example 	html
+		 * <div class="no-p-r" style="display:inline-block; background:#f2bc2b; width:50px; height:50px;"></div>
+		 */
+.no-p-r {
+  padding-right: 0 !important;
+}
+
+/**
+		 * @name 	```.no-p-b```
+		 * Reset **bottom** padding
+		 * @styleguide  	Layout / No padding
+		 * @example 	html
+		 * <div class="no-p-b" style="display:inline-block; background:#f2bc2b; width:50px; height:50px;"></div>
+		 */
+.no-p-b {
+  padding-bottom: 0 !important;
+}
+
+/**
+		 * @name 	```.no-p-l```
+		 * Reset **left** padding
+		 * @styleguide  	Layout / No padding
+		 * @example 	html
+		 * <div class="no-p-l" style="display:inline-block; background:#f2bc2b; width:50px; height:50px;"></div>
+		 */
+.no-p-l {
+  padding-left: 0 !important;
+}
+
+/**
+		 * @name 	```.no-p-s```
+		 * Reset **left** and **right** paddings
+		 * @styleguide  	Layout / No padding
+		 * @example 	html
+		 * <div class="no-p-s" style="display:inline-block; background:#f2bc2b; width:50px; height:50px;"></div>
+		 */
+.no-p-s {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/**
+		 * @name 	```.no-m-t```
+		 * Reset **top** padding
+		 * @styleguide  	Layout / No margin
+		 * @example 	html
+		 * <div class="no-m-t" style="display:inline-block; background:#f2bc2b; width:50px; height:50px;"></div>
+		 */
+.no-m-t {
+  margin-top: 0 !important;
+}
+
+/**
+		 * @name 	```.no-m-r```
+		 * Reset **right** padding
+		 * @styleguide  	Layout / No margin
+		 * @example 	html
+		 * <div class="no-m-r" style="display:inline-block; background:#f2bc2b; width:50px; height:50px;"></div>
+		 */
+.no-m-r {
+  margin-right: 0 !important;
+}
+
+/**
+		 * @name 	```.no-m-b```
+		 * Reset **bottom** padding
+		 * @styleguide  	Layout / No margin
+		 * @example 	html
+		 * <div class="no-m-b" style="display:inline-block; background:#f2bc2b; width:50px; height:50px;"></div>
+		 */
+.no-m-b {
+  margin-bottom: 0 !important;
+}
+
+/**
+		 * @name 	```.no-m-l```
+		 * Reset **left** padding
+		 * @styleguide  	Layout / No margin
+		 * @example 	html
+		 * <div class="no-m-l" style="display:inline-block; background:#f2bc2b; width:50px; height:50px;"></div>
+		 */
+.no-m-l {
+  margin-left: 0 !important;
+}
+
+/**
+		 * @name 	```.no-m-s```
+		 * Reset **left** and **right** margins
+		 * @styleguide  	Layout / No padding
+		 * @example 	html
+		 * <div class="no-m-s" style="display:inline-block; background:#f2bc2b; width:50px; height:50px;"></div>
+		 */
+.no-m-s {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/**
+				 * @name 	```.c-default```
+				 * Specify the color to **default**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="c-default">
+				 * 	I'm in "default" color
+				 * </div>
+				 */
+.c-default {
+  color: #848e91;
+}
+
+/**
+				 * @name 	```.bkg-default```
+				 * Specify the background color to **default**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="bkg-default p" style="color:white">
+				 * 	My background color is "default"
+				 * </div>
+				 */
+.bkg-default {
+  background-color: #848e91;
+}
+
+/**
+				 * @name 	```.c-title```
+				 * Specify the color to **title**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="c-title">
+				 * 	I'm in "title" color
+				 * </div>
+				 */
+.c-title {
+  color: #2b3438;
+}
+
+/**
+				 * @name 	```.bkg-title```
+				 * Specify the background color to **title**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="bkg-title p" style="color:white">
+				 * 	My background color is "title"
+				 * </div>
+				 */
+.bkg-title {
+  background-color: #2b3438;
+}
+
+/**
+				 * @name 	```.c-text```
+				 * Specify the color to **text**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="c-text">
+				 * 	I'm in "text" color
+				 * </div>
+				 */
+.c-text {
+  color: #848e91;
+}
+
+/**
+				 * @name 	```.bkg-text```
+				 * Specify the background color to **text**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="bkg-text p" style="color:white">
+				 * 	My background color is "text"
+				 * </div>
+				 */
+.bkg-text {
+  background-color: #848e91;
+}
+
+/**
+				 * @name 	```.c-link```
+				 * Specify the color to **link**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="c-link">
+				 * 	I'm in "link" color
+				 * </div>
+				 */
+.c-link {
+  color: #f2bc2b;
+}
+
+/**
+				 * @name 	```.bkg-link```
+				 * Specify the background color to **link**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="bkg-link p" style="color:white">
+				 * 	My background color is "link"
+				 * </div>
+				 */
+.bkg-link {
+  background-color: #f2bc2b;
+}
+
+/**
+				 * @name 	```.c-primary```
+				 * Specify the color to **primary**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="c-primary">
+				 * 	I'm in "primary" color
+				 * </div>
+				 */
+.c-primary {
+  color: #f2bc2b;
+}
+
+/**
+				 * @name 	```.bkg-primary```
+				 * Specify the background color to **primary**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="bkg-primary p" style="color:white">
+				 * 	My background color is "primary"
+				 * </div>
+				 */
+.bkg-primary {
+  background-color: #f2bc2b;
+}
+
+/**
+				 * @name 	```.c-secondary```
+				 * Specify the color to **secondary**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="c-secondary">
+				 * 	I'm in "secondary" color
+				 * </div>
+				 */
+.c-secondary {
+  color: #2b3438;
+}
+
+/**
+				 * @name 	```.bkg-secondary```
+				 * Specify the background color to **secondary**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="bkg-secondary p" style="color:white">
+				 * 	My background color is "secondary"
+				 * </div>
+				 */
+.bkg-secondary {
+  background-color: #2b3438;
+}
+
+/**
+				 * @name 	```.c-success```
+				 * Specify the color to **success**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="c-success">
+				 * 	I'm in "success" color
+				 * </div>
+				 */
+.c-success {
+  color: #5cb85c;
+}
+
+/**
+				 * @name 	```.bkg-success```
+				 * Specify the background color to **success**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="bkg-success p" style="color:white">
+				 * 	My background color is "success"
+				 * </div>
+				 */
+.bkg-success {
+  background-color: #5cb85c;
+}
+
+/**
+				 * @name 	```.c-warning```
+				 * Specify the color to **warning**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="c-warning">
+				 * 	I'm in "warning" color
+				 * </div>
+				 */
+.c-warning {
+  color: #f0ad4e;
+}
+
+/**
+				 * @name 	```.bkg-warning```
+				 * Specify the background color to **warning**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="bkg-warning p" style="color:white">
+				 * 	My background color is "warning"
+				 * </div>
+				 */
+.bkg-warning {
+  background-color: #f0ad4e;
+}
+
+/**
+				 * @name 	```.c-error```
+				 * Specify the color to **error**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="c-error">
+				 * 	I'm in "error" color
+				 * </div>
+				 */
+.c-error {
+  color: #d9534f;
+}
+
+/**
+				 * @name 	```.bkg-error```
+				 * Specify the background color to **error**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="bkg-error p" style="color:white">
+				 * 	My background color is "error"
+				 * </div>
+				 */
+.bkg-error {
+  background-color: #d9534f;
+}
+
+/**
+				 * @name 	```.c-info```
+				 * Specify the color to **info**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="c-info">
+				 * 	I'm in "info" color
+				 * </div>
+				 */
+.c-info {
+  color: #2199e8;
+}
+
+/**
+				 * @name 	```.bkg-info```
+				 * Specify the background color to **info**
+				 * @styleguide  	Colors / Classes
+				 * @example 	html
+				 * <div class="bkg-info p" style="color:white">
+				 * 	My background color is "info"
+				 * </div>
+				 */
+.bkg-info {
+  background-color: #2199e8;
+}
+
+/**
+	 * @name 	```.h1```
+	 * h1 title styling
+	 * @styleguide 	Typography / Titles
+	 * @example 	html
+	 * <h1 class="h1">Hello World</h1>
+	 * <div class="tf">
+	 * 	<h1>Hello World</h1>
+	 * </div>
+	 */
+.h1,
+.tf h1 {
+  font-size: 3.5em;
+  line-height: 1.5;
+}
+
+/**
+	 * @name 	```.h2```
+	 * h2 title styling
+	 * @styleguide 	Typography / Titles
+	 * @example 	html
+	 * <h2 class="h2">Hello World</h2>
+	 * <div class="tf">
+	 * 	<h2>Hello World</h2>
+	 * </div>
+	 */
+.h2,
+.tf h2 {
+  font-size: 3em;
+  line-height: 1.5;
+}
+
+/**
+	 * @name 	```.h3```
+	 * h3 title styling
+	 * @styleguide 	Typography / Titles
+	 * @example 	html
+	 * <h3 class="h3">Hello World</h3>
+	 * <div class="tf">
+	 * 	<h3>Hello World</h3>
+	 * </div>
+	 */
+.h3,
+.tf h3 {
+  font-size: 2.5em;
+  line-height: 1.5;
+}
+
+/**
+	 * @name 	```.h4```
+	 * h4 title styling
+	 * @styleguide 	Typography / Titles
+	 * @example 	html
+	 * <h4 class="h4">Hello World</h4>
+	 * <div class="tf">
+	 * 	<h4>Hello World</h4>
+	 * </div>
+	 */
+.h4,
+.tf h4 {
+  font-size: 2em;
+  line-height: 1.5;
+}
+
+/**
+	 * @name 	```.h5```
+	 * h5 title styling
+	 * @styleguide 	Typography / Titles
+	 * @example 	html
+	 * <h5 class="h5">Hello World</h5>
+	 * <div class="tf">
+	 * 	<h5>Hello World</h5>
+	 * </div>
+	 */
+.h5,
+.tf h5 {
+  font-size: 1.5em;
+  line-height: 1.5;
+}
+
+/**
+	 * @name 	```.h6```
+	 * h6 title styling
+	 * @styleguide 	Typography / Titles
+	 * @example 	html
+	 * <h6 class="h6">Hello World</h6>
+	 * <div class="tf">
+	 * 	<h6>Hello World</h6>
+	 * </div>
+	 */
+.h6,
+.tf h6 {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+h1.vr,
+.vr h1, h2.vr,
+.vr h2, h3.vr,
+.vr h3, h4.vr,
+.vr h4, h5.vr,
+.vr h5, h6.vr,
+.vr h6,
+.h1.vr,
+.vr
+.h1, .h2.vr,
+.vr .h2, .h3.vr,
+.vr .h3, .h4.vr,
+.vr .h4, .h5.vr,
+.vr .h5, .h6.vr,
+.vr .h6 {
+  margin-bottom: 1rem;
+}
+
+h1.vr:last-child,
+.vr h1:last-child, h2.vr:last-child,
+.vr h2:last-child, h3.vr:last-child,
+.vr h3:last-child, h4.vr:last-child,
+.vr h4:last-child, h5.vr:last-child,
+.vr h5:last-child, h6.vr:last-child,
+.vr h6:last-child,
+.h1.vr:last-child,
+.vr
+.h1:last-child, .h2.vr:last-child,
+.vr .h2:last-child, .h3.vr:last-child,
+.vr .h3:last-child, .h4.vr:last-child,
+.vr .h4:last-child, .h5.vr:last-child,
+.vr .h5:last-child, .h6.vr:last-child,
+.vr .h6:last-child {
+  margin-bottom: 0;
+}
+
+/**
+	 * @name 	```.p```
+	 * Default paragraph styling
+	 * @styleguide 	Typography / Paragraphs
+	 * @example 	html
+	 * <p class="p ">
+	 * 	Duis gravida justo at urna interdum blandit. Sed venenatis, eros dictum gravida dictum, mauris sapien feugiat libero, at fermentum quam tellus dignissim nunc. Donec eu rutrum dui, in rhoncus lacus.
+	 * </p>
+	 * <div class="tf ">
+	 * 	<p>
+	 * 		Duis gravida justo at urna interdum blandit. Sed venenatis, eros dictum gravida dictum, mauris sapien feugiat libero, at fermentum quam tellus dignissim nunc. Donec eu rutrum dui, in rhoncus lacus.
+	 *   </p>
+	 * </div>
+	 */
+.p,
+.tf p {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+/**
+	 * @name 	```.p--lead```
+	 * Lead paragraph styling
+	 * @styleguide 	Typography / Paragraphs
+	 * @example 	html
+	 * <p class="p p--lead ">
+	 * 	Duis gravida justo at urna interdum blandit. Sed venenatis, eros dictum gravida dictum, mauris sapien feugiat libero, at fermentum quam tellus dignissim nunc. Donec eu rutrum dui, in rhoncus lacus.
+	 * </p>
+	 * <div class="tf ">
+	 * 	<p class="lead">
+	 * 		Duis gravida justo at urna interdum blandit. Sed venenatis, eros dictum gravida dictum, mauris sapien feugiat libero, at fermentum quam tellus dignissim nunc. Donec eu rutrum dui, in rhoncus lacus.
+	 *   </p>
+	 * </div>
+	 */
+.p--lead,
+.tf p.lead {
+  font-size: 1.3em !important;
+  font-weight: lighter;
+}
+
+p.vr,
+.vr p, .p.vr,
+.vr .p {
+  margin-bottom: 1rem;
+}
+
+p.vr:last-child,
+.vr p:last-child, .p.vr:last-child,
+.vr .p:last-child {
+  margin-bottom: 0;
+}
+
+.link,
+.tf a:not(.btn) {
+  text-decoration: none;
+  color: #f2bc2b;
+}
+
+/**
+	 * @name 		Marked text ```.mark```
+	 * For highlighting a run of text due to its relevance in another context, use the ```mark``` tag.
+	 * @styleguide 		Typography / Inline texts
+	 * @example 		html
+	 * This is a <span class="mark">marked text</span>
+	 * <div class="tf">
+	 * 	This is another <mark>marked text</mark>
+	 * </div>
+	 */
+/**
+	 * @name 		Deleted text ```.del```
+	 * For indicating blocks of text that have been deleted use the ```del``` tag.
+	 * @styleguide 		Typography / Inline texts
+	 * @example 		html
+	 * This is a <span class="del">deleted text</span>
+	 * <div class="tf">
+	 * 	This is another <del>deleted text</del>
+	 * </div>
+	 */
+/**
+	 * @name 		Strikethrough text ```.s```
+	 * For indicating blocks of text that are no longer relevant use the ```s``` tag.
+	 * @styleguide 		Typography / Inline texts
+	 * @example 		html
+	 * This is a <span class="s">striked through text</span>
+	 * <div class="tf">
+	 * 	This is another <s>striked through text</s>
+	 * </div>
+	 */
+/**
+	 * @name 		Inserted text ```.ins```
+	 * For indicating additions to the document use the ```ins``` tag.
+	 * @styleguide 		Typography / Inline texts
+	 * @example 		html
+	 * This is a <span class="ins">inserted text</span>
+	 * <div class="tf">
+	 * 	This is another <ins>inserted text</ins>
+	 * </div>
+	 */
+/**
+	 * @name 		Underlined text ```.u```
+	 * To underline text use the ```u``` tag.
+	 * @styleguide 		Typography / Inline texts
+	 * @example 		html
+	 * This is a <span class="u">underlined text</span>
+	 * <div class="tf">
+	 * 	This is another <u>underlined text</u>
+	 * </div>
+	 */
+/**
+	 * @name 		Small text ```.small```
+	 * For de-emphasizing inline or blocks of text, use the ```small``` tag to set text at 85% the size of the parent.
+	 * @styleguide 		Typography / Inline texts
+	 * @example 		html
+	 * This is a <span class="small">small text</span>
+	 * <div class="tf">
+	 * 	This is another <small>small text</small>
+	 * </div>
+	 */
+/**
+	 * @name 		Bold ```.strong```
+	 * For emphasizing a snippet of text with a heavier font-weight.
+	 * @styleguide 		Typography / Inline texts
+	 * @example 		html
+	 * This is a <span class="strong">strong text</span>
+	 * <div class="tf">
+	 * 	This is another <strong>strong text</strong>
+	 * </div>
+	 */
+/**
+	 * @name 		Italics ```.em```
+	 * For emphasizing a snippet of text with italics.
+	 * @styleguide 		Typography / Inline texts
+	 * @example 		html
+	 * This is an <span class="em">italic text</span>
+	 * <div class="tf">
+	 * 	This is another <em>italic text</em>
+	 * </div>
+	 */
+.mark,
+.tf mark {
+  background-color: rgba(242, 188, 43, 0.1);
+}
+
+.del,
+.tf del {
+  text-decoration: line-through;
+}
+
+.s,
+.tf s {
+  text-decoration: line-through;
+}
+
+.ins,
+.tf ins {
+  text-decoration: underline;
+}
+
+.u,
+.tf u {
+  text-decoration: underline;
+}
+
+.small,
+.tf small {
+  font-size: .65em;
+}
+
+.strong,
+.tf strong {
+  font-weight: bold;
+}
+
+.em,
+.tf em {
+  font-style: italic;
+}
+
+/**
+	 * @name 	Description list ```.dl .dt .dd```
+	 * A list of terms with their associated descriptions.
+	 * @styleguide 		Typography / Lists
+	 * @example 	html
+	 * <div class="tf">
+	 * 	<dl>
+	 *  	<dt>List item 1</dt>
+	 *  	<dd>Mauris sit amet erat vitae mi pellentesque placerat. Vestibulum dapibus.</dd>
+	 *  	<dt>List item 1</dt>
+	 *  	<dd>Mauris sit amet erat vitae mi pellentesque placerat. Vestibulum dapibus.</dd>
+	 *  	<dt>List item 1</dt>
+	 *  	<dd>Mauris sit amet erat vitae mi pellentesque placerat. Vestibulum dapibus.</dd>
+	 * 	</dl>
+	 * </div>
+	 */
+.dl,
+.tf dl {
+  counter-reset: s-list;
+}
+
+.dt,
+.tf dl > dt {
+  font-weight: bold;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.dd,
+.tf dl > dd {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/**
+	 * @name 	Unordered list ```.ul .li```
+	 * A list of items in which the order does not explicitly matter.
+	 * @styleguide 		Typography / Lists
+	 * @example 	html
+	 * <div class="tf">
+	 * 	<ul>
+	 *  	<li>List item 1</li>
+	 *  	<li>List item 2</li>
+	 *  	<li>List item 3</li>
+	 *  	<li>List item 4</li>
+	 * 	</ul>
+	 * </div>
+	 */
+.ul,
+.tf ul {
+  counter-reset: s-list;
+}
+
+.ul > .li,
+.ul > li,
+.tf ul > li {
+  padding-left: 1em;
+  position: relative;
+  line-height: 1.5;
+}
+
+.ul > .li:before,
+.ul > li:before,
+.tf ul > li:before {
+  content: counter(s-list, circle);
+  counter-increment: s-list;
+}
+
+.ul > .li:before,
+.ul > li:before,
+.tf ul > li:before {
+  left: 0;
+  color: #848e91 !important;
+}
+
+.ul > .li:before,
+.ul > li:before,
+.tf ul > li:before {
+  position: absolute;
+  display: block;
+}
+
+.ul > .li > ul,
+.ul > .li > ol,
+.ul > .li > dl,
+.ul > li > ul,
+.ul > li > ol,
+.ul > li > dl,
+.tf ul > li > ul,
+.tf ul > li > ol,
+.tf ul > li > dl {
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+/**
+	 * @name 	Ordered list ```.ol .li```
+	 * A list of items in which the order does explicitly matter.
+	 * @styleguide 		Typography / Lists
+	 * @example 	html
+	 * <div class="tf">
+	 * 	<ol>
+	 *  	<li>List item 1</li>
+	 *  	<li>List item 2</li>
+	 *  	<li>List item 3</li>
+	 *  	<li>List item 4</li>
+	 * 	</ol>
+	 * </div>
+	 */
+.ol,
+.tf ol {
+  counter-reset: s-list;
+}
+
+.ol > .li,
+.ol > li,
+.tf ol > li {
+  padding-left: 1em;
+  position: relative;
+  line-height: 1.5;
+}
+
+.ol > .li:before,
+.ol > li:before,
+.tf ol > li:before {
+  content: counter(s-list, decimal);
+  counter-increment: s-list;
+}
+
+.ol > .li:before,
+.ol > li:before,
+.tf ol > li:before {
+  left: 0;
+  top: 0.4em;
+  color: #848e91 !important;
+  font-size: 0.6em !important;
+}
+
+.ol > .li:before,
+.ol > li:before,
+.tf ol > li:before {
+  position: absolute;
+  display: block;
+}
+
+.ol > .li > ul,
+.ol > .li > ol,
+.ol > .li > dl,
+.ol > li > ul,
+.ol > li > ol,
+.ol > li > dl,
+.tf ol > li > ul,
+.tf ol > li > ol,
+.tf ol > li > dl {
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+dl.vr,
+.vr dl, ul.vr,
+.vr ul, ol.vr,
+.vr ol,
+.dl.vr,
+.vr
+.dl, .ul.vr,
+.vr .ul, .ol.vr,
+.vr .ol {
+  margin-bottom: 1rem;
+}
+
+dl.vr:last-child,
+.vr dl:last-child, ul.vr:last-child,
+.vr ul:last-child, ol.vr:last-child,
+.vr ol:last-child,
+.dl.vr:last-child,
+.vr
+.dl:last-child, .ul.vr:last-child,
+.vr .ul:last-child, .ol.vr:last-child,
+.vr .ol:last-child {
+  margin-bottom: 0;
+}
+
+dl.vr dl, dl.vr ul, dl.vr ol,
+dl.vr .dl, dl.vr .ul, dl.vr .ol,
+.vr dl dl,
+.vr dl ul,
+.vr dl ol,
+.vr dl .dl,
+.vr dl .ul,
+.vr dl .ol, ul.vr dl, ul.vr ul, ul.vr ol,
+ul.vr .dl, ul.vr .ul, ul.vr .ol,
+.vr ul dl,
+.vr ul ul,
+.vr ul ol,
+.vr ul .dl,
+.vr ul .ul,
+.vr ul .ol, ol.vr dl, ol.vr ul, ol.vr ol,
+ol.vr .dl, ol.vr .ul, ol.vr .ol,
+.vr ol dl,
+.vr ol ul,
+.vr ol ol,
+.vr ol .dl,
+.vr ol .ul,
+.vr ol .ol,
+.dl.vr dl,
+.dl.vr ul,
+.dl.vr ol,
+.dl.vr .dl,
+.dl.vr .ul,
+.dl.vr .ol,
+.vr
+.dl dl,
+.vr
+.dl ul,
+.vr
+.dl ol,
+.vr
+.dl .dl,
+.vr
+.dl .ul,
+.vr
+.dl .ol, .ul.vr dl, .ul.vr ul, .ul.vr ol,
+.ul.vr .dl, .ul.vr .ul, .ul.vr .ol,
+.vr .ul dl,
+.vr .ul ul,
+.vr .ul ol,
+.vr .ul .dl,
+.vr .ul .ul,
+.vr .ul .ol, .ol.vr dl, .ol.vr ul, .ol.vr ol,
+.ol.vr .dl, .ol.vr .ul, .ol.vr .ol,
+.vr .ol dl,
+.vr .ol ul,
+.vr .ol ol,
+.vr .ol .dl,
+.vr .ol .ul,
+.vr .ol .ol {
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+.dt,
+.tf dl > dt {
+  font-weight: bold;
+  color: #848e91;
+}
+
+.dd,
+.tf dl > dd {
+  color: #848e91;
+}
+
+.ul > .li,
+.ul > li,
+.tf ul > li {
+  padding-left: 1em;
+  position: relative;
+  color: #848e91;
+}
+
+.ul > .li:before,
+.ul > li:before,
+.tf ul > li:before {
+  content: counter(s-list, circle);
+  counter-increment: s-list;
+}
+
+.ul > .li:before,
+.ul > li:before,
+.tf ul > li:before {
+  left: 0;
+  color: #f2bc2b !important;
+}
+
+.ul > .li:before,
+.ul > li:before,
+.tf ul > li:before {
+  position: absolute;
+  display: block;
+}
+
+.ul > .li > ul,
+.ul > .li > ol,
+.ul > .li > dl,
+.ul > li > ul,
+.ul > li > ol,
+.ul > li > dl,
+.tf ul > li > ul,
+.tf ul > li > ol,
+.tf ul > li > dl {
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.ol > .li,
+.ol > li,
+.tf ol > li {
+  padding-left: 1em;
+  position: relative;
+  color: #848e91;
+}
+
+.ol > .li:before,
+.ol > li:before,
+.tf ol > li:before {
+  content: counter(s-list, decimal);
+  counter-increment: s-list;
+}
+
+.ol > .li:before,
+.ol > li:before,
+.tf ol > li:before {
+  left: 0;
+  top: 0.4em;
+  color: #f2bc2b !important;
+  font-size: 0.6em !important;
+}
+
+.ol > .li:before,
+.ol > li:before,
+.tf ol > li:before {
+  position: absolute;
+  display: block;
+}
+
+.ol > .li > ul,
+.ol > .li > ol,
+.ol > .li > dl,
+.ol > li > ul,
+.ol > li > ol,
+.ol > li > dl,
+.tf ol > li > ul,
+.tf ol > li > ol,
+.tf ol > li > dl {
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+/**
+	 * @name 		Default caption ```.caption```
+	 * Display a caption styled text
+	 * @styleguide 	Typography / Caption
+	 * @example 	html
+	 * <div class="tf">
+	 * 	<div class="caption">
+	 * 		Nunc venenatis, odio at porta egestas, tortor eros mollis sapien.
+	 * 	</div>
+	 * </div>
+	 */
+.caption,
+.tf caption,
+.tf figcaption {
+  font-style: italic;
+  font-size: .65em;
+  display: block;
+}
+
+.caption,
+.figcaption .tf caption,
+.tf figcaption {
+  opacity: .65;
+}
+
+/**
+	 * @name 		Default quote ```.blockquote```
+	 * Display a quote styled text
+	 * @styleguide 	Typography / Quote
+	 * @example 	html
+	 * <div class="tf">
+	 * 	<quote>
+	 * 		Nunc venenatis, odio at porta egestas, tortor eros mollis sapien.
+	 * 	</quote>
+	 * 	<div class="caption pull-right">
+	 *  	John Doe
+	 * 	</div>
+	 * </div>
+	 */
+.quote,
+.blockquote,
+.tf quote,
+.tf blockquote {
+  font-size: 2.5em;
+  font-style: italic;
+  font-family: Palatino, Times, Georgia, serif;
+  font-weight: normal;
+  padding: 1rem 2rem 1rem 2rem;
+  display: block;
+}
+
+.quote cite,
+.blockquote cite,
+.tf quote cite,
+.tf blockquote cite {
+  font-size: .5em;
+  font-style: italic;
+  display: block;
+  margin-top: 1rem;
+}
+
+.quote cite:before,
+.blockquote cite:before,
+.tf quote cite:before,
+.tf blockquote cite:before {
+  content: "\2014 \0020";
+}
+
+.quote.vr,
+.vr .quote,
+.blockquote.vr,
+.vr
+.blockquote,
+quote.vr,
+.vr
+quote,
+blockquote.vr,
+.vr
+blockquote {
+  margin-bottom: 1rem;
+}
+
+.quote.vr:last-child,
+.vr .quote:last-child,
+.blockquote.vr:last-child,
+.vr
+.blockquote:last-child,
+quote.vr:last-child,
+.vr
+quote:last-child,
+blockquote.vr:last-child,
+.vr
+blockquote:last-child {
+  margin-bottom: 0;
+}
+
+.quote,
+.blockquote,
+.tf blockquote,
+.tf quote {
+  position: relative;
+}
+
+.quote:before, .quote:after,
+.blockquote:before,
+.blockquote:after,
+.tf blockquote:before,
+.tf blockquote:after,
+.tf quote:before,
+.tf quote:after {
+  display: inline-block;
+  position: absolute;
+  opacity: .4;
+}
+
+.quote:before,
+.blockquote:before,
+.tf blockquote:before,
+.tf quote:before {
+  content: "“";
+  top: 0;
+  left: 0;
+}
+
+.quote:after,
+.blockquote:after,
+.tf blockquote:after,
+.tf quote:after {
+  content: "”";
+  bottom: 0;
+  right: 0;
+}
+
+/**
+		 * @name 	```.form-input```
+		 * @styleguide 		Forms / Input
+		 * @example 	html
+		 * <input class="form-input" placeholder="Hello world" />
+		 */
+.form-input {
+  font-family: "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+  font-weight: normal;
+  border-radius: 0em;
+  padding: 0 1.4em;
+  height: 2.6em;
+}
+
+.form-input:not(input):not(select) {
+  padding: 0.8em 1.4em;
+}
+
+.form-input::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+.form-input::-ms-clear {
+  display: none;
+}
+
+/**
+		 * @name 	```.form-select```
+		 * @styleguide 		Forms / Select
+		 * @example 	html
+		 * <select class="form-select">
+		 * 	<option>Value 1</option>
+		 * 	<option>Value 2</option>
+		 * 	<option>Value 3</option>
+		 * </select>
+		 */
+.form-select {
+  font-family: "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+  font-weight: normal;
+  background-size: 9px 6px;
+  background-position: right center;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  background-color: white;
+  border-radius: 0em;
+  padding: 0 1.4em;
+  height: 2.6em;
+}
+
+.form-select:not(input):not(select) {
+  padding: 0.8em 1.4em;
+}
+
+.form-select::-ms-expand {
+  display: none;
+}
+
+/**
+		 * @name 	```.form-textarea```
+		 * @styleguide 		Forms / Textarea
+		 * @example 	html
+		 * <textarea class="form-textarea" placeholder="Hello world"></textarea>
+		 */
+.form-textarea {
+  font-family: "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+  font-weight: normal;
+  padding: 0.8em 1.4em;
+  display: inline-block;
+}
+
+/**
+		 * @name 	```.form-group```
+		 * @styleguide 		Forms / Group
+		 * @example 	html
+		 * <div class="form-group">
+		 * 	<input class="form-input" placeholder="Hello world" />
+		 * 	<input class="btn" type="submit" value="Ok" />
+		 * </div>
+		 */
+.form-group {
+  display: flex !important;
+  flex: 1 !important;
+  align-items: center !important;
+}
+
+.form-group > * {
+  flex: 1;
+}
+
+.form-group > input[type="submit"],
+.form-group > input[type="checkbox"],
+.form-group > input[type="radio"],
+.form-group > button,
+.form-group .form-addon {
+  flex: 0;
+}
+
+/**
+		 * @name 	```.form-addon```
+		 * @styleguide 		Forms / Addon
+		 * @example 	html
+		 * <div class="form-group">
+		 * 	<div class="form-addon">
+		 *  	Email
+		 *  </div>
+		 * 	<input class="form-input" placeholder="john.doe@gmail.com" />
+		 * 	<input class="btn" type="submit" value="Ok" />
+		 * </div>
+		 */
+.form-addon {
+  border-radius: 0em;
+  padding: 0 1.4em;
+  height: 2.6em;
+}
+
+.form-addon:not(input):not(select) {
+  padding: 0.8em 1.4em;
+}
+
+.form-addon.vr,
+.vr .form-addon {
+  margin-bottom: 1em;
+}
+
+/**
+			 * @name 	<span class="c-default">Default</span> ```.form-input--default```
+			 * @styleguide 		Forms / Input
+			 * @example 	html
+			 * <input class="form-input form-input--default" placeholder="Hello world" />
+			 */
+.form-input {
+  color: #848e91;
+  transition: border 0.1s ease-in-out 0s, outline-color 0s linear 0s;
+  outline-color: black;
+  border-color: rgba(132, 142, 145, 0.1);
+}
+
+.form-input::-webkit-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-input:-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-input::-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-input:-ms-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.input--placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-input:disabled {
+  opacity: 0.5;
+}
+
+[data-input-activator]:focus ~ .form-input,
+[data-input-activator]:checked ~ .form-input, .form-input:hover:not(:disabled) {
+  border-bottom-color: rgba(132, 142, 145, 0.6);
+}
+
+[data-input-activator]:focus ~ .form-input,
+[data-input-activator]:checked ~ .form-input, .form-input:focus:not(:disabled), .form-input.active:not(:disabled) {
+  border-color: rgba(132, 142, 145, 0.6);
+}
+
+.form-input[dirty]:invalid, .form-input[dirty][invalid] {
+  border-color: #d9534f !important;
+}
+
+/**
+			 * @name 	<span class="c-default">Default</span> ```.form-select--default```
+			 * @styleguide 		Forms / Select
+			 * @example 	html
+			 * <select class="form-select form-select--default">
+			 * 	<option>Value 1</option>
+			 * 	<option>Value 2</option>
+			 * 	<option>Value 3</option>
+			 * </select>
+			 */
+.form-select {
+  color: #848e91;
+  transition: border 0.1s ease-in-out 0s, outline-color 0s linear 0s;
+  outline-color: black;
+  border-color: rgba(132, 142, 145, 0.1);
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'%3E%3Cpolygon points='0,0 32,0 16,24' style='fill:%23848e91'%3E%3C/polygon%3E%3C/svg%3E");
+}
+
+.form-select::-webkit-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-select:-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-select::-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-select:-ms-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.input--placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-select:disabled {
+  opacity: 0.5;
+}
+
+[data-input-activator]:focus ~ .form-select,
+[data-input-activator]:checked ~ .form-select, .form-select:hover:not(:disabled) {
+  border-bottom-color: rgba(132, 142, 145, 0.6);
+}
+
+[data-input-activator]:focus ~ .form-select,
+[data-input-activator]:checked ~ .form-select, .form-select:focus:not(:disabled), .form-select.active:not(:disabled) {
+  border-color: rgba(132, 142, 145, 0.6);
+}
+
+.form-select[dirty]:invalid, .form-select[dirty][invalid] {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'%3E%3Cpolygon points='0,0 32,0 16,24' style='fill:%23d9534f'%3E%3C/polygon%3E%3C/svg%3E");
+}
+
+.form-select[dirty]:invalid, .form-select[dirty][invalid] {
+  border-color: #d9534f !important;
+}
+
+/**
+			 * @name 	<span class="c-default">Default</span> ```.form-textarea--default```
+			 * @styleguide 		Forms / Textarea
+			 * @example 	html
+			 * <textarea class="form-textarea form-textarea--default" placeholder="Hello world"></textarea>
+			 */
+.form-textarea {
+  color: #848e91;
+  transition: border 0.1s ease-in-out 0s, outline-color 0s linear 0s;
+  outline-color: black;
+  border-color: rgba(132, 142, 145, 0.1);
+}
+
+.form-textarea::-webkit-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-textarea:-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-textarea::-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-textarea:-ms-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.input--placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-textarea:disabled {
+  opacity: 0.5;
+}
+
+[data-input-activator]:focus ~ .form-textarea,
+[data-input-activator]:checked ~ .form-textarea, .form-textarea:hover:not(:disabled) {
+  border-bottom-color: rgba(132, 142, 145, 0.6);
+}
+
+[data-input-activator]:focus ~ .form-textarea,
+[data-input-activator]:checked ~ .form-textarea, .form-textarea:focus:not(:disabled), .form-textarea.active:not(:disabled) {
+  border-color: rgba(132, 142, 145, 0.6);
+}
+
+.form-textarea[dirty]:invalid, .form-textarea[dirty][invalid] {
+  border-color: #d9534f !important;
+}
+
+/**
+			 * @name 	<span class="c-default">Default</span> ```.form-addon--default```
+			 * @styleguide 		Forms / Addon
+			 * @example 	html
+			 * <div class="form-group">
+			 * 	<div class="form-addon form-addon--default">
+			 *  	Email
+			 *  </div>
+			 * 	<input class="form-input" placeholder="john.doe@gmail.com" />
+			 * 	<input class="btn" type="submit" value="Ok" />
+			 * </div>
+			 */
+.form-addon {
+  border-color: rgba(132, 142, 145, 0.1);
+  background-color: rgba(132, 142, 145, 0.08);
+  color: #6b7477;
+}
+
+[data-input-activator]:focus ~ .form-addon,
+[data-input-activator]:checked ~ .form-addon, .form-addon:hover:not(:disabled) {
+  border-bottom-color: rgba(132, 142, 145, 0.6);
+}
+
+[data-input-activator]:focus ~ .form-addon,
+[data-input-activator]:checked ~ .form-addon, .form-addon:focus:not(:disabled), .form-addon.active:not(:disabled) {
+  border-color: rgba(132, 142, 145, 0.6);
+}
+
+/**
+			 * @name 	<span class="c-primary">Primary</span> ```.form-input--primary```
+			 * @styleguide 		Forms / Input
+			 * @example 	html
+			 * <input class="form-input form-input--primary" placeholder="Hello world" />
+			 */
+.form-input--primary {
+  color: #848e91;
+  transition: border 0.1s ease-in-out 0s, outline-color 0s linear 0s;
+  outline-color: black;
+  border-color: rgba(242, 188, 43, 0.1);
+}
+
+.form-input--primary::-webkit-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-input--primary:-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-input--primary::-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-input--primary:-ms-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.input--placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-input--primary:disabled {
+  opacity: 0.5;
+}
+
+[data-input-activator]:focus ~ .form-input--primary,
+[data-input-activator]:checked ~ .form-input--primary, .form-input--primary:hover:not(:disabled) {
+  border-bottom-color: rgba(242, 188, 43, 0.6);
+}
+
+[data-input-activator]:focus ~ .form-input--primary,
+[data-input-activator]:checked ~ .form-input--primary, .form-input--primary:focus:not(:disabled), .form-input--primary.active:not(:disabled) {
+  border-color: rgba(242, 188, 43, 0.6);
+}
+
+.form-input--primary[dirty]:invalid, .form-input--primary[dirty][invalid] {
+  border-color: #d9534f !important;
+}
+
+/**
+			 * @name 	<span class="c-primary">Primary</span> ```.form-select--primary```
+			 * @styleguide 		Forms / Select
+			 * @example 	html
+			 * <select class="form-select form-select--primary">
+			 * 	<option>Value 1</option>
+			 * 	<option>Value 2</option>
+			 * 	<option>Value 3</option>
+			 * </select>
+			 */
+.form-select--primary {
+  color: #848e91;
+  transition: border 0.1s ease-in-out 0s, outline-color 0s linear 0s;
+  outline-color: black;
+  border-color: rgba(242, 188, 43, 0.1);
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'%3E%3Cpolygon points='0,0 32,0 16,24' style='fill:%23f2bc2b'%3E%3C/polygon%3E%3C/svg%3E");
+}
+
+.form-select--primary::-webkit-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-select--primary:-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-select--primary::-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-select--primary:-ms-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.input--placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-select--primary:disabled {
+  opacity: 0.5;
+}
+
+[data-input-activator]:focus ~ .form-select--primary,
+[data-input-activator]:checked ~ .form-select--primary, .form-select--primary:hover:not(:disabled) {
+  border-bottom-color: rgba(242, 188, 43, 0.6);
+}
+
+[data-input-activator]:focus ~ .form-select--primary,
+[data-input-activator]:checked ~ .form-select--primary, .form-select--primary:focus:not(:disabled), .form-select--primary.active:not(:disabled) {
+  border-color: rgba(242, 188, 43, 0.6);
+}
+
+.form-select--primary[dirty]:invalid, .form-select--primary[dirty][invalid] {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'%3E%3Cpolygon points='0,0 32,0 16,24' style='fill:%23d9534f'%3E%3C/polygon%3E%3C/svg%3E");
+}
+
+.form-select--primary[dirty]:invalid, .form-select--primary[dirty][invalid] {
+  border-color: #d9534f !important;
+}
+
+/**
+			 * @name 	<span class="c-primary">Primary</span> ```.form-textarea--primary```
+			 * @styleguide 		Forms / Textarea
+			 * @example 	html
+			 * <textarea class="form-textarea form-textarea--primary" placeholder="Hello world"></textarea>
+			 */
+.form-textarea--primary {
+  color: #848e91;
+  transition: border 0.1s ease-in-out 0s, outline-color 0s linear 0s;
+  outline-color: black;
+  border-color: rgba(242, 188, 43, 0.1);
+}
+
+.form-textarea--primary::-webkit-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-textarea--primary:-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-textarea--primary::-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-textarea--primary:-ms-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.input--placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-textarea--primary:disabled {
+  opacity: 0.5;
+}
+
+[data-input-activator]:focus ~ .form-textarea--primary,
+[data-input-activator]:checked ~ .form-textarea--primary, .form-textarea--primary:hover:not(:disabled) {
+  border-bottom-color: rgba(242, 188, 43, 0.6);
+}
+
+[data-input-activator]:focus ~ .form-textarea--primary,
+[data-input-activator]:checked ~ .form-textarea--primary, .form-textarea--primary:focus:not(:disabled), .form-textarea--primary.active:not(:disabled) {
+  border-color: rgba(242, 188, 43, 0.6);
+}
+
+.form-textarea--primary[dirty]:invalid, .form-textarea--primary[dirty][invalid] {
+  border-color: #d9534f !important;
+}
+
+/**
+			 * @name 	<span class="c-primary">Primary</span> ```.form-addon--primary```
+			 * @styleguide 		Forms / Addon
+			 * @example 	html
+			 * <div class="form-group">
+			 * 	<div class="form-addon form-addon--primary">
+			 *  	Email
+			 *  </div>
+			 * 	<input class="form-input" placeholder="john.doe@gmail.com" />
+			 * 	<input class="btn" type="submit" value="Ok" />
+			 * </div>
+			 */
+.form-addon--primary {
+  border-color: rgba(242, 188, 43, 0.1);
+  background-color: rgba(242, 188, 43, 0.08);
+  color: #dca40e;
+}
+
+[data-input-activator]:focus ~ .form-addon--primary,
+[data-input-activator]:checked ~ .form-addon--primary, .form-addon--primary:hover:not(:disabled) {
+  border-bottom-color: rgba(242, 188, 43, 0.6);
+}
+
+[data-input-activator]:focus ~ .form-addon--primary,
+[data-input-activator]:checked ~ .form-addon--primary, .form-addon--primary:focus:not(:disabled), .form-addon--primary.active:not(:disabled) {
+  border-color: rgba(242, 188, 43, 0.6);
+}
+
+/**
+			 * @name 	<span class="c-secondary">Secondary</span> ```.form-input--secondary```
+			 * @styleguide 		Forms / Input
+			 * @example 	html
+			 * <input class="form-input form-input--secondary" placeholder="Hello world" />
+			 */
+.form-input--secondary {
+  color: #848e91;
+  transition: border 0.1s ease-in-out 0s, outline-color 0s linear 0s;
+  outline-color: black;
+  border-color: rgba(43, 52, 56, 0.1);
+}
+
+.form-input--secondary::-webkit-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-input--secondary:-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-input--secondary::-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-input--secondary:-ms-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.input--placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-input--secondary:disabled {
+  opacity: 0.5;
+}
+
+[data-input-activator]:focus ~ .form-input--secondary,
+[data-input-activator]:checked ~ .form-input--secondary, .form-input--secondary:hover:not(:disabled) {
+  border-bottom-color: rgba(43, 52, 56, 0.6);
+}
+
+[data-input-activator]:focus ~ .form-input--secondary,
+[data-input-activator]:checked ~ .form-input--secondary, .form-input--secondary:focus:not(:disabled), .form-input--secondary.active:not(:disabled) {
+  border-color: rgba(43, 52, 56, 0.6);
+}
+
+.form-input--secondary[dirty]:invalid, .form-input--secondary[dirty][invalid] {
+  border-color: #d9534f !important;
+}
+
+/**
+			 * @name 	<span class="c-secondary">Secondary</span> ```.form-select--secondary```
+			 * @styleguide 		Forms / Select
+			 * @example 	html
+			 * <select class="form-select form-select--secondary">
+			 * 	<option>Value 1</option>
+			 * 	<option>Value 2</option>
+			 * 	<option>Value 3</option>
+			 * </select>
+			 */
+.form-select--secondary {
+  color: #848e91;
+  transition: border 0.1s ease-in-out 0s, outline-color 0s linear 0s;
+  outline-color: black;
+  border-color: rgba(43, 52, 56, 0.1);
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'%3E%3Cpolygon points='0,0 32,0 16,24' style='fill:%232b3438'%3E%3C/polygon%3E%3C/svg%3E");
+}
+
+.form-select--secondary::-webkit-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-select--secondary:-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-select--secondary::-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-select--secondary:-ms-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.input--placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-select--secondary:disabled {
+  opacity: 0.5;
+}
+
+[data-input-activator]:focus ~ .form-select--secondary,
+[data-input-activator]:checked ~ .form-select--secondary, .form-select--secondary:hover:not(:disabled) {
+  border-bottom-color: rgba(43, 52, 56, 0.6);
+}
+
+[data-input-activator]:focus ~ .form-select--secondary,
+[data-input-activator]:checked ~ .form-select--secondary, .form-select--secondary:focus:not(:disabled), .form-select--secondary.active:not(:disabled) {
+  border-color: rgba(43, 52, 56, 0.6);
+}
+
+.form-select--secondary[dirty]:invalid, .form-select--secondary[dirty][invalid] {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'%3E%3Cpolygon points='0,0 32,0 16,24' style='fill:%23d9534f'%3E%3C/polygon%3E%3C/svg%3E");
+}
+
+.form-select--secondary[dirty]:invalid, .form-select--secondary[dirty][invalid] {
+  border-color: #d9534f !important;
+}
+
+/**
+			 * @name 	<span class="c-secondary">Secondary</span> ```.form-textarea--secondary```
+			 * @styleguide 		Forms / Textarea
+			 * @example 	html
+			 * <textarea class="form-textarea form-textarea--secondary" placeholder="Hello world"></textarea>
+			 */
+.form-textarea--secondary {
+  color: #848e91;
+  transition: border 0.1s ease-in-out 0s, outline-color 0s linear 0s;
+  outline-color: black;
+  border-color: rgba(43, 52, 56, 0.1);
+}
+
+.form-textarea--secondary::-webkit-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-textarea--secondary:-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-textarea--secondary::-moz-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-textarea--secondary:-ms-input-placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.input--placeholder {
+  color: rgba(132, 142, 145, 0.4);
+}
+
+.form-textarea--secondary:disabled {
+  opacity: 0.5;
+}
+
+[data-input-activator]:focus ~ .form-textarea--secondary,
+[data-input-activator]:checked ~ .form-textarea--secondary, .form-textarea--secondary:hover:not(:disabled) {
+  border-bottom-color: rgba(43, 52, 56, 0.6);
+}
+
+[data-input-activator]:focus ~ .form-textarea--secondary,
+[data-input-activator]:checked ~ .form-textarea--secondary, .form-textarea--secondary:focus:not(:disabled), .form-textarea--secondary.active:not(:disabled) {
+  border-color: rgba(43, 52, 56, 0.6);
+}
+
+.form-textarea--secondary[dirty]:invalid, .form-textarea--secondary[dirty][invalid] {
+  border-color: #d9534f !important;
+}
+
+/**
+			 * @name 	<span class="c-secondary">Secondary</span> ```.form-addon--secondary```
+			 * @styleguide 		Forms / Addon
+			 * @example 	html
+			 * <div class="form-group">
+			 * 	<div class="form-addon form-addon--secondary">
+			 *  	Email
+			 *  </div>
+			 * 	<input class="form-input" placeholder="john.doe@gmail.com" />
+			 * 	<input class="btn" type="submit" value="Ok" />
+			 * </div>
+			 */
+.form-addon--secondary {
+  border-color: rgba(43, 52, 56, 0.1);
+  background-color: rgba(43, 52, 56, 0.08);
+  color: #15191b;
+}
+
+[data-input-activator]:focus ~ .form-addon--secondary,
+[data-input-activator]:checked ~ .form-addon--secondary, .form-addon--secondary:hover:not(:disabled) {
+  border-bottom-color: rgba(43, 52, 56, 0.6);
+}
+
+[data-input-activator]:focus ~ .form-addon--secondary,
+[data-input-activator]:checked ~ .form-addon--secondary, .form-addon--secondary:focus:not(:disabled), .form-addon--secondary.active:not(:disabled) {
+  border-color: rgba(43, 52, 56, 0.6);
+}
+
+body {
+  padding: 2rem;
+}
+
+.flatpickr-calendar.open {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 12px 18px;
+}
+
+.flatpickr-calendar {
+  transition: margin-top 0.1s ease-in-out 0s, opacity 0.1s ease-in-out 0s, outline-color 0s linear 0s;
+  outline-color: black;
+  border-radius: 0em;
+}
+
+.flatpickr-month {
+  color: #848e91;
+  fill: #848e91;
+}
+
+.flatpickr-hour,
+.flatpickr-minute,
+.flatpickr-second {
+  color: #848e91 !important;
+}
+
+.flatpickr-day {
+  border-radius: 0em;
+  transition: all 0.1s ease-in-out 0s, outline-color 0s linear 0s;
+  outline-color: black;
+}
+
+.flatpickr-current-month .cur-year {
+  color: #848e91;
+}
+
+.flatpickr-calendar .flatpickr-day.inRange,
+.flatpickr-calendar .flatpickr-day.nextMonthDay.inRange,
+.flatpickr-calendar .flatpickr-day.nextMonthDay:focus,
+.flatpickr-calendar .flatpickr-day.nextMonthDay:hover,
+.flatpickr-calendar .flatpickr-day.prevMonthDay.inRange,
+.flatpickr-calendar .flatpickr-day.prevMonthDay:focus,
+.flatpickr-calendar .flatpickr-day.prevMonthDay:hover,
+.flatpickr-calendar .flatpickr-day:focus:not(.disabled),
+.flatpickr-calendar .flatpickr-day:hover:not(.disabled) {
+  cursor: pointer;
+  outline: 0;
+  background: rgba(132, 142, 145, 0.1);
+}
+
+.flatpickr-calendar .flatpickr-day.today {
+  color: #848e91;
+  font-weight: bold;
+}
+
+.flatpickr-calendar .flatpickr-day.selected,
+.flatpickr-calendar .flatpickr-day.selected.nextMonthDay,
+.flatpickr-calendar .flatpickr-day.selected.prevMonthDay,
+.flatpickr-calendar .flatpickr-day.selected:focus,
+.flatpickr-calendar .flatpickr-day.selected:hover {
+  background: #848e91;
+  color: #fff;
+}
+
+.flatpickr-calendar .flatpickr-time input:focus,
+.flatpickr-calendar .flatpickr-time input:hover {
+  background: rgba(132, 142, 145, 0.1);
+}
+
+.flatpickr-calendar .flatpickr-am-pm:focus,
+.flatpickr-calendar .flatpickr-am-pm:hover {
+  background: rgba(132, 142, 145, 0.1);
+}
+
+.flatpickr-calendar .flatpickr-current-month .cur-year:hover {
+  background: rgba(132, 142, 145, 0.1);
+}
+
+.flatpickr-calendar .flatpickr-rContainer + .flatpickr-time {
+  border-top: 1px solid rgba(132, 142, 145, 0.1);
+}
+
+.flatpickr-calendar .flatpickr-weekwrapper .flatpickr-weeks {
+  border-right: 1px solid rgba(132, 142, 145, 0.1);
+}
+
+.flatpickr-calendar .flatpickr-next-month svg:hover,
+.flatpickr-calendar .flatpickr-prev-month svg:hover {
+  fill: #848e91;
+}
+
+.flatpickr-calendar .flatpickr-next-month:hover,
+.flatpickr-calendar .flatpickr-prev-month:hover {
+  color: #848e91;
+}
+
+/**
+				 * @name 			Datepicker <span class="c-primary">Primary</span>
+				 * Provide a way to display a nice primary datepicker
+				 * @styleguide  	Form / Datepicker
+				 * @example 		html
+				 * <div style="height:25em">
+				 * 	<input name="my-cool-date" class="form-input visually-hidden" />
+				 *  <s-datepicker for="my-cool-date" color="primary" inline></s-datepicker>
+				 * </div>
+				 * @see 			https://github.com/coffeekraken/s-datepicker-component
+				 * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+				 */
+.flatpickr-calendar[color="primary"] .flatpickr-day.inRange,
+.flatpickr-calendar[color="primary"] .flatpickr-day.nextMonthDay.inRange,
+.flatpickr-calendar[color="primary"] .flatpickr-day.nextMonthDay:focus,
+.flatpickr-calendar[color="primary"] .flatpickr-day.nextMonthDay:hover,
+.flatpickr-calendar[color="primary"] .flatpickr-day.prevMonthDay.inRange,
+.flatpickr-calendar[color="primary"] .flatpickr-day.prevMonthDay:focus,
+.flatpickr-calendar[color="primary"] .flatpickr-day.prevMonthDay:hover,
+.flatpickr-calendar[color="primary"] .flatpickr-day:focus:not(.disabled),
+.flatpickr-calendar[color="primary"] .flatpickr-day:hover:not(.disabled) {
+  cursor: pointer;
+  outline: 0;
+  background: rgba(242, 188, 43, 0.1);
+}
+
+.flatpickr-calendar[color="primary"] .flatpickr-day.today {
+  color: #f2bc2b;
+  font-weight: bold;
+}
+
+.flatpickr-calendar[color="primary"] .flatpickr-day.selected,
+.flatpickr-calendar[color="primary"] .flatpickr-day.selected.nextMonthDay,
+.flatpickr-calendar[color="primary"] .flatpickr-day.selected.prevMonthDay,
+.flatpickr-calendar[color="primary"] .flatpickr-day.selected:focus,
+.flatpickr-calendar[color="primary"] .flatpickr-day.selected:hover {
+  background: #f2bc2b;
+  color: #fff;
+}
+
+.flatpickr-calendar[color="primary"] .flatpickr-time input:focus,
+.flatpickr-calendar[color="primary"] .flatpickr-time input:hover {
+  background: rgba(242, 188, 43, 0.1);
+}
+
+.flatpickr-calendar[color="primary"] .flatpickr-am-pm:focus,
+.flatpickr-calendar[color="primary"] .flatpickr-am-pm:hover {
+  background: rgba(242, 188, 43, 0.1);
+}
+
+.flatpickr-calendar[color="primary"] .flatpickr-current-month .cur-year:hover {
+  background: rgba(242, 188, 43, 0.1);
+}
+
+.flatpickr-calendar[color="primary"] .flatpickr-rContainer + .flatpickr-time {
+  border-top: 1px solid rgba(242, 188, 43, 0.1);
+}
+
+.flatpickr-calendar[color="primary"] .flatpickr-weekwrapper .flatpickr-weeks {
+  border-right: 1px solid rgba(242, 188, 43, 0.1);
+}
+
+.flatpickr-calendar[color="primary"] .flatpickr-next-month svg:hover,
+.flatpickr-calendar[color="primary"] .flatpickr-prev-month svg:hover {
+  fill: #f2bc2b;
+}
+
+.flatpickr-calendar[color="primary"] .flatpickr-next-month:hover,
+.flatpickr-calendar[color="primary"] .flatpickr-prev-month:hover {
+  color: #f2bc2b;
+}
+
+/**
+				 * @name 			Datepicker <span class="c-secondary">Secondary</span>
+				 * Provide a way to display a nice secondary datepicker
+				 * @styleguide  	Form / Datepicker
+				 * @example 		html
+				 * <div style="height:25em">
+				 * 	<input name="my-cool-date" class="form-input visually-hidden" />
+				 *  <s-datepicker for="my-cool-date" color="secondary" inline></s-datepicker>
+				 * </div>
+				 * @see 			https://github.com/coffeekraken/s-datepicker-component
+				 * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+				 */
+.flatpickr-calendar[color="secondary"] .flatpickr-day.inRange,
+.flatpickr-calendar[color="secondary"] .flatpickr-day.nextMonthDay.inRange,
+.flatpickr-calendar[color="secondary"] .flatpickr-day.nextMonthDay:focus,
+.flatpickr-calendar[color="secondary"] .flatpickr-day.nextMonthDay:hover,
+.flatpickr-calendar[color="secondary"] .flatpickr-day.prevMonthDay.inRange,
+.flatpickr-calendar[color="secondary"] .flatpickr-day.prevMonthDay:focus,
+.flatpickr-calendar[color="secondary"] .flatpickr-day.prevMonthDay:hover,
+.flatpickr-calendar[color="secondary"] .flatpickr-day:focus:not(.disabled),
+.flatpickr-calendar[color="secondary"] .flatpickr-day:hover:not(.disabled) {
+  cursor: pointer;
+  outline: 0;
+  background: rgba(43, 52, 56, 0.1);
+}
+
+.flatpickr-calendar[color="secondary"] .flatpickr-day.today {
+  color: #2b3438;
+  font-weight: bold;
+}
+
+.flatpickr-calendar[color="secondary"] .flatpickr-day.selected,
+.flatpickr-calendar[color="secondary"] .flatpickr-day.selected.nextMonthDay,
+.flatpickr-calendar[color="secondary"] .flatpickr-day.selected.prevMonthDay,
+.flatpickr-calendar[color="secondary"] .flatpickr-day.selected:focus,
+.flatpickr-calendar[color="secondary"] .flatpickr-day.selected:hover {
+  background: #2b3438;
+  color: #fff;
+}
+
+.flatpickr-calendar[color="secondary"] .flatpickr-time input:focus,
+.flatpickr-calendar[color="secondary"] .flatpickr-time input:hover {
+  background: rgba(43, 52, 56, 0.1);
+}
+
+.flatpickr-calendar[color="secondary"] .flatpickr-am-pm:focus,
+.flatpickr-calendar[color="secondary"] .flatpickr-am-pm:hover {
+  background: rgba(43, 52, 56, 0.1);
+}
+
+.flatpickr-calendar[color="secondary"] .flatpickr-current-month .cur-year:hover {
+  background: rgba(43, 52, 56, 0.1);
+}
+
+.flatpickr-calendar[color="secondary"] .flatpickr-rContainer + .flatpickr-time {
+  border-top: 1px solid rgba(43, 52, 56, 0.1);
+}
+
+.flatpickr-calendar[color="secondary"] .flatpickr-weekwrapper .flatpickr-weeks {
+  border-right: 1px solid rgba(43, 52, 56, 0.1);
+}
+
+.flatpickr-calendar[color="secondary"] .flatpickr-next-month svg:hover,
+.flatpickr-calendar[color="secondary"] .flatpickr-prev-month svg:hover {
+  fill: #2b3438;
+}
+
+.flatpickr-calendar[color="secondary"] .flatpickr-next-month:hover,
+.flatpickr-calendar[color="secondary"] .flatpickr-prev-month:hover {
+  color: #2b3438;
+}
