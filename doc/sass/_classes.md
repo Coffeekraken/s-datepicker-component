@@ -2,7 +2,7 @@
 
 Provide all the mixins needed to print out the s-datepicker classes
 
-Author : Olivier Bossel <olivier.bossel@gmail.com>
+Author : Olivier Bossel [olivier.bossel@gmail.com](mailto:olivier.bossel@gmail.com)
 
 
 ## Mixins
@@ -13,6 +13,7 @@ Author : Olivier Bossel <olivier.bossel@gmail.com>
 Print out the bare and style component css
 
 
+#### Parameters
 Name  |  Type  |  Description  |  Status  |  Default
 ------------  |  ------------  |  ------------  |  ------------  |  ------------
 $color  |  **{ List<Color> }**  |  The colors to generate  |  optional  |  default primary secondary
@@ -28,6 +29,7 @@ Print out the bare component css
 Print out the style component css
 
 
+#### Parameters
 Name  |  Type  |  Description  |  Status  |  Default
 ------------  |  ------------  |  ------------  |  ------------  |  ------------
 $color  |  **{ List<Color> }**  |  The colors to generate  |  optional  |  default primary secondary

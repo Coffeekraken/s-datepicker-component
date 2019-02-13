@@ -15,7 +15,7 @@
  * // 	style : solid
  * // )
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return the Map representation of a columns properties
@@ -38,7 +38,7 @@
  * // 	column-gap : 20px
  * // )
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Parse and return the Map respresentation of a margin property
@@ -52,7 +52,7 @@
  * s-margin-map(10px 20px); // => ( top:10px, right:20px, bottom:10px, left:20px )
  * s-margin-map(5px 10px 15px 20px); // => ( top:5px, right:10px, bottom:15px, left:20px )
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return the representation of a position styling like position:absolute; top:0; left:100%; etc...
@@ -74,7 +74,7 @@
  * s-position-map(absolute, bottom, center);
  * // etc...
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return the Map properties representation for the rhythme width
@@ -91,7 +91,7 @@
  * // 	max-width : 50ex
  * // )
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return the Map properties representation of a translate x,y and z
@@ -108,7 +108,7 @@
  * // 	transform: translateX(10px) translateY(20px) translateZ(0)
  * // )
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Helper mixin to set a background image
@@ -138,7 +138,7 @@
  * 		);
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Apply some border radius
@@ -163,7 +163,7 @@
  * 	// etc...
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Center a block element using margins etc...
@@ -172,7 +172,7 @@
  * 	\@include s-center-block();
  * }
  *
- * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * @name 	s-clearfix
@@ -190,7 +190,7 @@
  *  \@include s-clearfix();
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 .clearfix-overflow {
   overflow: hidden;
@@ -230,7 +230,7 @@
  * 	\@include s-coffeekraken-logo();
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Create a column layout my setting each columns properties at once
@@ -253,7 +253,7 @@
  * 	);
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Apply some border radius
@@ -278,7 +278,7 @@
  * 	// etc...
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Make the element fit his container.
@@ -289,7 +289,7 @@
  * 	\@include s-fit(absolute);
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Hide the contained text
@@ -299,7 +299,7 @@
  * 	\@include s-hide-text();
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Apply an icon on the element. This mixin support font-awesome and custom icons systems that have an icon name formated like "icon-{name}"
@@ -310,7 +310,7 @@
  * 	\@include s-icon(fa-user);
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Set how to render the image
@@ -321,7 +321,7 @@
  * 	\@include s-image-rendering(crips-edges);
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Set how the list bullet has to be displayed.
@@ -344,12 +344,12 @@
  * 	);
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Start a new list
  * @param 		{String} 		[$counter-reset=s-list] 		A counter name to reset
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Easy to use media query mixin that support cssua classes to target specific browsers
@@ -380,7 +380,7 @@
  * 	// custom css here
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Set the placeholder style for inputs, etc...
@@ -392,7 +392,7 @@
  * 	}
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Set a complexe position styling like position:absolute; top:0; left:100%; etc...
@@ -419,7 +419,7 @@
  * 	// etc...
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Apply a ratio css styling. This will apply a before or after content that will make the element keep the specified ratio.
@@ -433,7 +433,7 @@
  * 	\@include s-ratio(16/9);
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Print out a reset css
@@ -441,7 +441,7 @@
  *
  * \@include s-reset();
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Print out the css on a container that will make the lines displays a maximum number of characters.
@@ -451,7 +451,7 @@
  * 	\@include s-rhythm-width(45);
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Apply some css to have a rounded element with already an overflow on it
@@ -480,7 +480,7 @@
  * 	\@include s-size(cover);
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Quicky set some translates
@@ -493,7 +493,7 @@
  * 	\@include s-translate(50%, 20px);
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Print out the style to truncate the text if needed
@@ -503,7 +503,7 @@
  * 	\@include s-truncate-text();
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Vertically align content by using the inline-block middle trick
@@ -513,7 +513,7 @@
  * 	\@include s-vertical-aligner();
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Hide an element only visually. This ensure that the element is still correctly displayed in the page for SEO
@@ -524,7 +524,7 @@
  * 	\@include s-visually-hidden();
  * }
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Get a registered color by name or wrap a new color into a s-color call
@@ -557,7 +557,7 @@
  * // $name as list
  * $modified primary : s-color((primary, -darken 10%));
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return the color in a modifier list
@@ -567,7 +567,7 @@
  * @example
  * $my-color : s-color-modifier(outline primary); // => primary
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return the name of the top level component setted with the [../mixins/_s-component.scss] mixin
@@ -584,7 +584,7 @@
  * 		}
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>;
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com);
  */
 /**
  * Convert a passed value to the wanted unit
@@ -625,7 +625,7 @@
  * s-convert(24px, rem) // 1.5rem
  * s-convert(3rem, pt) // 36pt
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Transform a dash notation value into a map
@@ -642,7 +642,7 @@
  * // 	coco : universe
  * // )
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Convert the passed value to em
@@ -650,7 +650,7 @@
  * @param 			{Number} 		$value 		The value to convert
  * @return 			{Number} 					The em converted value
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Convert the passed value to the closest even value
@@ -658,7 +658,7 @@
  * @param 			{Number} 		$value 		The value to convert
  * @return 			{Number} 					The closest even converted value
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Take a filter as parameter and parse it to return the {Map} corresponding
@@ -689,7 +689,7 @@
  * // 	blur : 10px
  * // }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return a list with all the filters that are passed as argument
@@ -719,7 +719,7 @@
  * 		// filter : box-shadow(#000 0 0 10px) blur(30px) invert(100%);
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return the font-family string or a registered font
@@ -746,7 +746,7 @@
  * 		// font-family : 'Helvetica Neue';
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return the font {Map} that correspond to the passed arguments
@@ -781,7 +781,7 @@
  * 		word-wrap : nowrap
  * // )
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Check if the provided color is a registered one or not
@@ -815,7 +815,7 @@
  * s-interpolate($myStack, big) // 6rem cause specified in the $myStack value
  * s-interpolate($myStack, small) // 1.5rem => calculated like : 3rem * 0.5 = 1.5rem
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Check if the passed value is of a certain type
@@ -862,7 +862,7 @@
  * s-is(#fff #ddd, list-color) // => true
  * // etc...
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Alias to the [./_s-look-and-feel.scss] function
@@ -877,7 +877,7 @@
  * 		padding : s-lnf(padding-horizontal) s-lnf(padding-vertical);
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return a settings.look-and-feel stack value
@@ -890,7 +890,7 @@
  * 		padding : s-look-and-feel(padding-horizontal) s-look-and-feel(padding-vertical);
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return the modular scale value based on the settings ```modular-scale.base``` and ```modular-scale.ratio```.
@@ -899,7 +899,7 @@
  * @param 			{Number} 		[$base=settings.modular-scale.base] 	The base of calculation
  * @return 			{Number} 					The calculated resulting value
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Convert the passed value to the closest odd value
@@ -907,7 +907,7 @@
  * @param 			{Number} 		$value 		The value to convert
  * @return 			{Number} 					The closest odd converted value
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Parse a given string/list properties and return the Map corresponding to the Map description
@@ -930,7 +930,7 @@
  * // 	delay : 20s
  * // )
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Convert the passed value to %
@@ -938,7 +938,7 @@
  * @param 			{Number} 		$value 		The value to convert
  * @return 			{Number} 					The % converted value
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Convert the passed value to pt
@@ -946,7 +946,7 @@
  * @param 			{Number} 		$value 		The value to convert
  * @return 			{Number} 					The pt converted value
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Convert the passed value to px
@@ -954,7 +954,7 @@
  * @param 			{Number} 		$value 		The value to convert
  * @return 			{Number} 					The px converted value
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Convert the passed value to rem
@@ -962,7 +962,7 @@
  * @param 			{Number} 		$value 		The value to convert
  * @return 			{Number} 					The rem converted value
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return the passed values in the same unit but that has been even rounded on the corresponding px value
@@ -978,7 +978,7 @@
  * // 2. round even the px value : 84px
  * // 3. transform to passed unit value : 84px / 16px = 5.25rem
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return the passed values in the same unit but that has been odd rounded on the corresponding px value
@@ -994,7 +994,7 @@
  * // 2. round odd the px value : 83px
  * // 3. transform to passed unit value : 84px / 16px = 5.1875rem
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return the passed values in the same unit but that has been rounded on the corresponding px value
@@ -1010,7 +1010,7 @@
  * // 2. round even the px value : 83px
  * // 3. transform to passed unit value : 84px / 16px = 5.1875rem
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Search and replace tokens like colors #primary in a passed string, list or map
@@ -1020,7 +1020,7 @@
  * @example
  * s-replace-tokens(12px #primary hello #secondary); // > 12px #ddd hello #fff;
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Process selector to avoid having --default, etc...
@@ -1043,7 +1043,7 @@
  * $font-size : s-setting('typography.font-size');
  * // etc...
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return a value interpolated from the settings.spaces stack
@@ -1056,7 +1056,7 @@
  * 		padding : s-pace(big);
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return a number without any units
@@ -1068,7 +1068,7 @@
  * s-strip-units(12px); // => 12
  * s-strip-units(30rem); // => 30
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Test an argument passed to a function or a mixin to ensure his type, value, etc...
@@ -1090,12 +1090,12 @@
  * \@mixin my-cool-mixin(hello, universe); // throw an error
  * \@mixin my-cool-mixin(12, world); // throw an error
  *
- * @author 				Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 				Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return the text-format setting scope class
  * @return 		{String} 		The text-format scope class from settings.text-format.scope-class
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Take a transition as parameter and parse it to return the {Map} corresponding
@@ -1131,7 +1131,7 @@
  * // 	delay : .5s
  * // }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Take a transition as parameter and parse it to return the {List} corresponding
@@ -1162,18 +1162,18 @@
  *  	// transition : all .2s ease-in-out .5s, width .2s ease-in 0s;
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return the unit context if has been set by the [s-unit-context mixin](../mixins/_s-unit-context.scss)
  *
  * @return 		{String} 				The unit context setted
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Return the vertical-rhythm setting scope class
  * @return 		{String} 		The vertical-rhythm scope class from settings.vertical-rhythm.scope-class
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Generic sugar function can return multiple settings types like:
@@ -1191,7 +1191,7 @@
  * $my-font-size : s('settings.typography.font.size')
  * // etc...
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Print out the animation property calculated with the passed arguments
@@ -1208,7 +1208,7 @@
  * 		// animation : my-animation 1s 0s ease-in-out 1 normal forwards, another-animation 4s 1s ease-in-out 1 normal forwards;
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Print out all wanted registered classes like padding helpers, margin helpers, font helpers, etc...
@@ -1303,7 +1303,7 @@
  * \@include s-classes('sugar.clearfix' 'sugar.pull'); // the clearfixes and the pull classes
  * // etc...
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Print out the scoped color schema css
@@ -1333,7 +1333,7 @@
  * 		color : white;
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Set the name of the component that will be handled inside the mixin
@@ -1349,7 +1349,7 @@
  * 		}
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>;
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com);
  */
 /**
  * Register a context with a name to use it later
@@ -1371,7 +1371,7 @@
  * 		s-look-and-feel(padding-vertical); // => 0.6em
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Set a context to be used inside the mixin
@@ -1404,7 +1404,7 @@
  * 		// your code here...
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Print out a list with all the filters that are passed as argument
@@ -1433,7 +1433,7 @@
  * 		// filter : box-shadow(#000 0 0 10px) blur(30px) invert(100%);
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Helper to print a font-face
@@ -1452,7 +1452,7 @@
  * 		$extensions : eot woff woff2
  * )
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Print all the fonts properties that correspond to the passed arguments
@@ -1488,7 +1488,7 @@
  * 		word-wrap : nowrap
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Init the sugar toolkit.
@@ -1498,7 +1498,7 @@
  * @example
  * \@include s-init();
  *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Register all the dynamic helper classes that depends on the settings, etc...
@@ -1507,7 +1507,7 @@
  * @example
  * \@include s-init-classes();
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Register a helper class under a certain namespace
@@ -1526,7 +1526,7 @@
  * // print out my helpers classes
  * \@include s-classes('my');
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Setup sugar toolkit by overriding the default [settings](../_settings.scss)
@@ -1548,7 +1548,7 @@
  * // this allows you to separate your configs setup into multiple
  * // files...
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Display the vertical rhythme
@@ -1560,7 +1560,7 @@
  * 		@include s-show-vertical-rhythm();
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Take a transition as parameter and print the corresponding transition property
@@ -1591,7 +1591,7 @@
  *  	// transition : all .2s ease-in-out .5s, width .2s ease-in 0s;
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Set the unit context to use inside the mixin.
@@ -1607,7 +1607,7 @@
  * 		s-setting('typography.font-size'); // => 1rem
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * @name 	s-vertical-rhythm
@@ -1620,7 +1620,7 @@
  * }
  *
  * @see 			https://medium.com/written-in-code/aligning-type-to-baseline-the-right-way-using-sass-e258fce47a9b#.lck2lgbni
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * @name 	Helper Classes
@@ -1678,7 +1678,7 @@
  * - sugar.no-transmations : ```.no-transmations```
  * - sugar.clear-transmations : ```.clear-transmations```
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 .pull-left {
   /**
@@ -2470,7 +2470,7 @@
 /**
  * This file contains all the default settings that can be overrided by the [s-setup mixin](./mixins/_s-setup.scss).
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Create an arrow bubble effect
@@ -2492,7 +2492,7 @@
  * }
  *
  * @see 			https://codepen.io/kirkas/pen/otqyJ
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Generate a drop shadow depending on the depth specified
@@ -2505,7 +2505,7 @@
  * 		\@include s-depth(2);
  * }
  *
- * @author 	 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 	 		Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Create a poping dot effect to catch user attention on a particular item
@@ -2531,7 +2531,7 @@
  * 		);
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Generate a full animated, single element, bars loader
@@ -2560,7 +2560,7 @@
  * 		);
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Generate a full animated, single element, circle loader
@@ -2578,7 +2578,7 @@
  *
  * @TODO finish documentation
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Generate a full animated, single element, couch-potato style loader
@@ -2596,7 +2596,7 @@
  * 		\@include s-loader-couch-potato();
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Generate a full animated, single element, flip ball style loader
@@ -2613,7 +2613,7 @@
  * 		\@include s-loader-flip-ball();
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Generate a long shadow effect like [this](https://www.google.ch/search?q=long+shadow&espv=2&biw=2560&bih=1316&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjjne6x49LPAhVBHRQKHat8AW8Q_AUIBigB)
@@ -2638,7 +2638,7 @@
  * 		);
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * Create side lines around an item
@@ -2660,7 +2660,7 @@
  * 		);
  * }
  *
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+ * @author 			Olivier Bossel <olivier.bossel@gmail.com> (https://olivierbossel.com)
  */
 /**
  * @name 	STypographyComponent
@@ -3199,7 +3199,7 @@ table {
 		 * @display 	color
 		 */
 .s-settings:after {
-  content: '{"unit": "rem", "reset": true, "border-box": true, "sizes": {"smaller": 0.3, "small": 0.6, "default": 1, "medium": 1.4, "big": 2, "bigger": 3}, "typography": {"font-family": "default", "font-size": "14px", "font-sizes": null, "line-letters-count": 55, "font-format": {"eot": "embedded-opentype", "woff2": "woff2", "woff": "woff", "ttf": "truetype", "otf": "opentype", "svg": "svg", "svgz": "svgz"}}, "look-and-feel": {"border-radius": "0em", "padding-vertical": "1.4em", "padding-horizontal": "0.8em", "disabled-opacity": 0.5, "line-height": 1.4}, "spaces": {"default": "1rem"}, "colors": {"default": {"color": "#848e91"}, "title": {"color": "#2b3438"}, "text": {"color": "default"}, "link": {"color": "primary"}, "primary": {"color": "#f2bc2b"}, "secondary": {"color": "#2b3438"}, "success": {"color": "#5cb85c"}, "warning": {"color": "#f0ad4e"}, "error": {"color": "#d9534f"}, "info": {"color": "#2199e8"}}, "modular-scale": {"base": "1rem", "ratio": 1.33}, "text-format": {"scope-class": "tf"}, "vertical-rhythm": {"scope-class": "vr"}, "fonts": {"default": {"font-family": ["Helvetica Neue", "Helvetica", "Verdana", "Arial", "sans-serif"], "font-weight": "normal", "cap-height": 0.65}, "quote": {"font-family": ["Palatino", "Times", "Georgia", "serif"], "font-weight": "normal", "cap-height": 0.65}, "code": {"font-family": ["Menlo", "Monaco", "Consolas", "Courier New", "monospace"], "font-weight": "normal", "cap-height": 0.65}}, "filters": [], "transitions": {"fast": ["all", "0.1s", "ease-in-out", "0s"], "default": ["all", "0.2s", "ease-in-out", "0s"], "slow": ["all", "0.5s", "ease-in-out", "0s"]}}';
+  content: '{"unit": "rem", "reset": true, "border-box": true, "sizes": {"smaller": 0.3, "small": 0.6, "default": 1, "medium": 1.4, "big": 2, "bigger": 3}, "typography": {"font-family": "default", "font-size": "14px", "font-sizes": null, "line-letters-count": 55, "font-format": {"eot": "embedded-opentype", "woff2": "woff2", "woff": "woff", "ttf": "truetype", "otf": "opentype", "svg": "svg", "svgz": "svgz"}}, "look-and-feel": {"border-radius": "0em", "padding-vertical": "1.4em", "padding-horizontal": "0.8em", "disabled-opacity": 0.5, "line-height": 1.4}, "spaces": {"smaller": "5px", "small": "10px", "default": "20px", "medium": "40px", "big": "70px", "bigger": "100px"}, "colors": {"default": {"color": "#848e91"}, "title": {"color": "#2b3438"}, "text": {"color": "default"}, "link": {"color": "primary"}, "primary": {"color": "#f2bc2b"}, "secondary": {"color": "#2b3438"}, "success": {"color": "#5cb85c"}, "warning": {"color": "#f0ad4e"}, "error": {"color": "#d9534f"}, "info": {"color": "#2199e8"}}, "modular-scale": {"base": "1rem", "ratio": 1.33}, "text-format": {"scope-class": "tf"}, "vertical-rhythm": {"scope-class": "vr"}, "fonts": {"default": {"font-family": ["Helvetica Neue", "Helvetica", "Verdana", "Arial", "sans-serif"], "font-weight": "normal", "cap-height": 0.65}, "quote": {"font-family": ["Palatino", "Times", "Georgia", "serif"], "font-weight": "normal", "cap-height": 0.65}, "code": {"font-family": ["Menlo", "Monaco", "Consolas", "Courier New", "monospace"], "font-weight": "normal", "cap-height": 0.65}}, "filters": [], "transitions": {"fast": ["all", "0.1s", "ease-in-out", "0s"], "default": ["all", "0.2s", "ease-in-out", "0s"], "slow": ["all", "0.5s", "ease-in-out", "0s"]}}';
   display: none;
 }
 
@@ -3338,7 +3338,7 @@ body {
 			 * <div style="background:#2b3438; width:100px; height:5px"></div>
 			 */
 .m-b-smaller {
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.35714rem;
 }
 
 /**
@@ -3349,7 +3349,7 @@ body {
 			 * <div class="m-t-smaller" style="background:#2b3438; width:100px; height:5px"></div>
 			 */
 .m-t-smaller {
-  margin-top: 0.3rem;
+  margin-top: 0.35714rem;
 }
 
 /**
@@ -3360,7 +3360,7 @@ body {
 			 * <div class="m-l-smaller" style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-l-smaller {
-  margin-left: 0.3rem;
+  margin-left: 0.35714rem;
 }
 
 /**
@@ -3371,7 +3371,7 @@ body {
 			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-r-smaller {
-  margin-right: 0.3rem;
+  margin-right: 0.35714rem;
 }
 
 /**
@@ -3382,8 +3382,8 @@ body {
 			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-s-smaller {
-  margin-left: 0.3rem;
-  margin-right: 0.3rem;
+  margin-left: 0.35714rem;
+  margin-right: 0.35714rem;
 }
 
 /**
@@ -3395,7 +3395,7 @@ body {
 			 * </div>
 			 */
 .p-smaller {
-  padding: 0.3rem;
+  padding: 0.35714rem;
 }
 
 /**
@@ -3407,7 +3407,7 @@ body {
 			 * </div>
 			 */
 .p-b-smaller {
-  padding-bottom: 0.3rem;
+  padding-bottom: 0.35714rem;
 }
 
 /**
@@ -3419,7 +3419,7 @@ body {
 			 * </div>
 			 */
 .p-t-smaller {
-  padding-top: 0.3rem;
+  padding-top: 0.35714rem;
 }
 
 /**
@@ -3431,7 +3431,7 @@ body {
 			 * </div>
 			 */
 .p-l-smaller {
-  padding-left: 0.3rem;
+  padding-left: 0.35714rem;
 }
 
 /**
@@ -3443,7 +3443,7 @@ body {
 			 * </div>
 			 */
 .p-r-smaller {
-  padding-right: 0.3rem;
+  padding-right: 0.35714rem;
 }
 
 /**
@@ -3455,8 +3455,8 @@ body {
 			 * </div>
 			 */
 .p-s-smaller {
-  padding-left: 0.3rem;
-  padding-right: 0.3rem;
+  padding-left: 0.35714rem;
+  padding-right: 0.35714rem;
 }
 
 /**
@@ -3467,7 +3467,7 @@ body {
 			 * <div style="background:#2b3438; width:100px; height:5px"></div>
 			 */
 .m-b-small {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.71429rem;
 }
 
 /**
@@ -3478,7 +3478,7 @@ body {
 			 * <div class="m-t-small" style="background:#2b3438; width:100px; height:5px"></div>
 			 */
 .m-t-small {
-  margin-top: 0.6rem;
+  margin-top: 0.71429rem;
 }
 
 /**
@@ -3489,7 +3489,7 @@ body {
 			 * <div class="m-l-small" style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-l-small {
-  margin-left: 0.6rem;
+  margin-left: 0.71429rem;
 }
 
 /**
@@ -3500,7 +3500,7 @@ body {
 			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-r-small {
-  margin-right: 0.6rem;
+  margin-right: 0.71429rem;
 }
 
 /**
@@ -3511,8 +3511,8 @@ body {
 			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-s-small {
-  margin-left: 0.6rem;
-  margin-right: 0.6rem;
+  margin-left: 0.71429rem;
+  margin-right: 0.71429rem;
 }
 
 /**
@@ -3524,7 +3524,7 @@ body {
 			 * </div>
 			 */
 .p-small {
-  padding: 0.6rem;
+  padding: 0.71429rem;
 }
 
 /**
@@ -3536,7 +3536,7 @@ body {
 			 * </div>
 			 */
 .p-b-small {
-  padding-bottom: 0.6rem;
+  padding-bottom: 0.71429rem;
 }
 
 /**
@@ -3548,7 +3548,7 @@ body {
 			 * </div>
 			 */
 .p-t-small {
-  padding-top: 0.6rem;
+  padding-top: 0.71429rem;
 }
 
 /**
@@ -3560,7 +3560,7 @@ body {
 			 * </div>
 			 */
 .p-l-small {
-  padding-left: 0.6rem;
+  padding-left: 0.71429rem;
 }
 
 /**
@@ -3572,7 +3572,7 @@ body {
 			 * </div>
 			 */
 .p-r-small {
-  padding-right: 0.6rem;
+  padding-right: 0.71429rem;
 }
 
 /**
@@ -3584,8 +3584,8 @@ body {
 			 * </div>
 			 */
 .p-s-small {
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
+  padding-left: 0.71429rem;
+  padding-right: 0.71429rem;
 }
 
 /**
@@ -3596,7 +3596,7 @@ body {
 			 * <div style="background:#2b3438; width:100px; height:5px"></div>
 			 */
 .m-b {
-  margin-bottom: 1rem;
+  margin-bottom: 1.42857rem;
 }
 
 /**
@@ -3607,7 +3607,7 @@ body {
 			 * <div class="m-t" style="background:#2b3438; width:100px; height:5px"></div>
 			 */
 .m-t {
-  margin-top: 1rem;
+  margin-top: 1.42857rem;
 }
 
 /**
@@ -3618,7 +3618,7 @@ body {
 			 * <div class="m-l" style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-l {
-  margin-left: 1rem;
+  margin-left: 1.42857rem;
 }
 
 /**
@@ -3629,7 +3629,7 @@ body {
 			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-r {
-  margin-right: 1rem;
+  margin-right: 1.42857rem;
 }
 
 /**
@@ -3640,8 +3640,8 @@ body {
 			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-s {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 1.42857rem;
+  margin-right: 1.42857rem;
 }
 
 /**
@@ -3653,7 +3653,7 @@ body {
 			 * </div>
 			 */
 .p:not(p) {
-  padding: 1rem;
+  padding: 1.42857rem;
 }
 
 /**
@@ -3665,7 +3665,7 @@ body {
 			 * </div>
 			 */
 .p-b {
-  padding-bottom: 1rem;
+  padding-bottom: 1.42857rem;
 }
 
 /**
@@ -3677,7 +3677,7 @@ body {
 			 * </div>
 			 */
 .p-t {
-  padding-top: 1rem;
+  padding-top: 1.42857rem;
 }
 
 /**
@@ -3689,7 +3689,7 @@ body {
 			 * </div>
 			 */
 .p-l {
-  padding-left: 1rem;
+  padding-left: 1.42857rem;
 }
 
 /**
@@ -3701,7 +3701,7 @@ body {
 			 * </div>
 			 */
 .p-r {
-  padding-right: 1rem;
+  padding-right: 1.42857rem;
 }
 
 /**
@@ -3713,8 +3713,8 @@ body {
 			 * </div>
 			 */
 .p-s {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1.42857rem;
+  padding-right: 1.42857rem;
 }
 
 /**
@@ -3725,7 +3725,7 @@ body {
 			 * <div style="background:#2b3438; width:100px; height:5px"></div>
 			 */
 .m-b-medium {
-  margin-bottom: 1.4rem;
+  margin-bottom: 2.85714rem;
 }
 
 /**
@@ -3736,7 +3736,7 @@ body {
 			 * <div class="m-t-medium" style="background:#2b3438; width:100px; height:5px"></div>
 			 */
 .m-t-medium {
-  margin-top: 1.4rem;
+  margin-top: 2.85714rem;
 }
 
 /**
@@ -3747,7 +3747,7 @@ body {
 			 * <div class="m-l-medium" style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-l-medium {
-  margin-left: 1.4rem;
+  margin-left: 2.85714rem;
 }
 
 /**
@@ -3758,7 +3758,7 @@ body {
 			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-r-medium {
-  margin-right: 1.4rem;
+  margin-right: 2.85714rem;
 }
 
 /**
@@ -3769,8 +3769,8 @@ body {
 			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-s-medium {
-  margin-left: 1.4rem;
-  margin-right: 1.4rem;
+  margin-left: 2.85714rem;
+  margin-right: 2.85714rem;
 }
 
 /**
@@ -3782,7 +3782,7 @@ body {
 			 * </div>
 			 */
 .p-medium {
-  padding: 1.4rem;
+  padding: 2.85714rem;
 }
 
 /**
@@ -3794,7 +3794,7 @@ body {
 			 * </div>
 			 */
 .p-b-medium {
-  padding-bottom: 1.4rem;
+  padding-bottom: 2.85714rem;
 }
 
 /**
@@ -3806,7 +3806,7 @@ body {
 			 * </div>
 			 */
 .p-t-medium {
-  padding-top: 1.4rem;
+  padding-top: 2.85714rem;
 }
 
 /**
@@ -3818,7 +3818,7 @@ body {
 			 * </div>
 			 */
 .p-l-medium {
-  padding-left: 1.4rem;
+  padding-left: 2.85714rem;
 }
 
 /**
@@ -3830,7 +3830,7 @@ body {
 			 * </div>
 			 */
 .p-r-medium {
-  padding-right: 1.4rem;
+  padding-right: 2.85714rem;
 }
 
 /**
@@ -3842,8 +3842,8 @@ body {
 			 * </div>
 			 */
 .p-s-medium {
-  padding-left: 1.4rem;
-  padding-right: 1.4rem;
+  padding-left: 2.85714rem;
+  padding-right: 2.85714rem;
 }
 
 /**
@@ -3854,7 +3854,7 @@ body {
 			 * <div style="background:#2b3438; width:100px; height:5px"></div>
 			 */
 .m-b-big {
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 }
 
 /**
@@ -3865,7 +3865,7 @@ body {
 			 * <div class="m-t-big" style="background:#2b3438; width:100px; height:5px"></div>
 			 */
 .m-t-big {
-  margin-top: 2rem;
+  margin-top: 5rem;
 }
 
 /**
@@ -3876,7 +3876,7 @@ body {
 			 * <div class="m-l-big" style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-l-big {
-  margin-left: 2rem;
+  margin-left: 5rem;
 }
 
 /**
@@ -3887,7 +3887,7 @@ body {
 			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-r-big {
-  margin-right: 2rem;
+  margin-right: 5rem;
 }
 
 /**
@@ -3898,8 +3898,8 @@ body {
 			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-s-big {
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 
 /**
@@ -3911,7 +3911,7 @@ body {
 			 * </div>
 			 */
 .p-big {
-  padding: 2rem;
+  padding: 5rem;
 }
 
 /**
@@ -3923,7 +3923,7 @@ body {
 			 * </div>
 			 */
 .p-b-big {
-  padding-bottom: 2rem;
+  padding-bottom: 5rem;
 }
 
 /**
@@ -3935,7 +3935,7 @@ body {
 			 * </div>
 			 */
 .p-t-big {
-  padding-top: 2rem;
+  padding-top: 5rem;
 }
 
 /**
@@ -3947,7 +3947,7 @@ body {
 			 * </div>
 			 */
 .p-l-big {
-  padding-left: 2rem;
+  padding-left: 5rem;
 }
 
 /**
@@ -3959,7 +3959,7 @@ body {
 			 * </div>
 			 */
 .p-r-big {
-  padding-right: 2rem;
+  padding-right: 5rem;
 }
 
 /**
@@ -3971,8 +3971,8 @@ body {
 			 * </div>
 			 */
 .p-s-big {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 
 /**
@@ -3983,7 +3983,7 @@ body {
 			 * <div style="background:#2b3438; width:100px; height:5px"></div>
 			 */
 .m-b-bigger {
-  margin-bottom: 3rem;
+  margin-bottom: 7.14286rem;
 }
 
 /**
@@ -3994,7 +3994,7 @@ body {
 			 * <div class="m-t-bigger" style="background:#2b3438; width:100px; height:5px"></div>
 			 */
 .m-t-bigger {
-  margin-top: 3rem;
+  margin-top: 7.14286rem;
 }
 
 /**
@@ -4005,7 +4005,7 @@ body {
 			 * <div class="m-l-bigger" style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-l-bigger {
-  margin-left: 3rem;
+  margin-left: 7.14286rem;
 }
 
 /**
@@ -4016,7 +4016,7 @@ body {
 			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-r-bigger {
-  margin-right: 3rem;
+  margin-right: 7.14286rem;
 }
 
 /**
@@ -4027,8 +4027,8 @@ body {
 			 * <div style="display:inline-block; background:#2b3438; width:50px; height:50px"></div>
 			 */
 .m-s-bigger {
-  margin-left: 3rem;
-  margin-right: 3rem;
+  margin-left: 7.14286rem;
+  margin-right: 7.14286rem;
 }
 
 /**
@@ -4040,7 +4040,7 @@ body {
 			 * </div>
 			 */
 .p-bigger {
-  padding: 3rem;
+  padding: 7.14286rem;
 }
 
 /**
@@ -4052,7 +4052,7 @@ body {
 			 * </div>
 			 */
 .p-b-bigger {
-  padding-bottom: 3rem;
+  padding-bottom: 7.14286rem;
 }
 
 /**
@@ -4064,7 +4064,7 @@ body {
 			 * </div>
 			 */
 .p-t-bigger {
-  padding-top: 3rem;
+  padding-top: 7.14286rem;
 }
 
 /**
@@ -4076,7 +4076,7 @@ body {
 			 * </div>
 			 */
 .p-l-bigger {
-  padding-left: 3rem;
+  padding-left: 7.14286rem;
 }
 
 /**
@@ -4088,7 +4088,7 @@ body {
 			 * </div>
 			 */
 .p-r-bigger {
-  padding-right: 3rem;
+  padding-right: 7.14286rem;
 }
 
 /**
@@ -4100,8 +4100,8 @@ body {
 			 * </div>
 			 */
 .p-s-bigger {
-  padding-left: 3rem;
-  padding-right: 3rem;
+  padding-left: 7.14286rem;
+  padding-right: 7.14286rem;
 }
 
 /**
@@ -4633,7 +4633,7 @@ body {
 .h1,
 .tf h1 {
   font-size: 3.5em;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 /**
@@ -4649,7 +4649,7 @@ body {
 .h2,
 .tf h2 {
   font-size: 3em;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 /**
@@ -4665,7 +4665,7 @@ body {
 .h3,
 .tf h3 {
   font-size: 2.5em;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 /**
@@ -4681,7 +4681,7 @@ body {
 .h4,
 .tf h4 {
   font-size: 2em;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 /**
@@ -4697,7 +4697,7 @@ body {
 .h5,
 .tf h5 {
   font-size: 1.5em;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 /**
@@ -4713,7 +4713,7 @@ body {
 .h6,
 .tf h6 {
   font-size: 1em;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 h1.vr,
@@ -4731,7 +4731,7 @@ h1.vr,
 .vr .h4, .h5.vr,
 .vr .h5, .h6.vr,
 .vr .h6 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.42857rem;
 }
 
 h1.vr:last-child,
@@ -4795,7 +4795,7 @@ h1.vr:last-child,
 p.vr,
 .vr p, .p.vr,
 .vr .p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.42857rem;
 }
 
 p.vr:last-child,
@@ -4955,12 +4955,12 @@ p.vr:last-child,
 .tf dl > dt {
   font-weight: bold;
   line-height: 1.5;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.71429rem;
 }
 
 .dd,
 .tf dl > dd {
-  margin-bottom: 1rem;
+  margin-bottom: 1.42857rem;
   line-height: 1.5;
 }
 
@@ -5097,7 +5097,7 @@ dl.vr,
 .dl, .ul.vr,
 .vr .ul, .ol.vr,
 .vr .ol {
-  margin-bottom: 1rem;
+  margin-bottom: 1.42857rem;
 }
 
 dl.vr:last-child,
@@ -5314,7 +5314,7 @@ ol.vr .dl, ol.vr .ul, ol.vr .ol,
   font-style: italic;
   font-family: Palatino, Times, Georgia, serif;
   font-weight: normal;
-  padding: 1rem 2rem 1rem 2rem;
+  padding: 2.5rem 5rem 2.5rem 5rem;
   display: block;
 }
 
@@ -5325,7 +5325,7 @@ ol.vr .dl, ol.vr .ul, ol.vr .ol,
   font-size: .5em;
   font-style: italic;
   display: block;
-  margin-top: 1rem;
+  margin-top: 1.42857rem;
 }
 
 .quote cite:before,
@@ -5346,7 +5346,7 @@ quote,
 blockquote.vr,
 .vr
 blockquote {
-  margin-bottom: 1rem;
+  margin-bottom: 1.42857rem;
 }
 
 .quote.vr:last-child,
@@ -6099,240 +6099,150 @@ blockquote:last-child {
 }
 
 body {
-  padding: 2rem;
+  padding: 5rem;
+}
+
+.flatpickr-calendar {
+  width: auto;
+}
+
+.flatpickr-calendar, .flatpickr-calendar * {
+  box-sizing: border-box;
+}
+
+.flatpickr-months,
+.flatpickr-innerContainer {
+  padding: 0.8em;
+}
+
+.flatpickr-days {
+  width: auto;
+}
+
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month {
+  top: 0.8em;
+}
+
+.flatpickr-months .flatpickr-prev-month {
+  left: 0.8em !important;
+}
+
+.flatpickr-months .flatpickr-next-month {
+  right: 0.8em !important;
+}
+
+.flatpickr-day {
+  border-radius: 0em !important;
+  border: none !important;
+}
+
+.flatpickr-day.nextMonthDay,
+.flatpickr-day.prevMonthDay {
+  opacity: .5;
+}
+
+.flatpickr-calendar.noCalendar.showTimeInput.hasTime .flatpickr-time {
+  border-top: none;
 }
 
 .flatpickr-calendar.open {
   box-shadow: rgba(0, 0, 0, 0.2) 0 12px 18px;
+  border-radius: 0em;
 }
 
 .flatpickr-calendar {
   transition: margin-top 0.1s ease-in-out 0s, opacity 0.1s ease-in-out 0s, outline-color 0s linear 0s;
   outline-color: black;
   border-radius: 0em;
+  box-shadow: none;
 }
 
-.flatpickr-month {
-  color: #848e91;
+.flatpickr-time *,
+.flatpickr-months * {
+  color: #848e91 !important;
   fill: #848e91;
 }
 
-.flatpickr-hour,
-.flatpickr-minute,
-.flatpickr-second {
+.flatpickr-weekday,
+.flatpickr-day {
   color: #848e91 !important;
 }
 
-.flatpickr-day {
-  border-radius: 0em;
-  transition: all 0.1s ease-in-out 0s, outline-color 0s linear 0s;
-  outline-color: black;
-}
-
-.flatpickr-current-month .cur-year {
-  color: #848e91;
-}
-
-.flatpickr-calendar .flatpickr-day.inRange,
-.flatpickr-calendar .flatpickr-day.nextMonthDay.inRange,
-.flatpickr-calendar .flatpickr-day.nextMonthDay:focus,
-.flatpickr-calendar .flatpickr-day.nextMonthDay:hover,
-.flatpickr-calendar .flatpickr-day.prevMonthDay.inRange,
-.flatpickr-calendar .flatpickr-day.prevMonthDay:focus,
-.flatpickr-calendar .flatpickr-day.prevMonthDay:hover,
-.flatpickr-calendar .flatpickr-day:focus:not(.disabled),
-.flatpickr-calendar .flatpickr-day:hover:not(.disabled) {
-  cursor: pointer;
-  outline: 0;
-  background: rgba(132, 142, 145, 0.1);
-}
-
+/**
+			 * @name 			Datepicker <span class="c-default">Default</span>
+			 * Provide a way to display a nice default datepicker
+			 * @styleguide  	Form / Datepicker
+			 * @example 		html
+			 * <div style="height:25em">
+			 * 	<input name="my-cool-date" class="form-input visually-hidden" />
+			 *  <s-datepicker for="my-cool-date" color="default" inline></s-datepicker>
+			 * </div>
+			 * @see 			https://github.com/coffeekraken/s-datepicker-component
+			 * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+			 */
 .flatpickr-calendar .flatpickr-day.today {
-  color: #848e91;
+  color: #848e91 !important;
   font-weight: bold;
 }
 
-.flatpickr-calendar .flatpickr-day.selected,
-.flatpickr-calendar .flatpickr-day.selected.nextMonthDay,
-.flatpickr-calendar .flatpickr-day.selected.prevMonthDay,
-.flatpickr-calendar .flatpickr-day.selected:focus,
-.flatpickr-calendar .flatpickr-day.selected:hover {
-  background: #848e91;
-  color: #fff;
+.flatpickr-calendar .flatpickr-day.selected {
+  color: white !important;
+  background-color: #848e91 !important;
 }
 
-.flatpickr-calendar .flatpickr-time input:focus,
-.flatpickr-calendar .flatpickr-time input:hover {
-  background: rgba(132, 142, 145, 0.1);
-}
-
-.flatpickr-calendar .flatpickr-am-pm:focus,
-.flatpickr-calendar .flatpickr-am-pm:hover {
-  background: rgba(132, 142, 145, 0.1);
-}
-
-.flatpickr-calendar .flatpickr-current-month .cur-year:hover {
-  background: rgba(132, 142, 145, 0.1);
-}
-
-.flatpickr-calendar .flatpickr-rContainer + .flatpickr-time {
-  border-top: 1px solid rgba(132, 142, 145, 0.1);
-}
-
-.flatpickr-calendar .flatpickr-weekwrapper .flatpickr-weeks {
-  border-right: 1px solid rgba(132, 142, 145, 0.1);
-}
-
-.flatpickr-calendar .flatpickr-next-month svg:hover,
-.flatpickr-calendar .flatpickr-prev-month svg:hover {
-  fill: #848e91;
-}
-
-.flatpickr-calendar .flatpickr-next-month:hover,
-.flatpickr-calendar .flatpickr-prev-month:hover {
-  color: #848e91;
+.flatpickr-calendar .flatpickr-day:hover {
+  background-color: rgba(132, 142, 145, 0.1);
 }
 
 /**
-				 * @name 			Datepicker <span class="c-primary">Primary</span>
-				 * Provide a way to display a nice primary datepicker
-				 * @styleguide  	Form / Datepicker
-				 * @example 		html
-				 * <div style="height:25em">
-				 * 	<input name="my-cool-date" class="form-input visually-hidden" />
-				 *  <s-datepicker for="my-cool-date" color="primary" inline></s-datepicker>
-				 * </div>
-				 * @see 			https://github.com/coffeekraken/s-datepicker-component
-				 * @author 			Olivier Bossel <olivier.bossel@gmail.com>
-				 */
-.flatpickr-calendar[color="primary"] .flatpickr-day.inRange,
-.flatpickr-calendar[color="primary"] .flatpickr-day.nextMonthDay.inRange,
-.flatpickr-calendar[color="primary"] .flatpickr-day.nextMonthDay:focus,
-.flatpickr-calendar[color="primary"] .flatpickr-day.nextMonthDay:hover,
-.flatpickr-calendar[color="primary"] .flatpickr-day.prevMonthDay.inRange,
-.flatpickr-calendar[color="primary"] .flatpickr-day.prevMonthDay:focus,
-.flatpickr-calendar[color="primary"] .flatpickr-day.prevMonthDay:hover,
-.flatpickr-calendar[color="primary"] .flatpickr-day:focus:not(.disabled),
-.flatpickr-calendar[color="primary"] .flatpickr-day:hover:not(.disabled) {
-  cursor: pointer;
-  outline: 0;
-  background: rgba(242, 188, 43, 0.1);
-}
-
+			 * @name 			Datepicker <span class="c-primary">Primary</span>
+			 * Provide a way to display a nice primary datepicker
+			 * @styleguide  	Form / Datepicker
+			 * @example 		html
+			 * <div style="height:25em">
+			 * 	<input name="my-cool-date" class="form-input visually-hidden" />
+			 *  <s-datepicker for="my-cool-date" color="primary" inline></s-datepicker>
+			 * </div>
+			 * @see 			https://github.com/coffeekraken/s-datepicker-component
+			 * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+			 */
 .flatpickr-calendar[color="primary"] .flatpickr-day.today {
-  color: #f2bc2b;
+  color: #f2bc2b !important;
   font-weight: bold;
 }
 
-.flatpickr-calendar[color="primary"] .flatpickr-day.selected,
-.flatpickr-calendar[color="primary"] .flatpickr-day.selected.nextMonthDay,
-.flatpickr-calendar[color="primary"] .flatpickr-day.selected.prevMonthDay,
-.flatpickr-calendar[color="primary"] .flatpickr-day.selected:focus,
-.flatpickr-calendar[color="primary"] .flatpickr-day.selected:hover {
-  background: #f2bc2b;
-  color: #fff;
+.flatpickr-calendar[color="primary"] .flatpickr-day.selected {
+  color: white !important;
+  background-color: #f2bc2b !important;
 }
 
-.flatpickr-calendar[color="primary"] .flatpickr-time input:focus,
-.flatpickr-calendar[color="primary"] .flatpickr-time input:hover {
-  background: rgba(242, 188, 43, 0.1);
-}
-
-.flatpickr-calendar[color="primary"] .flatpickr-am-pm:focus,
-.flatpickr-calendar[color="primary"] .flatpickr-am-pm:hover {
-  background: rgba(242, 188, 43, 0.1);
-}
-
-.flatpickr-calendar[color="primary"] .flatpickr-current-month .cur-year:hover {
-  background: rgba(242, 188, 43, 0.1);
-}
-
-.flatpickr-calendar[color="primary"] .flatpickr-rContainer + .flatpickr-time {
-  border-top: 1px solid rgba(242, 188, 43, 0.1);
-}
-
-.flatpickr-calendar[color="primary"] .flatpickr-weekwrapper .flatpickr-weeks {
-  border-right: 1px solid rgba(242, 188, 43, 0.1);
-}
-
-.flatpickr-calendar[color="primary"] .flatpickr-next-month svg:hover,
-.flatpickr-calendar[color="primary"] .flatpickr-prev-month svg:hover {
-  fill: #f2bc2b;
-}
-
-.flatpickr-calendar[color="primary"] .flatpickr-next-month:hover,
-.flatpickr-calendar[color="primary"] .flatpickr-prev-month:hover {
-  color: #f2bc2b;
+.flatpickr-calendar[color="primary"] .flatpickr-day:hover {
+  background-color: rgba(242, 188, 43, 0.1);
 }
 
 /**
-				 * @name 			Datepicker <span class="c-secondary">Secondary</span>
-				 * Provide a way to display a nice secondary datepicker
-				 * @styleguide  	Form / Datepicker
-				 * @example 		html
-				 * <div style="height:25em">
-				 * 	<input name="my-cool-date" class="form-input visually-hidden" />
-				 *  <s-datepicker for="my-cool-date" color="secondary" inline></s-datepicker>
-				 * </div>
-				 * @see 			https://github.com/coffeekraken/s-datepicker-component
-				 * @author 			Olivier Bossel <olivier.bossel@gmail.com>
-				 */
-.flatpickr-calendar[color="secondary"] .flatpickr-day.inRange,
-.flatpickr-calendar[color="secondary"] .flatpickr-day.nextMonthDay.inRange,
-.flatpickr-calendar[color="secondary"] .flatpickr-day.nextMonthDay:focus,
-.flatpickr-calendar[color="secondary"] .flatpickr-day.nextMonthDay:hover,
-.flatpickr-calendar[color="secondary"] .flatpickr-day.prevMonthDay.inRange,
-.flatpickr-calendar[color="secondary"] .flatpickr-day.prevMonthDay:focus,
-.flatpickr-calendar[color="secondary"] .flatpickr-day.prevMonthDay:hover,
-.flatpickr-calendar[color="secondary"] .flatpickr-day:focus:not(.disabled),
-.flatpickr-calendar[color="secondary"] .flatpickr-day:hover:not(.disabled) {
-  cursor: pointer;
-  outline: 0;
-  background: rgba(43, 52, 56, 0.1);
-}
-
+			 * @name 			Datepicker <span class="c-secondary">Secondary</span>
+			 * Provide a way to display a nice secondary datepicker
+			 * @styleguide  	Form / Datepicker
+			 * @example 		html
+			 * <div style="height:25em">
+			 * 	<input name="my-cool-date" class="form-input visually-hidden" />
+			 *  <s-datepicker for="my-cool-date" color="secondary" inline></s-datepicker>
+			 * </div>
+			 * @see 			https://github.com/coffeekraken/s-datepicker-component
+			 * @author 			Olivier Bossel <olivier.bossel@gmail.com>
+			 */
 .flatpickr-calendar[color="secondary"] .flatpickr-day.today {
-  color: #2b3438;
+  color: #2b3438 !important;
   font-weight: bold;
 }
 
-.flatpickr-calendar[color="secondary"] .flatpickr-day.selected,
-.flatpickr-calendar[color="secondary"] .flatpickr-day.selected.nextMonthDay,
-.flatpickr-calendar[color="secondary"] .flatpickr-day.selected.prevMonthDay,
-.flatpickr-calendar[color="secondary"] .flatpickr-day.selected:focus,
-.flatpickr-calendar[color="secondary"] .flatpickr-day.selected:hover {
-  background: #2b3438;
-  color: #fff;
+.flatpickr-calendar[color="secondary"] .flatpickr-day.selected {
+  color: white !important;
+  background-color: #2b3438 !important;
 }
 
-.flatpickr-calendar[color="secondary"] .flatpickr-time input:focus,
-.flatpickr-calendar[color="secondary"] .flatpickr-time input:hover {
-  background: rgba(43, 52, 56, 0.1);
-}
-
-.flatpickr-calendar[color="secondary"] .flatpickr-am-pm:focus,
-.flatpickr-calendar[color="secondary"] .flatpickr-am-pm:hover {
-  background: rgba(43, 52, 56, 0.1);
-}
-
-.flatpickr-calendar[color="secondary"] .flatpickr-current-month .cur-year:hover {
-  background: rgba(43, 52, 56, 0.1);
-}
-
-.flatpickr-calendar[color="secondary"] .flatpickr-rContainer + .flatpickr-time {
-  border-top: 1px solid rgba(43, 52, 56, 0.1);
-}
-
-.flatpickr-calendar[color="secondary"] .flatpickr-weekwrapper .flatpickr-weeks {
-  border-right: 1px solid rgba(43, 52, 56, 0.1);
-}
-
-.flatpickr-calendar[color="secondary"] .flatpickr-next-month svg:hover,
-.flatpickr-calendar[color="secondary"] .flatpickr-prev-month svg:hover {
-  fill: #2b3438;
-}
-
-.flatpickr-calendar[color="secondary"] .flatpickr-next-month:hover,
-.flatpickr-calendar[color="secondary"] .flatpickr-prev-month:hover {
-  color: #2b3438;
+.flatpickr-calendar[color="secondary"] .flatpickr-day:hover {
+  background-color: rgba(43, 52, 56, 0.1);
 }
