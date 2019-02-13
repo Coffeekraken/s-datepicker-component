@@ -1,6 +1,6 @@
 {
   "name": "coffeekraken-s-datepicker-component",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Provide a nice and powerful datepicker component around the nice flatpikr plugin.",
   "main": "dist/index.js",
   "homepage": "http://coffeekraken.io",
@@ -62,10 +62,10 @@
     ]
   },
   "dependencies": {
-    "coffeekraken-sugar": "^1.0.0",
     "coffeekraken-s-form-component": "^1.0.3",
     "coffeekraken-s-typography-component": "^1.0.1",
-    "flatpickr": "2.3.3"
+    "coffeekraken-sugar": "^1.0.64",
+    "flatpickr": "^4.5.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
